@@ -22,31 +22,19 @@ namespace _2B_Store.Context.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("_2B_Store.Cart", b =>
+            modelBuilder.Entity("LocationStoreProduct", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("LocationStoresId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ProductsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.HasKey("LocationStoresId", "ProductsId");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.HasIndex("ProductsId");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("Carts");
+                    b.ToTable("LocationStoreProduct");
                 });
 
             modelBuilder.Entity("_2B_Store.Category", b =>
@@ -98,7 +86,7 @@ namespace _2B_Store.Context.Migrations
                     b.ToTable("Deals");
                 });
 
-            modelBuilder.Entity("_2B_Store.LocationStores", b =>
+            modelBuilder.Entity("_2B_Store.LocationStore", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -131,7 +119,7 @@ namespace _2B_Store.Context.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Locations");
+                    b.ToTable("LocationStores");
                 });
 
             modelBuilder.Entity("_2B_Store.Order", b =>
@@ -244,7 +232,7 @@ namespace _2B_Store.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAvailabil")
+                    b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Price")
@@ -370,9 +358,14 @@ namespace _2B_Store.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SubCategoryId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("SubCategories");
                 });
@@ -389,7 +382,7 @@ namespace _2B_Store.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("F_name")
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -397,7 +390,7 @@ namespace _2B_Store.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("L_name")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -417,23 +410,19 @@ namespace _2B_Store.Context.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("_2B_Store.Cart", b =>
+            modelBuilder.Entity("LocationStoreProduct", b =>
                 {
-                    b.HasOne("_2B_Store.Product", "Product")
+                    b.HasOne("_2B_Store.LocationStore", null)
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("LocationStoresId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_2B_Store.User", "User")
-                        .WithOne("Cart")
-                        .HasForeignKey("_2B_Store.Cart", "UserId")
+                    b.HasOne("_2B_Store.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("_2B_Store.Order", b =>
@@ -541,6 +530,10 @@ namespace _2B_Store.Context.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("_2B_Store.SubCategory", null)
+                        .WithMany("SubCategories")
+                        .HasForeignKey("SubCategoryId");
+
                     b.Navigation("Category");
                 });
 
@@ -575,13 +568,12 @@ namespace _2B_Store.Context.Migrations
             modelBuilder.Entity("_2B_Store.SubCategory", b =>
                 {
                     b.Navigation("Products");
+
+                    b.Navigation("SubCategories");
                 });
 
             modelBuilder.Entity("_2B_Store.User", b =>
                 {
-                    b.Navigation("Cart")
-                        .IsRequired();
-
                     b.Navigation("Orders");
 
                     b.Navigation("Reviews");

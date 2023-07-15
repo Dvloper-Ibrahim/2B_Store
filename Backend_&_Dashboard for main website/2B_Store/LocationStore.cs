@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2B_Store
 {
-    public class LocationStores
+    public class LocationStore
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -16,6 +16,9 @@ namespace _2B_Store
         public string ImageStore { get; set; }
         public int Tel_Number { get; set; }
 
+
+        //add properties!?
+        public virtual ICollection<Product> Products { get; set; }
 
     }
 }

@@ -11,8 +11,19 @@ namespace _2B_Store
         public int Id { get; set; }
         public string Name { get; set; }
 
+
+
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
+
+        /// <summary>
+        ///Each  SubCategory can have multiple child SubCategory entities associated with it.
+        ///represented by the ICollection<SubCategory> SubCategories property in the SubCategory entity.
+        /// 
+        /// </summary>
+        public virtual ICollection<SubCategory> SubCategories { get; set; }
+
         public virtual ICollection<Product> Products { get; set; }
+
     }
 }
