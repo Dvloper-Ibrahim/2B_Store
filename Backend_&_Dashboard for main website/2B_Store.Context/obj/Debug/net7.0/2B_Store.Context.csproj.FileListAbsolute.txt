@@ -1,0 +1,15 @@
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.csproj.AssemblyReference.cache
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.AssemblyInfoInputs.cache
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.AssemblyInfo.cs
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.csproj.CoreCompileInputs.cache
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\bin\Debug\net7.0\2B_Store.Context.deps.json
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\bin\Debug\net7.0\2B_Store.Context.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\bin\Debug\net7.0\2B_Store.Context.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\bin\Debug\net7.0\2B_Store.Domain.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\bin\Debug\net7.0\2B_Store.Domain.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.csproj.CopyComplete
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\refint\2B_Store.Context.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\2B_Store.Context.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Context\obj\Debug\net7.0\ref\2B_Store.Context.dll

@@ -1,0 +1,113 @@
+.page-header .panel-container {
+  height: 37px;
+}
+.page-header .panel-container {
+  background-color: #f0f0ed;
+}
+
+.page-header .signing-links > :nth-child(n) {
+  color: #6d6d6c;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.page-header .language {
+  color: var(--identity-color);
+}
+.page-header .signing-links > :nth-child(n):hover,
+.page-header .language:hover {
+  text-decoration: underline !important;
+}
+
+.page-header .panel {
+  font-size: 14px;
+  height: 100%;
+}
+.page-header .panel img {
+  width: 16px;
+}
+
+.search {
+  height: fit-content;
+  width: 40%;
+}
+.search .search-logo {
+  width: 40px;
+  top: 0;
+  right: 0;
+  background-color: var(--identity-color);
+  height: 100%;
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.logo-search-cart .cart {
+  color: var(--identity-color);
+  cursor: pointer;
+}
+.logo-search-cart .cart::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent #818181 #818181 transparent;
+  transform: rotate(45deg) translateY(-50%);
+  right: -13px;
+  top: 50%;
+}
+.logo-search-cart .cart .items-num {
+  right: -7px;
+  top: 0px;
+  font-size: 14px;
+  background-color: #f37025;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+}
+
+.logo-search-cart .cart .dropdown-arrow {
+  right: 15px;
+  top: 55px;
+  font-size: 14px;
+  color: white;
+  border: 6px solid;
+  border-color: var(--identity-color) transparent transparent
+    var(--identity-color);
+  transform: rotate(45deg);
+  z-index: 1;
+  cursor: default;
+  display: none;
+}
+.logo-search-cart .cart .dropdown-arrow.active {
+  display: block;
+}
+.logo-search-cart .cart .dropdown-div {
+  top: 60px;
+  right: 0;
+  width: 283px;
+  height: 79px;
+  color: black;
+  border: none;
+  border-top: 5px solid var(--identity-color);
+  border-radius: 0;
+  box-shadow: 0 0 5px 1px #ddd;
+  font-size: 13px;
+  cursor: default;
+  z-index: 2;
+  display: none !important;
+}
+.logo-search-cart .cart .dropdown-div.active {
+  display: flex !important;
+}
+
+@media (max-width: 991px) {
+  .logo-search-cart .hotline,
+  .logo-search-cart .stores {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\bin\Debug\net7.0\2B_Store.DTO.deps.json
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\bin\Debug\net7.0\2B_Store.DTO.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\bin\Debug\net7.0\2B_Store.DTO.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.csproj.AssemblyReference.cache
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.AssemblyInfoInputs.cache
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.AssemblyInfo.cs
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.csproj.CoreCompileInputs.cache
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\refint\2B_Store.DTO.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\ref\2B_Store.DTO.dll

@@ -1,0 +1,68 @@
+<header>
+  <div class="page-header">
+    <div class="panel-container">
+      <div
+        class="container panel d-flex justify-content-between align-items-center"
+      >
+        <div class="signing-links">
+          <span class="me-3">compare ()</span>
+          <a href="sign-in" class="me-3">sign in</a>
+          <a href="customer/account/create" class="me-3">create an account</a>
+        </div>
+
+        <a href="" class="language text-decoration-none">
+          <img src="assets/egypt-flag.png" alt="" />
+          اللغة العربية
+        </a>
+      </div>
+    </div>
+
+    <div class="logo-search-cart">
+      <div
+        class="container py-4 d-flex justify-content-between align-items-center"
+      >
+        <a [routerLink]="['/home']" class="logo d-block me-5">
+          <img src="assets/logo.png" alt="" />
+        </a>
+
+        <div class="search position-relative me-5">
+          <input
+            type="text"
+            class="form-control pe-5"
+            placeholder="Search..."
+          />
+          <button
+            class="search-logo position-absolute d-flex justify-content-center align-items-center border-0 text-white"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <a href="" class="hotline me-5">
+          <img src="assets/hotline.jpg" alt="" />
+        </a>
+
+        <a href="" class="stores me-5">
+          <img src="assets/stores_en.jpg" alt="" />
+        </a>
+
+        <div
+          class="cart fs-1 me-3 position-relative"
+          #cartIcon
+          (click)="showCartDetails($event, cartIcon)"
+        >
+          <i class="fa-solid fa-cart-plus"></i>
+          <span class="items-num position-absolute">0</span>
+          <span class="dropdown-arrow position-absolute" #dropdownArrow></span>
+          <div
+            #dropdownDiv
+            class="dropdown-div position-absolute d-flex justify-content-center align-items-center bg-white"
+          >
+            You have no items in your shopping cart.
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-nav-bar></app-nav-bar>
+  </div>
+</header>

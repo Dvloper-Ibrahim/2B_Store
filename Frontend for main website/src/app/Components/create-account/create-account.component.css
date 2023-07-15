@@ -1,0 +1,48 @@
+.create-account {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.create-account h3 {
+  color: var(--identity-color);
+}
+
+.create-account .firstname,
+.create-account .lastname {
+  width: calc(50% - 8px);
+}
+
+@media (max-width: 767px) {
+  .create-account {
+    max-width: 75%;
+  }
+  .create-account .firstname,
+  .create-account .lastname {
+    width: 100%;
+  }
+}
+
+.create-account .btn-success {
+  background-color: rgb(243 112 33 / 85%);
+  border-color: var(--identity-color);
+  font-family: "Oswald", sans-serif;
+  transition: 0.2s;
+}
+
+.create-account .btn-success:hover {
+  background-color: rgb(243 112 33);
+}
+
+.sign-or-have a {
+  color: var(--identity-color);
+}
+.sign-or-have a:hover {
+  text-decoration: underline !important;
+}
+
+/* @media (max-width: 991px) {
+  .sign-or-have span,
+  .sign-or-have a {
+    font-size: 14px;
+  }
+} */

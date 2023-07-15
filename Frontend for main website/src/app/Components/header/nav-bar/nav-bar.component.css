@@ -1,0 +1,215 @@
+
+.superNav {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+     
+     /* ******************************************* */
+  
+    
+  /* .dropdown:hover .dropdown-menu {
+      display:flex;   
+    }  */
+  
+  li {
+    color:white;
+  }
+  li a:hover{
+     color:orange;
+  }
+  .dropdown-menu li a:hover{
+    scale: 1.01;
+  }
+  a span {
+    color:black;
+    font-weight:bold;
+  }
+  
+  .collapse ul li a {
+    font-size:x-small;
+  }
+  
+  ul li a {
+    text-decoration:none;
+    padding-left: 0;
+  }
+  
+  li{
+    list-style-type: none;
+  }
+  
+  .dropdown-menu ul li a {
+    padding-left: -100px;
+  }
+  
+  ul {
+    padding-left: 0;
+  }
+  
+  .col-md-6  {
+    padding-left: 0;
+  }
+  
+  
+  /*************************************************/
+  
+  .navbar-nav .dropdown-menu {
+    width: 100%;
+    left: 0;
+    right: auto;
+    text-align: left;
+    transform: translateX(0);
+    border-radius:0;
+    z-index: 9999;
+  }
+  
+  .dropdown-menu{
+    box-shadow:0 0 2px 0 rgba(109, 104, 104, 0.74);
+    
+  }
+  
+  .navbar-nav .dropdown {
+    position: static;
+  }
+  
+  .navbar-nav .dropdown:hover .dropdown-menu,
+  .navbar-nav .dropdown:focus .dropdown-menu {
+    display: block;
+  }
+  
+  
+  /* ***************************************************** */
+   /* triangle above dropdown list  */
+  
+   /* .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    pointer-events: none;
+  }   */
+  
+  #computer ::before{
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 7%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    pointer-events: none;
+  }
+  
+  
+  #mobile ::before{
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 22%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    pointer-events: none;
+  }
+  
+  #gaming ::before{
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 35%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    pointer-events: none;
+  }
+  
+  #homeAppliance ::before{
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    pointer-events: none;
+  }
+  
+  #Accessories ::before{
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 65%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    pointer-events: none;
+  }
+  
+  /* *********************************************************** */
+  
+  
+  body{
+    color: #777;
+      font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+      font-style: normal;
+      font-weight: 400;
+  }
+  
+  /* *********************************************************** */
+  
+  /* collapse button */
+  
+   @media (min-width: 771px) {
+    .navbar-toggler {
+      display: none;
+    }
+  }
+  
+  /*
+  @media (max-width: 770px) {
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .navbar-nav > .nav-item {
+      flex-grow: 1;
+    }
+  } */
+  
+  nav.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left:0px;
+    z-index: 9999;
+    margin-left: 0;
+    margin-right: 0;
+  
+  }
+  
+  .row>*{
+    padding: 0;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    scrollbar-gutter: 0;
+  }
+  
+  
+  
