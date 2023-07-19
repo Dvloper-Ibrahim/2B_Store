@@ -4,6 +4,7 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { SignInComponent } from './Components/sign-in/sign-in.component';
 import { CreateAccountComponent } from './Components/create-account/create-account.component';
+import { CorporateSolutionsComponent } from './Components/corporate-solutions/corporate-solutions.component';
 
 const routes: Routes = [
   {
@@ -21,8 +22,10 @@ const routes: Routes = [
     component: CreateAccountComponent,
     title: 'Create Account',
   },
+  {path:'home/corporateSolutions'  ,component: CorporateSolutionsComponent ,title:'Corporate Solutions'},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent, title: 'Not Found' },
+ 
 ];
 
 @NgModule({

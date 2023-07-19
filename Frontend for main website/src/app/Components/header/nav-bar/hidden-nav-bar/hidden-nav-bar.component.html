@@ -1,0 +1,564 @@
+
+<div class="row hiddenNavBar" >
+    <div class="col-lg-3 offset-md-1">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky" style="display: flex; justify-content: center; align-items: center">
+          <div class="container-fluid">
+            <div class="container-fluid mx-auto flex-wrap justify-content-center">
+              <ul class="navbar-nav mx-auto w-100 flex-wrap flex-row" style="flex-wrap: wrap">
+              
+                <!-- *********************   COMPUTERS   ****************** -->
+  
+                <li class="nav-item dropdown" id="computer">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    (click)="toggleDropdown(1)"
+                  >
+                    COMPUTERS
+                  </a>
+  
+                  <div class="dropdown-menu "  [ngClass]="{ show: isDropdownOpen[1] }">
+                    <div class="row mx-auto nav-fill w-100 col-12">
+                      <div class="col-lg-3 col-md-3" >
+                        <a href=""><span>LAPTOPS</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">HP</a></li>
+                          <li><a class="dropdown-item" href="#">DELL</a></li>
+                          <li><a class="dropdown-item" href="#">LENOVO</a></li>
+                          <li><a class="dropdown-item" href="#">ASUS</a></li>
+                          <li><a class="dropdown-item" href="#">APPEL</a></li>
+                          <li><a class="dropdown-item" href="#">ACER</a></li>
+                          <li><a class="dropdown-item" href="#">HUAWEI</a></li>
+                          <li><a class="dropdown-item" href="#">ITEL</a></li>
+                        </ul>
+                      </div>
+  
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>ELECTRONIC SOLUTIONS</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">Network</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Security Cameras</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Projectors</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Smart Home</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Computer Monitor</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Software</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>PRINTERS</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">INKJET</a></li>
+                          <li><a class="dropdown-item" href="#">LASERJET</a></li>
+                          <li><a class="dropdown-item" href="#">SUPPLIES</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>ELECTRONIC SOLUTIONS</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">Network</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Security Cameras</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Projectors</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Smart Home</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Computer Monitor</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Software</a></li>
+                        </ul>
+                      </div>
+                    </div>
+  
+                    <div class="row mx-auto nav-fill w-100 col-12">
+                      <div class="col-lg-3">
+                        <a href="#"><span>DESCTOPS</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">DELL</a></li>
+                          <li><a class="dropdown-item" href="#">LENOVO</a></li>
+                        </ul>
+                      </div>
+  
+                      <div class="col-lg-3">
+                        <a href="#"><span>STORAGE</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#">USB Flash Drives</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Hard Drives</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Memory cards</a>
+                          </li>
+                        </ul>
+                      </div>
+  
+                      <div class="col-lg-3">
+                        <a href="#"><span>Build Your PC</span></a>
+                      </div>
+                      <div class="col-lg-3"></div>
+                    </div>
+                  </div>
+                </li>
+                <!-- *********************   MOBILE & TABLET   ****************** -->
+  
+                <li class="nav-item dropdown" id="mobile">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    (click)="toggleDropdown(2)"
+                  >
+                    MOBILE & TABLET
+                  </a>
+                  <div
+                    class="dropdown-menu "
+                    aria-labelledby="navbarDropdown"
+                    style="flex: 1"
+                    [ngClass]="{ show: isDropdownOpen[2] }"
+                  >
+                    <div class="row mx-auto nav-fill w-100">
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>Mobile Phones</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">Apple</a></li>
+                          <li><a class="dropdown-item" href="#">Samsung</a></li>
+                          <li><a class="dropdown-item" href="#">Huawei</a></li>
+                          <li><a class="dropdown-item" href="#">OPPO</a></li>
+                          <li><a class="dropdown-item" href="#">Realme</a></li>
+                          <li><a class="dropdown-item" href="#">Xiaomi</a></li>
+                          <li><a class="dropdown-item" href="#">Honor</a></li>
+                          <li><a class="dropdown-item" href="#">Infinix</a></li>
+                          <li><a class="dropdown-item" href="#">Nokia</a></li>
+                          <li><a class="dropdown-item" href="#">Viwa</a></li>
+                          <li><a class="dropdown-item" href="#">Sico</a></li>
+                          <li><a class="dropdown-item" href="#">Vivo</a></li>
+                          <li><a class="dropdown-item" href="#">TCL</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>Tablets</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">Huawei</a></li>
+                          <li><a class="dropdown-item" href="#">Apple</a></li>
+                          <li><a class="dropdown-item" href="#">Samsung</a></li>
+                          <li><a class="dropdown-item" href="#">Lenovo</a></li>
+                          <li><a class="dropdown-item" href="#">Honor</a></li>
+                          <li><a class="dropdown-item" href="#">Xiaomi</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3"></div>
+                      <div class="col-lg-3 col-md-3"></div>
+                    </div>
+                  </div>
+                </li>
+                <!-- ***************   Gaming ************** -->
+                <li class="nav-item dropdown" id="gaming">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    (click)="toggleDropdown(3)"
+                    
+                  >
+                    GAMING
+                  </a>
+                  <div class="dropdown-menu " aria-labelledby="navbarDropdown" [ngClass]="{ show: isDropdownOpen[3] }">
+                    <div class="row mx-auto nav-fill w-100 col-12">
+                      <div class="col-lg-6 col-md-6 mb-3" style="padding-left: 15px;">
+                        <a href="#"><span>Playstation</span></a>
+                      </div>
+                      <div class="col-lg-6 col-md-6 mb-3 " style="padding-left: 15px;">
+                        <a href=""><span>Games CD</span></a>
+                      </div>
+  
+                      <div class="row mx-auto nav-fill w-100 col-12">
+                        <div
+                          class="col-lg-6 col-md-6 mb-3"
+                          
+                        >
+                          <a href="#"><span>GAMING ACCESSORIES</span></a>
+                          <ul>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Gamepads & Controllers</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Gaming Mouse & Keyboard</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Gaming Headphones</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">Gaming Combo</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Heavy Gamers Accessories</a
+                              >
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#"
+                                >Cases & Coolers</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-3">
+                          <a href=""><span>GAMING LAPTOPS</span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+  
+                <!-- ***************   HOME APPLIANCES ************** -->
+  
+                <li class="nav-item dropdown" id="homeAppliance">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    (click)="toggleDropdown(4)"
+                  >
+                    HOME APPLIANCES
+                  </a>
+                  <div
+                    class="dropdown-menu "
+                    aria-labelledby="navbarDropdown"
+                    style="flex: 1"
+                    [ngClass]="{ show: isDropdownOpen[4] }"
+                  >
+                    <div class="row mx-auto nav-fill w-100 col-12 mb-2">
+                      <div class="col-lg-3 col-md-3">
+                        <a href="\"><span>LARGE HOME APPLIANCES</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Refrigerators & Deep Freezers</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Washing Machines & Dryers</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Cookers and Ovens</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Water Heaters</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Dishwashers</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Built-in</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href=""><span>SMALL HOME APPLIANCES</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#">Water Filters</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Kitchen Appliances</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Microwaves and Electric Ovens</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Water Dispenser</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Suction Fan</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Iron</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Vacuum Cleaner</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Fans</a></li>
+                          <li><a class="dropdown-item" href="#">Heaters</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>TVs</span></a>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>AIR CONDITIONERS</span></a>
+                      </div>
+                    </div>
+  
+                    <div class="row mx-auto nav-fill w-100 col-12 mb-2">
+                      <div class="col-lg-3 col-md-3">
+                        <a href="\"><span>PERSONAL CARE</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#">FOR HIM</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">FOR HER</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href=""><span>HEALTH CARE</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#">Weight Scales</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Hygiene Products</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href=""><span>HOME ESSENTIALS</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#">Tools</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Landline Phones</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+  
+                <!-- ***************   ACCESSORIES  ************** -->
+  
+                <li class="nav-item dropdown" id="Accessories">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    (click)="toggleDropdown(5)"
+                  >
+                    ACCESSORIES
+                  </a>
+                  <div
+                    class="dropdown-menu "
+                    aria-labelledby="navbarDropdown"
+                    style="flex: 1"
+                    [ngClass]="{ show: isDropdownOpen[5] }"
+                  >
+                    <div class="row mx-auto nav-fill w-100 col-12 mb-2">
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>COMPUTER ACCESSORIES</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Laptop & School Bags</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Laptop Chargers & Batteries</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Cable & Converters</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Keyboards & Mouse</a
+                            >
+                          </li>
+                          <li><a class="dropdown-item" href="#">Web Cams</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Power Supply</a>
+                          </li>
+                          <li><a class="dropdown-item" href="#">Other</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href=""><span>MOBILE ACCESSORIES</span></a>
+                        <ul>
+                          <li><a class="dropdown-item" href="#">Cables</a></li>
+                          <li><a class="dropdown-item" href="#">Chargers</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Power Bank</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Cases & Covers</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Screen Protector</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>WEARABLES</span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#">Smart Watch</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Smart Band</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Smart Watch Accessories</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Smart Watches Chargers</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href="#"><span>AUDIO </span></a>
+                        <ul>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Over Ear Headphones</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >In-Ear Headphones</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >True Wireless Headphones</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">TWS Covers</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"
+                              >Portable Speakers</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Sub-woofer</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">Microphone</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+  
+                    <div class="row mx-auto nav-fill w-100 col-12 mb-2">
+                      <div class="col-lg-3 col-md-3">
+                        <a href="\"><span>TV ACCESSORIES</span></a>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href=""><span>POWER</span></a>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href=""><span>DIGITAL CAMERA</span></a>
+                      </div>
+                      <div class="col-lg-3 col-md-3">
+                        <a href=""><span>CAR ACCESSORIES</span></a>
+                      </div>
+                    </div>
+  
+                    <div class="row mx-auto nav-fill w-100 col-12 mb-2">
+                      <div class="col-lg-3">
+                        <a href="\"><span>BATTERIES</span></a>
+                      </div>
+                      <div class="col-lg-3">
+                        <a href=""><span>CALCULATORS</span></a>
+                      </div>
+                      <div class="col-lg-3">
+                        <a href=""><span> </span></a>
+                      </div>
+                      <div class="col-lg-3">
+                        <a href=""><span> </span></a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+  
+                <!-- ****************** OTHER ICONS NAV ************************ -->
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="#" routerLink="home/corporateSolutions">CORPORATE.SOLUTIONS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">DEALS</a>
+                </li>
+
+                              <!-- ****************** Cart  ************************ -->
+
+              <li  >
+                <div
+                class="cart fs-3 "
+                style="top: 50px; right:35px; position:relative;"
+                #cartIcon
+                (click)="toggleDropdown(6)"
+                (click)="showCartDetails($event, cartIcon)">   
+                <span class="items-num position-absolute">0</span>
+                <span class="dropdown-arrow position-absolute" #dropdownArrow></span>
+                <i class="fa-solid fa-cart-plus" style="font-size: 100%"></i>
+                <div
+                  #dropdownDiv
+                  class="dropdown-div position-absolute d-flex justify-content-center align-items-center bg-white"
+                  [ngClass]="{ show: isDropdownOpen[6] }"
+                >
+                  You have no items in your shopping cart.
+                </div>
+              </div>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  
+    <!-- <div class="col-lg-1"></div> -->
+  </div>
+  
+  <!-- *********************####################**************** -->
+  

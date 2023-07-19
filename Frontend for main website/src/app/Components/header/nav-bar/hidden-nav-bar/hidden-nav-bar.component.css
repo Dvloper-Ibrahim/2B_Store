@@ -1,0 +1,128 @@
+.dropdown-menu{
+    background-color:black;
+   
+}
+
+
+li {
+    color:white;
+  }
+ ul li a:hover{
+     color:orange;
+     background-color:transparent;
+  }
+  
+  ul li a {
+    font-size: x-small;
+    font-weight: bold;
+  }
+  .dropdown-menu li a:hover{
+    scale: 1.01;
+  }
+  a span {
+    color:black;
+    font-weight:bold;
+  }
+  
+.dropdown-item{
+    padding-left: 0;
+}
+  
+  ul li a {
+    text-decoration:none;
+    padding-left: 0;
+    color: white;
+  }
+  
+  li{
+    list-style-type: none;
+    border-bottom: 1 px solid orangered;
+  }
+  
+  .dropdown-menu ul li a {
+    padding-left: -50px;
+  }
+  
+  ul {
+    padding-left: 0;
+  }
+  
+  .col-md-6  {
+    padding-left: 0;
+  }
+  
+  a span {
+    color: orangered;
+    border-bottom:1 px double orange;
+  }
+
+  /* ************************************************ */
+   /* Cart Details  */
+
+   .cart {
+    color: var(--identity-color);
+    cursor: pointer;
+    font-size: xx-small;
+    width: 2.5px;
+    height: 2.5px;
+    vertical-align: middle;
+  }
+  
+   .cart::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent #818181 #818181 transparent;
+    transform: rotate(45deg) translateY(-50%);
+    right: -40px;
+    top: 20px;
+  }
+  .cart .items-num {
+    right: 0px;
+    top: -6px;
+    font-size: 8px;
+    background-color: #f37025;
+    color: white;
+    width: 10px;
+    height: 10px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+  }
+  
+ .cart .dropdown-arrow {
+    right: -20px;
+    top: 55px;
+    font-size: 14px;
+    color: white;
+    border: 6px solid;
+    border-color: var(--identity-color) transparent transparent
+      var(--identity-color);
+    transform: rotate(45deg);
+    z-index: 9999;
+    cursor: default;
+    display: none;
+  }
+ .cart .dropdown-arrow.active {
+    display: block;
+  }
+   .cart .dropdown-div {
+    top: 60px;
+    right: -220px;
+    width: 250px;
+    height: 79px;
+    color: black;
+    border: none;
+    border-top: 5px solid var(--identity-color);
+    border-radius: 0;
+    box-shadow: 0 0 5px 1px #ddd;
+    font-size: 13px;
+    cursor: default;
+    display: none !important;
+  }
+   .cart .dropdown-div.active {
+    display: flex !important;
+  }

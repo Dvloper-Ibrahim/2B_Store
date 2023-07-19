@@ -19,3 +19,7 @@ describe('NavBarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+
+

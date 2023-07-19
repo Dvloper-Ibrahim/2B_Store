@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import 'bootstrap';
+import 'jquery/dist/jquery.min.js';
+
 
 @Component({
   selector: 'app-header',
@@ -41,4 +44,5 @@ export class HeaderComponent {
     detailsArrow?.classList.remove('active');
     console.log(event.target);
   }
+
 }

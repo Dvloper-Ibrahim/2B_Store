@@ -45,6 +45,7 @@
   color: var(--identity-color);
   cursor: pointer;
 }
+
 .logo-search-cart .cart::before {
   content: "";
   position: absolute;
@@ -98,16 +99,32 @@
   box-shadow: 0 0 5px 1px #ddd;
   font-size: 13px;
   cursor: default;
-  z-index: 2;
   display: none !important;
 }
 .logo-search-cart .cart .dropdown-div.active {
   display: flex !important;
 }
 
-@media (max-width: 991px) {
-  .logo-search-cart .hotline,
-  .logo-search-cart .stores {
+/* ************************************************** */
+
+/* to hidden header in small screen  */
+
+.panel-container {
+  display: block;
+}
+
+@media (max-width: 768px) {
+ .panel-container {
     display: none;
   }
+}
+
+.logo-search-cart{
+  display: block;
+}
+
+@media (max-width: 768px) {
+.logo-search-cart{
+  display: none;
+}
 }

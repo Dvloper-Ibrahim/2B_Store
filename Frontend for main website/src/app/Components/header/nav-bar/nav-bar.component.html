@@ -1,39 +1,77 @@
 <!-- *************************************************** -->
-<!-- *************************************************** -->
-<!-- *************************************************** -->
-<!-- *************************************************** -->
-<!-- *************************************************** -->
+<!-- ######## Nav Bar in small screen ########## -->
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 offset-md-1">
-      <nav
-        class="navbar navbar-expand-lg navbar-dark bg-black sticky"
-        [class.fixed]="isNavbarFixed"
-        style="display: flex; justify-content: center; align-items: center"
-      >
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
+<div class="container-fluid mt-2" style="z-index: 9999;" id="NavButton">
+  <div class="row mx-auto justify-content-between">
+    <div class="col-10 mx-auto">
+      <div class="row mx-auto">
+        <div class="col-5">
+          <a href="#" class="logo d-block me-5">
+            <img src="assets/logo.png" alt="2B" />
+          </a>
+        </div>
+        <div class="col-5 text-end" style="display: flex; justify-content: flex-end;">
+
+          <div class="search-container" [ngClass]="{ 'search-active': isSearchActive }">
+            <input class="form-control mt-3 ml-1" id="searchbox"  type="search" placeholder="Search" *ngIf="isSearchActive" />
+          </div>
+          <button class="search-logo border-0 text-orangered" style="background-color: transparent; display: inline-block;" for="searchbox"  (click)="toggleSearch()">
+            <i class="fa-solid fa-magnifying-glass" style="color: orangered;"></i>
           </button>
 
-          <div
-            class="collapse navbar-collapse mx-auto d-sm-none d-xs-none"
-            id="navbarSupportedContent"
-            id="navbarNavDropdown"
-          >
-            <ul
-              class="navbar-nav mx-auto nav-fill w-100"
-              style="flex-wrap: wrap"
-            >
+          <button class="NavBar border-0 text-orangered" style="background-color: transparent; display: inline-block;" (click)="toggleSideBar()">
+            <span class="action nav-toggle" style="color: orangered;font-weight:bold;display: block; font-size: x-large;">=</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div (click)="closeSideBar()" class="col-2 side-bar-overlay" style="width:min-content;padding-left: 0;">
+  <div class="sideNavBar col" [ngStyle]="{ 'transform': showSideBar ? 'translateX(0)' : 'translateX(-100%)' }"
+       [ngClass]="{ 'slide-in': showSideBar }" 
+       *ngIf="showSideBar" 
+       style="position: fixed; left: 0; top: 0; height: 100%; width:300px;padding-left: 0; z-index: 9999; transition: transform 0.5s;background-color:black;">
+    <button class="btn btn-outline-danger m-2" (click)="closeSideBar()" style="font-weight: bolder;">X</button>
+    <div class="scrollable-content" style="height: calc(100vh - 40px); overflow-y: auto;">
+      <app-hidden-nav-bar (click)="$event.stopPropagation()"  (click)="toggleItem()"></app-hidden-nav-bar>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ######## Nav Bar in midium and big screen ########## -->
+<!-- *************************************************** -->
+
+<div class="row mainNavBar mx-auto" id="mainBar" >
+  <div class="col-lg-10 offset-lg-1  col-md-10 offset-md-1 mx-auto">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky mx-auto" style="display: flex; justify-content: center; align-items: center">
+        <div class="container-fluid">
+          <div class="container-fluid mx-auto flex-wrap justify-content-center">
+            <ul class="navbar-nav mx-auto w-100 flex-wrap flex-row" style="flex-wrap: wrap">
+            
               <!-- *********************   COMPUTERS   ****************** -->
 
               <li class="nav-item dropdown" id="computer">
@@ -208,19 +246,19 @@
                 >
                   GAMING
                 </a>
-                <div class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu p-3" aria-labelledby="navbarDropdown" style="padding-left: 15px;">
                   <div class="row mx-auto nav-fill w-100 col-12">
                     <div class="col-lg-6 col-md-6 mb-3">
                       <a href="#"><span>Playstation</span></a>
                     </div>
-                    <div class="col-lg-6 col-md-6 mb-3">
+                    <div class="col-lg-6 col-md-6 mb-3" style="padding-left: 15px;">
                       <a href=""><span>Games CD</span></a>
                     </div>
 
                     <div class="row mx-auto nav-fill w-100 col-12">
                       <div
                         class="col-lg-6 col-md-6 mb-3"
-                        style="margin-left: -15px"
+                        
                       >
                         <a href="#"><span>GAMING ACCESSORIES</span></a>
                         <ul>
@@ -254,7 +292,7 @@
                           </li>
                         </ul>
                       </div>
-                      <div class="col-lg-6 col-md-6 mb-3">
+                      <div class="col-lg-6 col-md-6 mb-3" style="padding-left: 15px;">
                         <a href=""><span>GAMING LAPTOPS</span></a>
                       </div>
                     </div>
@@ -541,19 +579,41 @@
               <!-- ****************** OTHER ICONS NAV ************************ -->
 
               <li class="nav-item">
-                <a class="nav-link" href="#">CORPORATE.SOLUTIONS</a>
+                <a class="nav-link" href="#"routerLink="home/corporateSolutions">CORPORATE.SOLUTIONS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">DEALS</a>
+                <a class="nav-link" href="#" >DEALS</a>
+              </li>
+
+
+              <!-- ****************** Cart  ************************ -->
+
+              <li *ngIf="isNavbarFixed" >
+                <div
+                class="cart fs-3 "
+                style="top: 0; right: 10%; position:absolute;"
+                #cartIcon
+                (click)="showCartDetails($event, cartIcon)">   
+                <span class="items-num position-absolute">0</span>
+                <span class="dropdown-arrow position-absolute" #dropdownArrow></span>
+                <i class="fa-solid fa-cart-plus" style="font-size: 50%"></i>
+                <div
+                  #dropdownDiv
+                  class="dropdown-div position-absolute d-flex justify-content-center align-items-center bg-white"
+                  [ngClass]="{ active: isDropdownActive }"
+                >
+                  You have no items in your shopping cart.
+                </div>
+              </div>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
-
-    <!-- <div class="col-lg-1"></div> -->
   </div>
+
+  <!-- <div class="col-lg-1"></div> -->
 </div>
 
 <!-- *********************####################**************** -->
