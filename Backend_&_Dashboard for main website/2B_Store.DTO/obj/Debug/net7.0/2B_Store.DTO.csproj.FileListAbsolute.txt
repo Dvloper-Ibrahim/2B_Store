@@ -10,3 +10,6 @@ D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\refint\2B_Store.DTO.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.pdb
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\ref\2B_Store.DTO.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\bin\Debug\net7.0\2B_Store.Domain.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\bin\Debug\net7.0\2B_Store.Domain.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.DTO\obj\Debug\net7.0\2B_Store.DTO.csproj.CopyComplete

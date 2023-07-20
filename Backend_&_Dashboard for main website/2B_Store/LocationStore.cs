@@ -9,15 +9,24 @@ namespace _2B_Store
     public class LocationStore
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
+        public string NameEN { get; set; }
+        public string NameAR { get; set; }
+
+        public string StreetEN { get; set; }
+        public string StreetAR { get; set; }
+
+        public string CityEN { get; set; }
+        public string CityAR { get; set; }
+
+        public string CountryEN { get; set; }
+        public string CountryAR{ get; set; }
+
+
         public string ImageStore { get; set; }
         public int Tel_Number { get; set; }
 
 
-        //add properties!?
+       
         public virtual ICollection<Product> Products { get; set; }
 
     }

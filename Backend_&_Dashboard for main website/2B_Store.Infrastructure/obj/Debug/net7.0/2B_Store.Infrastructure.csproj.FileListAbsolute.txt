@@ -10,3 +10,12 @@ D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\obj\Debug\net7.
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\obj\Debug\net7.0\refint\2B_Store.Infrastructure.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.pdb
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\obj\Debug\net7.0\ref\2B_Store.Infrastructure.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Application.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Context.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Domain.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.DTO.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Application.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Context.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Domain.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.DTO.pdb
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.csproj.CopyComplete
