@@ -53,6 +53,24 @@ namespace _2B_Store.Application.Services
             existingProduct = await _productRepository.UpdateAsync(existingProduct);
             return _mapper.Map<Create_updateProdDTO>(existingProduct);
         }
+        //Delete Product
+        public async Task<bool> DeleteProduct(int productId)
+        {
+            var category = await _productRepository.GetByIdAsync(productId);
+
+            if (category == null)
+            {
+                throw new Exception("Product not found");
+            }
+            { 
+            await _productRepository.DeleteAsync(category);
+            await _productRepository.SaveChangesAsync();
+            }
+            Console.WriteLine("Product deleted Successfuly");
+            return true;
+            
+
+        }
 
 
 

@@ -17,6 +17,10 @@ namespace _2B_Store.Application11.Mapper
             CreateMap<Product, Create_updateProdDTO>().ReverseMap();
 
             CreateMap<Category, CategoryDTO >().ReverseMap();
+            CreateMap<Category, GetAllOrdersDTO>().ReverseMap();
+           
+
+
 
 
 

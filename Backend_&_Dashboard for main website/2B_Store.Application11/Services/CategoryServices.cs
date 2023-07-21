@@ -104,63 +104,109 @@ namespace _2B_Store.Application.Services
 
 
         //Add Category
-        public async Task<Create_updateCategDTO> AddCategory(Create_updateCategDTO categoryDTO)
+
+        public async Task<CategoryDTO> AddCategory(CategoryDTO categoryDTO)
         {
-            Category category = new Category();
-
-            category.ID = categoryDTO.Id;
-            category.Name = categoryDTO.Name;
-            category.Image = categoryDTO.Image;
-            category.SubCategories = categoryDTO.SubCategories;
-            category.Type = categoryDTO.Type;
-            category.Description = categoryDTO.Description;
-
-            await _ICategoryRepository.AddAsync(category);
-            await _ICategoryRepository.savechangesAsync();
-
-            return new Create_updateCategDTO
-            {
-                Id = category.ID,
-                Name = category.Name,
-                Image = category.Image
-                ,
-                SubCategories = category.SubCategories,
-                Type = category.Type,
-                Description = categoryDTO.Description
-            };
+            var category = _mapper.Map<Category>(categoryDTO);
+            category = await _ICategoryRepository.AddAsync(category);
+            await _ICategoryRepository.SaveChangesAsync();
+            Console.WriteLine("Category Added Successfuly");
+            return _mapper.Map<CategoryDTO>(category);
         }
 
+        //Delete Cat
 
-        //Update category
-
-        public async Task<Create_updateCategDTO> UpdateCategory(int categoryId, Create_updateCategDTO categoryDTO)
+        public async Task<bool> DeleteCategory(int categoryId)
         {
-            Category category = await _ICategoryRepository.GetByIdAsync(categoryId);
+            var category = await _ICategoryRepository.GetByIdAsync(categoryId);
 
             if (category == null)
             {
                 throw new Exception("Category not found");
             }
 
-            category.Name = categoryDTO.Name;
-            category.Image = categoryDTO.Image;
-            category.SubCategories = categoryDTO.SubCategories;
-            category.Type = categoryDTO.Type;
-            category.Description = categoryDTO.Description;
+            await _ICategoryRepository.DeleteAsync(category);
+            await _ICategoryRepository.SaveChangesAsync();
+            Console.WriteLine("Category Deleted Successfuly");
+            return true;
+        }
+        //Old Version of Add Cat
+        //public async Task<CategoryDTO> AddCategory(CategoryDTO categoryDTO)
+        //{
+        //    Category category = new Category();
+
+        //    category.ID = categoryDTO.Id;
+        //    category.Name = categoryDTO.Name;
+        //    category.Image = categoryDTO.Image;
+        //    category.SubCategories = categoryDTO.SubCategories;
+        //    category.Type = categoryDTO.Type;
+        //    category.Description = categoryDTO.Description;
+
+        //    await _ICategoryRepository.AddAsync(category);
+        //    await _ICategoryRepository.savechangesAsync();
+
+        //    return new Create_updateCategDTO
+        //    {
+        //        Id = category.ID,
+        //        Name = category.Name,
+        //        Image = category.Image
+        //        ,
+        //        SubCategories = category.SubCategories,
+        //        Type = category.Type,
+        //        Description = categoryDTO.Description
+        //    };
+        //}
+
+
+
+        //Update category
+
+        public async Task<CategoryDTO> UpdateCategory(int categoryId, CategoryDTO categoryDTO)
+        {
+            var category = await _ICategoryRepository.GetByIdAsync(categoryId);
+
+            if (category == null)
+            {
+                throw new Exception("Category not found");
+            }
+
+            _mapper.Map(categoryDTO, category);
 
             await _ICategoryRepository.UpdateAsync(category);
-            await _ICategoryRepository.savechangesAsync();
+            await _ICategoryRepository.SaveChangesAsync();
 
-            return new Create_updateCategDTO
-            {
-                Id = category.ID,
-                Name = category.Name,
-                Image = category.Image,
-                SubCategories = category.SubCategories,
-                Type = category.Type,
-                Description = category.Description
-            };
+            return _mapper.Map<CategoryDTO>(category);
         }
+
+        //Old Version of Update Cat
+        //public async Task<Create_updateCategDTO> UpdateCategory(int categoryId, Create_updateCategDTO categoryDTO)
+        //{
+        //    Category category = await _ICategoryRepository.GetByIdAsync(categoryId);
+
+        //    if (category == null)
+        //    {
+        //        throw new Exception("Category not found");
+        //    }
+
+        //    category.Name = categoryDTO.Name;
+        //    category.Image = categoryDTO.Image;
+        //    category.SubCategories = categoryDTO.SubCategories;
+        //    category.Type = categoryDTO.Type;
+        //    category.Description = categoryDTO.Description;
+
+        //    await _ICategoryRepository.UpdateAsync(category);
+        //    await _ICategoryRepository.savechangesAsync();
+
+        //    return new Create_updateCategDTO
+        //    {
+        //        Id = category.ID,
+        //        Name = category.Name,
+        //        Image = category.Image,
+        //        SubCategories = category.SubCategories,
+        //        Type = category.Type,
+        //        Description = category.Description
+        //    };
+        //}
 
 
         //    public Category GetCategoryByName(Category name)

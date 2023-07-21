@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\2B_Store.Context\\bin",
-    "\\2B_Store.Context\\bin\\Release\\net7.0",
-    "\\2B_Store.Context\\obj",
-    "\\2B_Store.Context\\obj\\Debug"
+    "\\2B_Store.Application11",
+    "\\2B_Store.Application11\\Mapper"
   ],
-  "SelectedNode": "\\2B_Store.WebApi",
+  "SelectedNode": "\\2B_Store.Application11\\Mapper\\AutoMapper.cs",
   "PreviewInSolutionExplorer": false
 }

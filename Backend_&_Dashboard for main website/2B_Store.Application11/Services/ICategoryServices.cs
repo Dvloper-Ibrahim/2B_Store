@@ -14,8 +14,8 @@ namespace _2B_Store.Application.Services
         public Task<CategoryDTO> GetCategoryById(int Categoryid);
         ////public Task<List<Category>> FindCategories(string searchTerm, int? minSubCategories, int? maxSubCategories);
         ////public Category GetCategoryByName(Category name);
-        public Task<Create_updateCategDTO> AddCategory(Create_updateCategDTO categoryDTO);
-        public Task<Create_updateCategDTO> UpdateCategory(int categoryId, Create_updateCategDTO categoryDTO);
+        public Task<CategoryDTO> AddCategory(CategoryDTO categoryDTO);
+        public Task<CategoryDTO> UpdateCategory(int categoryId, CategoryDTO categoryDTO);
 
 
     }

@@ -17,6 +17,6 @@ namespace _2B_Store.Application.Services
         public Task<Create_updateProdDTO> AddProduct(Create_updateProdDTO productDTO);
         public Task<Create_updateProdDTO> UpdateProduct(int categoryId, Create_updateProdDTO productDTO);
 
-        public Task<CategoryDTO> DeleteProduct(int categoryId);
+        public Task<bool> DeleteProduct(int categoryId);
     }
 }
