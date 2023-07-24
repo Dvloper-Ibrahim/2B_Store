@@ -1,4 +1,6 @@
-﻿namespace _2B_Store
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace _2B_Store
 {
     public class Product
     {
@@ -22,9 +24,20 @@
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<LocationStore> LocationStores { get; set; }
 
+        public virtual ICollection<ProductAdditionalInfo> AdditionalInformation { get; set; }
+        public virtual ICollection<ProductDetails> Details { get; set; }
 
-        public Dictionary<string, string> AdditionalInformation { get; set; }
-        public Dictionary<string, string> Details { get; set; }
+
+
+        //[NotMapped]
+        //public Dictionary<string, string> AdditionalInformation { get; set; }
+
+        //[NotMapped]
+        //public Dictionary<string, string> Details { get; set; }
+
+        //ERROR: because Entity Framework Core does not support mapping dictionary types directly as navigation properties in the entity model
+        //public Dictionary<string, string> AdditionalInformation { get; set; }
+        //public Dictionary<string, string> Details { get; set; }
 
 
 

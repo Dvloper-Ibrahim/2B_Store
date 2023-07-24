@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace _2B_Store.DTO
 {
-    internal class OrderDto
+    public class OrderDTO
     {
+        public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
+        public decimal TotalAmount { get; set; }
+        public string PaymentStatus { get; set; }
+        public string TrackingInformation { get; set; }
+        public int UserId { get; set; }
+        public virtual ICollection<OrderItemDTO> OrderItems { get; set; }
+        public virtual ShippingDTO Shipping { get; set; }
+        public virtual PaymentDTO Payment { get; set; }
     }
+
 }

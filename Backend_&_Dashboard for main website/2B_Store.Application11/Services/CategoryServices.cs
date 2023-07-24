@@ -11,16 +11,82 @@ namespace _2B_Store.Application.Services
 {
     public class CategoryServices : ICategoryServices
     {
-        private ICategoryRepository _ICategoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
         public CategoryServices(ICategoryRepository categoryRepository , IMapper mapper)
         {
 
-            _ICategoryRepository = categoryRepository;
+            _categoryRepository = categoryRepository;
             _mapper = mapper;
 
         }
 
+        public async Task<List<CategoryDTO> > GetAllCategories()
+        {
+            var categories = await _categoryRepository.GetAllAsync();
+            return _mapper.Map<List<CategoryDTO>>(categories);
+
+        }
+
+
+        public async Task<CategoryDTO> GetCategoryById(int categoryId)
+        {
+            var category = await _categoryRepository.GetByIdAsync(categoryId);
+            return _mapper.Map<CategoryDTO>(category);
+        }
+
+        public async Task<CategoryDTO> AddCategory(CategoryDTO categoryDTO)
+        {
+            var category = _mapper.Map<Category>(categoryDTO);
+            category = await _categoryRepository.AddAsync(category);
+            await _categoryRepository.SaveChangesAsync();
+            return _mapper.Map<CategoryDTO>(category);
+        }
+
+        public async Task<CategoryDTO> UpdateCategory(int categoryId, CategoryDTO categoryDTO)
+        {
+            var existingCategory = await _categoryRepository.GetByIdAsync(categoryId);
+            if (existingCategory == null)
+                throw new ArgumentException("Category not found");
+
+            _mapper.Map(categoryDTO, existingCategory);
+            existingCategory = await _categoryRepository.UpdateAsync(existingCategory);
+            await _categoryRepository.SaveChangesAsync();
+            return _mapper.Map<CategoryDTO>(existingCategory);
+        }
+
+        public async Task DeleteCategory(int categoryId)
+        {
+            var existingCategory = await _categoryRepository.GetByIdAsync(categoryId);
+            if (existingCategory == null)
+                throw new ArgumentException("Category not found");
+
+            await _categoryRepository.DeleteAsync(existingCategory);
+            await _categoryRepository.SaveChangesAsync();
+        }
+
+
+        //public async Task<CategoryDTO> UploadImage(int categoryId, byte[] imageData)
+        //{
+        //    var category = await _categoryRepository.GetByIdAsync(categoryId);
+        //    category.Image = imageData;
+        //    await _categoryRepository.SaveChangesAsync();
+
+        //    return _mapper.Map<CategoryDTO>(category);
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+        #region All Categories
         //All Categories
         //public async Task<List<GetAllCategsDTO>> GetCategoryallPagination(int Item, int pagenumber)
         //{
@@ -39,33 +105,36 @@ namespace _2B_Store.Application.Services
 
         //    return ItemPagination;
         //}
+        #endregion
 
+        #region Category By ID
         //Category By ID
 
-        
-        public async Task<CategoryDTO> GetCategoryById(int Categoryid)
-        {
-            var catbyID = await _ICategoryRepository.GetByIdAsync(Categoryid);
 
-            return _mapper.Map<CategoryDTO>(catbyID);
+        //public async Task<CategoryDTO> GetCategoryById(int Categoryid)
+        //{
+        //    var catbyID = await _ICategoryRepository.GetByIdAsync(Categoryid);
 
-            #region handle Map
-            //var categoryDTO = new GetAllCategsDTO
-            //{
-            //    Id = catbyID.ID,
-            //    NameEN = catbyID.NameEN,
-            //    NameAR = catbyID.NameAR,
+        //    return _mapper.Map<CategoryDTO>(catbyID);
 
-            //    Image = catbyID.Image,
-            //    SubCategories = catbyID.SubCategories,
-            //};
+        //    #region handle Map
+        //    //var categoryDTO = new GetAllCategsDTO
+        //    //{
+        //    //    Id = catbyID.ID,
+        //    //    NameEN = catbyID.NameEN,
+        //    //    NameAR = catbyID.NameAR,
 
-            //return categoryDTO;
-            #endregion
+        //    //    Image = catbyID.Image,
+        //    //    SubCategories = catbyID.SubCategories,
+        //    //};
 
-        }
+        //    //return categoryDTO;
+        //    #endregion
 
+        //}
+        #endregion
 
+        #region Find Category
         //Find Category
         //public async Task<List<GetAllCategsDTO>> FindCategories(string searchTerm, int? minSubCategories, int? maxSubCategories)
         //{
@@ -101,37 +170,13 @@ namespace _2B_Store.Application.Services
 
         //    return categoryDTOs;
         //}
+        #endregion
 
 
+        #region Add Category
         //Add Category
 
-        public async Task<CategoryDTO> AddCategory(CategoryDTO categoryDTO)
-        {
-            var category = _mapper.Map<Category>(categoryDTO);
-            category = await _ICategoryRepository.AddAsync(category);
-            await _ICategoryRepository.SaveChangesAsync();
-            Console.WriteLine("Category Added Successfuly");
-            return _mapper.Map<CategoryDTO>(category);
-        }
-
-        //Delete Cat
-
-        public async Task<bool> DeleteCategory(int categoryId)
-        {
-            var category = await _ICategoryRepository.GetByIdAsync(categoryId);
-
-            if (category == null)
-            {
-                throw new Exception("Category not found");
-            }
-
-            await _ICategoryRepository.DeleteAsync(category);
-            await _ICategoryRepository.SaveChangesAsync();
-            Console.WriteLine("Category Deleted Successfuly");
-            return true;
-        }
-        //Old Version of Add Cat
-        //public async Task<CategoryDTO> AddCategory(CategoryDTO categoryDTO)
+        //public async Task<Create_updateCategDTO> AddCategory(Create_updateCategDTO categoryDTO)
         //{
         //    Category category = new Category();
 
@@ -156,29 +201,10 @@ namespace _2B_Store.Application.Services
         //        Description = categoryDTO.Description
         //    };
         //}
-
-
+        #endregion
 
         //Update category
-
-        public async Task<CategoryDTO> UpdateCategory(int categoryId, CategoryDTO categoryDTO)
-        {
-            var category = await _ICategoryRepository.GetByIdAsync(categoryId);
-
-            if (category == null)
-            {
-                throw new Exception("Category not found");
-            }
-
-            _mapper.Map(categoryDTO, category);
-
-            await _ICategoryRepository.UpdateAsync(category);
-            await _ICategoryRepository.SaveChangesAsync();
-
-            return _mapper.Map<CategoryDTO>(category);
-        }
-
-        //Old Version of Update Cat
+        #region Update category
         //public async Task<Create_updateCategDTO> UpdateCategory(int categoryId, Create_updateCategDTO categoryDTO)
         //{
         //    Category category = await _ICategoryRepository.GetByIdAsync(categoryId);
@@ -207,7 +233,7 @@ namespace _2B_Store.Application.Services
         //        Description = category.Description
         //    };
         //}
-
+        #endregion
 
         //    public Category GetCategoryByName(Category name)
         //    {

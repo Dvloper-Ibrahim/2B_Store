@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2B_Store.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2B_Store.Application", "2B_Store.Application11\2B_Store.Application.csproj", "{C90B53A2-C91C-479B-A215-B2D7DFF4A91B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2B_Store.WepApi", "2B_Store.WepApi\2B_Store.WepApi.csproj", "{13F59DD8-1779-4E53-B2C9-1CB1F2F5B45D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2B_Store.WepApi", "2B_Store.WepApi\2B_Store.WepApi.csproj", "{13F59DD8-1779-4E53-B2C9-1CB1F2F5B45D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2B_Store.MVC", "2B_Store.MVC\2B_Store.MVC.csproj", "{F1ED4189-C187-4509-9240-16F157B14862}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{13F59DD8-1779-4E53-B2C9-1CB1F2F5B45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F59DD8-1779-4E53-B2C9-1CB1F2F5B45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13F59DD8-1779-4E53-B2C9-1CB1F2F5B45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1ED4189-C187-4509-9240-16F157B14862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1ED4189-C187-4509-9240-16F157B14862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1ED4189-C187-4509-9240-16F157B14862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1ED4189-C187-4509-9240-16F157B14862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

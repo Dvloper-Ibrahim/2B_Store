@@ -21,62 +21,117 @@ namespace _2B_Store.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<List<GetAllProdsDTO>> GetProductallPagination(int Item, int pagenumber)
+        public async Task<List<ProductDTO>> GetProductAllPagination(int itemsPerPage, int pageNumber)
         {
             var products = await _productRepository.GetAllAsync();
-            var pagedProducts = products.Skip((pagenumber - 1) * Item).Take(Item).ToList();
-            return _mapper.Map<List<GetAllProdsDTO>>(pagedProducts);
+            return _mapper.Map<List<ProductDTO>>(products)
+                        .Skip((pageNumber - 1) * itemsPerPage)
+                        .Take(itemsPerPage)
+                        .ToList();
         }
 
-        public async Task<GetAllProdsDTO> GetProductById(int productId)
+        public async Task<ProductDTO> GetProductById(int productId)
         {
             var product = await _productRepository.GetByIdAsync(productId);
-            return _mapper.Map<GetAllProdsDTO>(product);
+            return _mapper.Map<ProductDTO>(product);
         }
 
-        public async Task<Create_updateProdDTO> AddProduct(Create_updateProdDTO productDTO)
+        public async Task<ProductDTO> AddProduct(CreateUpdateProductDTO productDTO)
         {
             var product = _mapper.Map<Product>(productDTO);
             product = await _productRepository.AddAsync(product);
-            return _mapper.Map<Create_updateProdDTO>(product);
+            await _productRepository.SaveChangesAsync();
+            return _mapper.Map<ProductDTO>(product);
         }
 
-        public async Task<Create_updateProdDTO> UpdateProduct(int productId, Create_updateProdDTO productDTO)
+        public async Task<ProductDTO> UpdateProduct(int productId, CreateUpdateProductDTO productDTO)
         {
             var existingProduct = await _productRepository.GetByIdAsync(productId);
             if (existingProduct == null)
-            {
-                return null;
-            }
+                throw new ArgumentException("Product not found");
 
             _mapper.Map(productDTO, existingProduct);
             existingProduct = await _productRepository.UpdateAsync(existingProduct);
-            return _mapper.Map<Create_updateProdDTO>(existingProduct);
-        }
-        //Delete Product
-        public async Task<bool> DeleteProduct(int productId)
-        {
-            var category = await _productRepository.GetByIdAsync(productId);
-
-            if (category == null)
-            {
-                throw new Exception("Product not found");
-            }
-            { 
-            await _productRepository.DeleteAsync(category);
             await _productRepository.SaveChangesAsync();
-            }
-            Console.WriteLine("Product deleted Successfuly");
-            return true;
-            
-
+            return _mapper.Map<ProductDTO>(existingProduct);
         }
 
+        public async Task DeleteProduct(int productId)
+        {
+            // Implementation to delete a product
+            var product = await _productRepository.GetByIdAsync(productId);
+            if (product != null)
+            {
+                await _productRepository.DeleteAsync(product);
+                await _productRepository.SaveChangesAsync();
+            }
+        }
 
+        public async Task<List<ProductDTO>> GetProductsByCategory(int categoryId)
+        {
+            var products = await _productRepository.GetProductsByCategory(categoryId);
+            return _mapper.Map<List<ProductDTO>>(products).ToList();
+        }
 
+        public async Task<List<ProductDTO>> GetProductsByBrand(string brand)
+        {
+            var products = await _productRepository.GetProductsByBrand(brand);
+            return _mapper.Map<List<ProductDTO>>(products).ToList();
+        }
+
+        public async Task<List<ProductDTO>> GetProductsByPriceRange(decimal minPrice, decimal maxPrice)
+        {
+            var products = await _productRepository.GetProductsByPriceRange(minPrice, maxPrice);
+            return _mapper.Map<List<ProductDTO>>(products).ToList();
+        }
+
+        public async Task<List<ProductDTO>> GetProductsByStore(string storeName)
+        {
+            var products = await _productRepository.GetProductsByStore(storeName);
+            return _mapper.Map<List<ProductDTO>>(products).ToList();
+        }
 
 
         ////////////////////////////////////////////////////
+        ///
+        #region tst
+
+        //public async Task<List<GetAllProdsDTO>> GetProductallPagination(int Item, int pagenumber)
+        //{
+        //    var products = await _productRepository.GetAllAsync();
+        //    var pagedProducts = products.Skip((pagenumber - 1) * Item).Take(Item).ToList();
+        //    return _mapper.Map<List<GetAllProdsDTO>>(pagedProducts);
+        //}
+
+        //public async Task<GetAllProdsDTO> GetProductById(int productId)
+        //{
+        //    var product = await _productRepository.GetByIdAsync(productId);
+        //    return _mapper.Map<GetAllProdsDTO>(product);
+        //}
+
+        //public async Task<Create_updateProdDTO> AddProduct(Create_updateProdDTO productDTO)
+        //{
+        //    var product = _mapper.Map<Product>(productDTO);
+        //    product = await _productRepository.AddAsync(product);
+        //    return _mapper.Map<Create_updateProdDTO>(product);
+        //}
+
+        //public async Task<Create_updateProdDTO> UpdateProduct(int productId, Create_updateProdDTO productDTO)
+        //{
+        //    var existingProduct = await _productRepository.GetByIdAsync(productId);
+        //    if (existingProduct == null)
+        //    {
+        //        return null;
+        //    }
+
+        //    _mapper.Map(productDTO, existingProduct);
+        //    existingProduct = await _productRepository.UpdateAsync(existingProduct);
+        //    return _mapper.Map<Create_updateProdDTO>(existingProduct);
+        //}
+
+        #endregion
+
+        #region Code without mapping
         //private readonly IProductRepository _IProductRepository;
         //private readonly  IMapper _mapper;
         //public ProductServices(IProductRepository productRepository)
@@ -199,7 +254,7 @@ namespace _2B_Store.Application.Services
         //    };
         //}
 
-
+        #endregion
 
 
     }

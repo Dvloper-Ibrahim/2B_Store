@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace _2B_Store.Infrastructure
 {
-    public class ProductImageRepository : Repository<ProductImage, string>, IProductImageRepository
+    public class ProductImageRepository : Repository<ProductImage, int>, IProductImageRepository
     {
         public ProductImageRepository(StoreContext dbContext) : base(dbContext) { }
 
-        
-    
+        public async Task<IEnumerable<ProductImage>> GetImagesByProductId(int productId)
+        {
+            return await _Dbset.Where(image => image.ProductId == productId).ToListAsync();
+        }
+
     }
 }

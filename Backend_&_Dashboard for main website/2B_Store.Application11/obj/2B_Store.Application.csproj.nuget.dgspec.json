@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.Application11\\2B_Store.Application.csproj": {}
+    "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.Application11\\2B_Store.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.Application11\\2B_Store.Application.csproj": {
+    "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.Application11\\2B_Store.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.Application11\\2B_Store.Application.csproj",
+        "projectUniqueName": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.Application11\\2B_Store.Application.csproj",
         "projectName": "2B_Store.Application",
-        "projectPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.Application11\\2B_Store.Application.csproj",
-        "packagesPath": "C:\\Users\\Mohamed Mostafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.Application11\\obj\\",
+        "projectPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.Application11\\2B_Store.Application.csproj",
+        "packagesPath": "C:\\Users\\Anonymous\\.nuget\\packages\\",
+        "outputPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.Application11\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mohamed Mostafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anonymous\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +22,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\ITI_SOHAG\\VisualC#\\Medicine_Store\\Medicine_Store": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.DTO\\2B_Store.DTO.csproj": {
-                "projectPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.DTO\\2B_Store.DTO.csproj"
+              "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.DTO\\2B_Store.DTO.csproj": {
+                "projectPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.DTO\\2B_Store.DTO.csproj"
               },
-              "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\2B_Store.Domain.csproj": {
-                "projectPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\2B_Store.Domain.csproj"
+              "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\2B_Store.Domain.csproj": {
+                "projectPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\2B_Store.Domain.csproj"
               }
             }
           }
@@ -68,21 +69,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.DTO\\2B_Store.DTO.csproj": {
+    "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.DTO\\2B_Store.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.DTO\\2B_Store.DTO.csproj",
+        "projectUniqueName": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.DTO\\2B_Store.DTO.csproj",
         "projectName": "2B_Store.DTO",
-        "projectPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.DTO\\2B_Store.DTO.csproj",
-        "packagesPath": "C:\\Users\\Mohamed Mostafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.DTO\\obj\\",
+        "projectPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.DTO\\2B_Store.DTO.csproj",
+        "packagesPath": "C:\\Users\\Anonymous\\.nuget\\packages\\",
+        "outputPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mohamed Mostafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anonymous\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,14 +91,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\ITI_SOHAG\\VisualC#\\Medicine_Store\\Medicine_Store": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\2B_Store.Domain.csproj": {
-                "projectPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\2B_Store.Domain.csproj"
+              "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\2B_Store.Domain.csproj": {
+                "projectPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\2B_Store.Domain.csproj"
               }
             }
           }
@@ -111,6 +113,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -127,21 +135,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\2B_Store.Domain.csproj": {
+    "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\2B_Store.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\2B_Store.Domain.csproj",
+        "projectUniqueName": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\2B_Store.Domain.csproj",
         "projectName": "2B_Store.Domain",
-        "projectPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\2B_Store.Domain.csproj",
-        "packagesPath": "C:\\Users\\Mohamed Mostafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mohamed Mostafa\\Desktop\\Final Project\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store\\obj\\",
+        "projectPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\2B_Store.Domain.csproj",
+        "packagesPath": "C:\\Users\\Anonymous\\.nuget\\packages\\",
+        "outputPath": "D:\\ITI_SOHAG\\Graduation_Project\\2B_Store\\2B_Store\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mohamed Mostafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anonymous\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -149,6 +157,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\ITI_SOHAG\\VisualC#\\Medicine_Store\\Medicine_Store": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -192,7 +201,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

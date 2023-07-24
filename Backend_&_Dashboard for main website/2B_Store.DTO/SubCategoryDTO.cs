@@ -8,9 +8,12 @@ namespace _2B_Store.DTO
 {
     public class SubCategoryDTO
     {
+
+        public int Id { get; set; }
+
         public string NameEN { get; set; }
         public string NameAR { get; set; }
-
+        
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2B_Store.Application.Contracts
 {
-    public interface ISubCategoryRepository
+    public interface ISubCategoryRepository : IRepository<SubCategory, int>
     {
       //  Task<SubCategory> GetSubCategoryById(int subCategoryId);
     }

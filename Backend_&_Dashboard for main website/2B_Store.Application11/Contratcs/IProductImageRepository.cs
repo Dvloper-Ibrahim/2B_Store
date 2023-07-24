@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace _2B_Store.Application.Contracts
 {
-    public interface IProductImageRepository : IRepository<ProductImage, string>
+    public interface IProductImageRepository : IRepository<ProductImage, int>
     {
-      //  Task<ProductImage> GetProductImageById(int productImageId);
+        Task<IEnumerable<ProductImage>> GetImagesByProductId(int productId);
+
     }
 }

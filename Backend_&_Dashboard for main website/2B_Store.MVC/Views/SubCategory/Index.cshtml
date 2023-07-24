@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "AllSubCategory";
+    //Layout = "_AdminDashboardLayout";
+
+}
+
+@using _2B_Store.DTO;
+
+@model List<SubCategoryDTO>
+
+<h2>All SubCategories</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var subCategory in Model)
+    {
+        <div class="col">
+            <div class="card border-primary shadow-sm">
+                <div class="card-body">
+                    <p><strong>Name (EN): </strong>@subCategory.NameEN</p>
+                    <p><strong>Name (AR): </strong>@subCategory.NameAR</p>
+                    <p><strong>Category: </strong>@subCategory.Category.NameEN</p>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Edit", new { id = subCategory.Id })" class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = subCategory.Id })" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-action="Create" class="btn btn-primary mt-4">Create New SubCategory</a>

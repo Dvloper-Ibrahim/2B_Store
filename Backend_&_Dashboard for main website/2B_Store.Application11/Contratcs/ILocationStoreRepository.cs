@@ -8,6 +8,6 @@ namespace _2B_Store.Application.Contracts
 {
     public interface ILocationStoreRepository : IRepository<LocationStore, int>
     {
-      //  Task<LocationStore> GetLocationStoreById(int locationStoreId);
+
     }
 }

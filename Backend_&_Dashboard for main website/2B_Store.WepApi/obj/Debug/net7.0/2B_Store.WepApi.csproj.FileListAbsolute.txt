@@ -90,3 +90,5 @@ D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\Micros
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\AutoMapper.dll
+D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

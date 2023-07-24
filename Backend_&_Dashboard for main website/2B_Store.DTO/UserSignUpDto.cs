@@ -10,11 +10,11 @@ namespace _2B_Store.DTO
     public class UserSignUpDto
     {
         [Required(ErrorMessage = "This is a required field.")]
-        public string FirstName { get; set; }
+        public string FirstNameEN { get; set; }
 
 
         [Required(ErrorMessage = "This is a required field.")]
-        public string LastName { get; set; }
+        public string LastNameEN { get; set; }
 
 
         [Required(ErrorMessage = "This is a required field.")]
@@ -23,7 +23,7 @@ namespace _2B_Store.DTO
 
         [Required(ErrorMessage = "Please enter a valid number in this field.")]
         [RegularExpression(@"^\d{11}$", ErrorMessage = "Please enter at least 11 characters.")]
-        public string PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
 
 
         [Required(ErrorMessage = "Password is required.")]

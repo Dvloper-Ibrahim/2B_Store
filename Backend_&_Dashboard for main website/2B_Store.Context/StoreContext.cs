@@ -27,6 +27,11 @@ namespace _2B_Store.Context
         public DbSet<Deal> Deals { get; set; }
         public DbSet<LocationStore> LocationStores { get; set; }
 
+
+        public DbSet<ProductDetails> ProductDetails { get; set; }
+        public DbSet<ProductAdditionalInfo> ProductAdditionalInfo { get; set; }
+
+
         //public DbSet<Cart> Carts { get; set; }
 
 
