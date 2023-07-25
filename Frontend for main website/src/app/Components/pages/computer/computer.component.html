@@ -1,0 +1,122 @@
+<div class="container mx-auto">
+  <div class="row mx-auto">
+    <!-- *********************************************************** -->
+
+   <!-- Sidebar Menu -->
+   <div class="container-filter col-lg-2 mx-auto m-0 " style="border: 1px solid rgb(212, 206, 206);border-radius: 5px;">
+    <div class="container" style="height: fit-content;padding-left: 0;">
+      <ng-container *ngIf="showMain">
+        <div class="main">
+          <a  class="menu-header " (click)="setCat('computers')">COMPUTERS</a>
+          <div class="menu p-1 mt-2" id="computersMenu" *ngIf="showMain">
+
+            <a  class="submenu-header" (click)="setSubCat('laptops')" (click)="toggleMenu('showLaptopsMenu')"><p>LAPTOPS</p></a>
+            <a  class="submenu-header" (click)="setSubCat('electronic solutions')" (click)="toggleMenu('showElectronicSolutionsMenu')"><p>ELECTRONIC.SOLUTIONS</p></a>
+            <a  class="submenu-header" (click)="setSubCat('printers')" (click)="toggleMenu('showPrintersMenu')"> <p>PRINTERS</p></a>
+            <a  class="submenu-header" (click)="setSubCat('desctops')" (click)="toggleMenu('showDesctopsMenu')"><p>DESKTOPS</p></a>
+            <a  class="submenu-header" (click)="setSubCat('build your pc')" (click)="toggleMenu('showBuildPcMenu')"><p>Build Your PC</p></a>
+          
+          </div>
+        </div>
+      </ng-container>
+  
+      <!-- LAPTOPS Menu -->
+      <div *ngIf="showLaptopsMenu" class="menu p-1" id="laptopsMenu">
+        <li class="back" (click)="goBackToMain()"><i class="fa-solid fa-arrow-left"></i></li>
+        <span>LAPTOPS</span>
+        <ul>
+          <li><a class="item" (click)="setSubSubCategory('hp')">HP</a></li>
+          <li><a class="item" (click)="setSubSubCategory('dell')">DELL</a></li>
+          <li><a class="item" (click)="setSubSubCategory('lenovo')">LENOVO</a></li>
+          <li><a class="item" (click)="setSubSubCategory('asus')">ASUS</a></li>
+          <li><a class="item" (click)="setSubSubCategory('appel')">APPEL</a></li>
+          <li><a class="item" (click)="setSubSubCategory('acer')">ACER</a></li>
+          <li><a class="item" (click)="setSubSubCategory('HUAWEI')">HUAWEI</a></li>
+          <li><a class="item" (click)="setSubSubCategory('ITEL')" >ITEL</a></li>
+        </ul>
+      </div>
+    
+      <!-- ELECTRONIC SOLUTIONS Menu -->
+      <div *ngIf="showElectronicSolutionsMenu" class="menu p-1" id="electronicSolutionsMenu">
+        <li class="back" (click)="goBackToMain()"><i class="fa-solid fa-arrow-left"></i></li>
+        <span>Electronic Solutions</span>
+        <ul>
+          <li><a class="item" (click)="setSubSubCategory('Network')" >Network</a></li>
+          <li><a class="item" (click)="setSubSubCategory('Security Cameras')">Security Cameras</a></li>
+          <li><a class="item" (click)="setSubSubCategory('Projectors')">Projectors</a></li>
+          <li><a class="item" (click)="setSubSubCategory('Smart Home')">Smart Home</a></li>
+          <li><a class="item" (click)="setSubSubCategory('Computer Monitor')">Computer Monitor</a></li>
+          <li><a class="item" (click)="setSubSubCategory('Software')">Software</a></li>
+        </ul>
+      </div>
+    
+      <!-- PRINTERS Menu -->
+      <div *ngIf="showPrintersMenu" class="menu p-1" id="printersMenu">
+        <li class="back" (click)="goBackToMain()"><i class="fa-solid fa-arrow-left"></i></li>
+        <span>Printer</span>
+        <ul>
+          <li><a class="item" (click)="setSubSubCategory('INKJET')">INKJET</a></li>
+          <li><a class="item" (click)="setSubSubCategory('LASERJET')">LASERJET</a></li>
+          <li><a class="item" (click)="setSubSubCategory('SUPPLIES')">SUPPLIES</a></li>
+        </ul>
+      </div>
+    
+      <!-- DESKTOPS Menu -->
+      <div *ngIf="showDesctopsMenu" class="menu p-1" id="desctopsMenu">
+        <li class="back" (click)="goBackToMain()"><i class="fa-solid fa-arrow-left"></i></li>
+        <span>Desctops</span>
+        <ul>
+          <li><a class="item" (click)="setSubSubCategory('DELL')">DELL</a></li>
+          <li><a class="item" (click)="setSubSubCategory('LENOVO')">LENOVO</a></li>
+        </ul>
+      </div>
+    
+      <!-- Build Your PC Menu -->
+      <div *ngIf="showBuildPcMenu" class="menu p-1" id="buildPcMenu">
+        <li class="back" (click)="goBackToMain()"><i class="fa-solid fa-arrow-left"></i></li>
+        <span>Build Your PC</span>
+      </div>
+    </div>
+  
+
+
+<!-- ************************************************* -->
+  <!-- Filters  -->
+    <div class="filter mt-2">
+        <!-- BRAND Checkboxes -->
+        <a (click)="toggleBrandMenu()">BRANDS
+          <span class="arrow" [class.up]="showBrandMenu" [class.down]="!showBrandMenu"></span>
+        </a>
+        <div *ngIf="showBrandMenu">
+          <div *ngFor="let brand of brands">
+            <label>
+              <input type="checkbox" [(ngModel)]="selectedBrands" [value]="brand" (ngModelChange)="onBrandCheckboxChange()">
+              {{ brand }} ({{ getBrandCount(brand) }})
+            </label>
+          </div>
+        </div>
+      </div>
+      
+<!-- ***************************************************** -->
+
+
+
+    </div>
+      
+<!-- ---------*********************************--------------->
+
+
+
+    
+
+    <!-- *********************************************************** -->
+
+    <!-- *********************************************************** -->
+
+
+<div class="container col-lg-10 col-md-12 col-sm-12">
+  <app-products-pages [catFilter]="category"  [subCatFilter]="subCategory" [subSubCatFilter]="subSubCategory"  ></app-products-pages>
+</div> 
+
+  </div>
+</div>

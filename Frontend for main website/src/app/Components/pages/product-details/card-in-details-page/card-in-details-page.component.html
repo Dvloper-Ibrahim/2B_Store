@@ -1,0 +1,33 @@
+
+
+
+      <!-- عرض تفاصيل المنتجات هنا -->
+      <div class="card" *ngFor="let product of AllProduct" >
+        <div class="product-card2">
+          <!-- تفاصيل المنتج هنا -->
+          <div class="product-discount">
+            <p>OFF {{ product.discount | formatDiscount }}</p>
+          </div>
+          <div class="product-photo mb-2">
+            <img [src]="product.imgURL" class="card-img-top" alt="Product Image" />
+          </div>
+          <div class="product-name mx-auto">
+            <p>{{ product.name}}</p>
+          </div>
+          <div class="product-rating mx-auto">
+            <ng-container *ngIf="product.rating !== undefined; else noRating">
+              <ng-container *ngFor="let star of getColoredStars(product.rating)">
+                <span class="star" [class.filled]="star === 1">&#9733;</span>
+              </ng-container>
+            </ng-container>
+            <ng-template #noRating>
+              <ng-container *ngFor="let star of getColoredStars(0)">
+                <span class="star">&#9733;</span>
+              </ng-container>
+            </ng-template>
+          </div>
+          <div class="product-price mx-auto">
+            <p>{{ product.price | currency : "EGP" }}</p>
+          </div>
+        </div>
+      </div>

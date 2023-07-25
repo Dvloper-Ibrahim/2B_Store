@@ -1,4 +1,5 @@
-import { Component ,  HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import 'bootstrap';
 import 'jquery/dist/jquery.min.js';
 
@@ -8,8 +9,12 @@ import 'jquery/dist/jquery.min.js';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent  {
+export class NavBarComponent   implements OnInit {
 
+// *********************************************
+                  //  filter 
+                  
+  // ********************************************
   isNavbarFixed = false;
   distanncY=250;
   
@@ -80,4 +85,35 @@ showCartDetails(event: MouseEvent, element: HTMLDivElement): void {
     detailsArrow?.classList.remove('active');
   }
 }
+
+// **************************************************
+            //  route to apply nav elements
+            
+   selectedCategory: string = '';
+  selectedSubCategory: string = '';
+  selectedSubSubCategory: string = '';
+
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  setCat(category: string) {
+    this.selectedCategory = category;
+    this.router.navigate(['home/computer'], { queryParams: { category: this.selectedCategory } });
+  }
+  
+  setSubCat(subCategory: string) {
+    this.selectedSubCategory = subCategory;
+    this.router.navigate(['home/computer'], { queryParams: { category: this.selectedCategory, subCategory: this.selectedSubCategory } });
+  }
+
+
+  setSubSubCat(subSubCategory: string) {
+    this.selectedSubSubCategory = subSubCategory;
+    this.router.navigate(['home/computer'], { queryParams: { category: this.selectedCategory, subCategory: this.selectedSubCategory , subSubCategory: this.selectedSubSubCategory } });
+  }
+
+         
 }

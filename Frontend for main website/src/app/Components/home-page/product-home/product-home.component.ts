@@ -1,9 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { IProducts } from 'src/Model/i-products';
-import { ProductApiService } from 'src/app/services/product-api.service';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ProductsPagesService } from 'src/app/services/products-pages.service';
+import { Router } from '@angular/router';
 import 'bootstrap';
 import 'jquery/dist/jquery.min.js';
-
+import { IProductsPages } from 'src/Model/i-products-pages';
 
 @Component({
   selector: 'app-product-home',
@@ -12,12 +12,18 @@ import 'jquery/dist/jquery.min.js';
 })
 export class ProductHomeComponent implements OnInit {
 
-  AllProduct: IProducts[] = [];
+  AllProduct: IProductsPages[] = [];
   product: any;
+  brands: string[] = [];
+  selectedBrands: string[] = [];
 
-  constructor(private productApi: ProductApiService){}
+
+  constructor(private productApiPages: ProductsPagesService , private router: Router){}
+
   ngOnInit(): void {
-    this.productApi.getAllProduct().subscribe(data=>{this.AllProduct=data;});
+    this.productApiPages.getAllProduct().subscribe(data => {
+      this.AllProduct = data;
+    });
   }
 
 
@@ -76,7 +82,75 @@ handleCardRightClick(event: MouseEvent, product: any) {
   event.preventDefault();
   this.handleCardClick(event, product, false);
 }
+
+
+
+
+@Input() set catFilter(cat: string) {
+  this.productApiPages.getAllProduct().subscribe({
+    next: data => {
+      this.AllProduct = data.filter(prod => prod.categoryName.toLocaleLowerCase() === cat.toLocaleLowerCase());
+    },
+    error: err => console.log(err)
+  });
 }
+
+@Input() set subCatFilter(subcat: string) {
+  this.productApiPages.getAllProduct().subscribe({
+    next: data => {
+      this.AllProduct = data.filter(prod => prod.subCategoryName?.toLocaleLowerCase() === subcat.toLocaleLowerCase());
+    },
+    error: err => console.log(err)
+  });
+}
+
+@Input() set subSubCatFilter(subSubcat: string) {
+  this.productApiPages.getAllProduct().subscribe({
+    next: data => {
+      this.AllProduct = data.filter(prod => prod.subSubCategoryName?.toLocaleLowerCase() === subSubcat.toLocaleLowerCase());
+    },
+    error: err => console.log(err)
+  });
+}
+
+
+toggleBrandMenu() {
+  this.showBrandMenu = !this.showBrandMenu;
+}
+
+onBrandCheckboxChange() {
+  this.productApiPages.getAllProduct().subscribe(data => {
+    this.AllProduct = data.filter(prod => {
+      if (this.selectedBrands.length === 0) {
+        return true;
+      }
+      return this.selectedBrands.includes(prod.brand?.trim() || '');
+    });
+  });
+}
+
+// Other functions related to brand filters and UI interactions...
+
+showBrandMenu: boolean = false;
+
+// Rating 
+
+getColoredStars(rating: number): number[] {
+  const filledStars = Math.floor(rating);
+  const emptyStars = 5 - filledStars;
+  return Array(filledStars).fill(1).concat(Array(emptyStars).fill(0));
+}
+
+// product details
+
+prodDetails(prodId:number){
+  this.router.navigate(['/product',prodId]);
+}
+
+
+}
+
+
 
 
 

@@ -26,8 +26,9 @@ ul li a {
   font-size: x-small;
   font-weight: bold;
 }
-.dropdown-menu li a:hover{
+.dropdown-menu ul li a:hover{
   scale: 1.01;
+  color: orangered;
 }
 a span {
   color:black;
@@ -44,8 +45,7 @@ a span {
 
 ul li a {
   text-decoration:none;
-  padding-left: 0;
-  
+  padding-left: 0;  
 }
 
 li{
@@ -54,6 +54,8 @@ li{
 
 .dropdown-menu ul li a {
   padding-left: -100px;
+  font-weight: normal;
+  color: rgb(68, 67, 67);
 }
 
 ul {

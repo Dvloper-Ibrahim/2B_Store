@@ -21,13 +21,24 @@ import { CreateAccountComponent } from './Components/create-account/create-accou
 import { CorporateSolutionsComponent } from './Components/corporate-solutions/corporate-solutions.component';
 import { ProductHomeComponent } from './Components/home-page/product-home/product-home.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ProductsPagesComponent } from './Components/pages/products-pages/products-pages.component';
+import { ComputerComponent } from './Components/pages/computer/computer.component';
+import { FreeShippingComponent } from './Components/home-page/free-shipping/free-shipping.component';
+import { FormatDiscountPipe } from './Components/pipes/format-discount.pipe';
+import { ProductDetailsComponent } from './Components/pages/product-details/product-details.component';
+import { RatingProductComponent } from './Components/rating-product/rating-product.component';
+import { ProductCaroselComponent } from './Components/pages/product-details/product-carosel/product-carosel.component';
+import { CardInDetailsPageComponent } from './Components/pages/product-details/card-in-details-page/card-in-details-page.component';
+import { SideCaroselComponent } from './Components/pages/product-details/side-carosel/side-carosel.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     HomePageComponent,
     HeaderComponent,
     CartDropdownDirective,
@@ -45,13 +56,27 @@ import {HttpClientModule} from '@angular/common/http';
     CreateAccountComponent,
     CorporateSolutionsComponent,
     ProductHomeComponent,
+    ProductsPagesComponent,
+    ComputerComponent,
+    FreeShippingComponent,
+    FormatDiscountPipe,
+    ProductDetailsComponent,
+    RatingProductComponent,
+    ProductCaroselComponent,
+    CardInDetailsPageComponent,
+    SideCaroselComponent,
   ],
+
 
   imports: [
     BrowserModule,
      AppRoutingModule,
      NgbModule,
      HttpClientModule,
+     FormsModule,
+     ReactiveFormsModule,
+     CommonModule,
+     BrowserAnimationsModule,
     ],
   providers: [],
   bootstrap: [AppComponent],

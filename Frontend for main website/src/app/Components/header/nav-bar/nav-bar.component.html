@@ -77,11 +77,13 @@
               <li class="nav-item dropdown" id="computer">
                 <a
                   class="nav-link dropdown-toggle"
-                  href="#"
+                 
+                  routerLink="home/computer" [queryParams]="{ category: 'computer'}"       
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
+
                 >
                   COMPUTERS
                 </a>
@@ -89,93 +91,75 @@
                 <div class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
                   <div class="row mx-auto nav-fill w-100 col-12">
                     <div class="col-lg-3 col-md-3">
-                      <a href=""><span>LAPTOPS</span></a>
+                      <a routerLink="home/computer" [queryParams]="{ category: 'computer' , subCategory:'laptops'}"><span>LAPTOPS</span></a>
                       <ul>
-                        <li><a class="dropdown-item" href="#">HP</a></li>
-                        <li><a class="dropdown-item" href="#">DELL</a></li>
-                        <li><a class="dropdown-item" href="#">LENOVO</a></li>
-                        <li><a class="dropdown-item" href="#">ASUS</a></li>
-                        <li><a class="dropdown-item" href="#">APPEL</a></li>
-                        <li><a class="dropdown-item" href="#">ACER</a></li>
-                        <li><a class="dropdown-item" href="#">HUAWEI</a></li>
-                        <li><a class="dropdown-item" href="#">ITEL</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'hp' }">HP</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'dell' }">DELL</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'LENOVO' }">LENOVO</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'ASUS' }">ASUS</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'APPEL' }">APPEL</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'ACER' }">ACER</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'HUAWEI' }">HUAWEI</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'laptops',subSubCategory:'ITEL' }">ITEL</a></li>
                       </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-3">
-                      <a href="#"><span>ELECTRONIC SOLUTIONS</span></a>
+                      <a  routerLink="home/computer" [queryParams]="{ category: 'computer' , subCategory:'electronic solutions'}"><span>ELECTRONIC SOLUTIONS</span></a>
                       <ul>
-                        <li><a class="dropdown-item" href="#">Network</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'electronic solutions',subSubCategory:'Network' }">Network</a></li>
                         <li>
-                          <a class="dropdown-item" href="#">Security Cameras</a>
+                          <a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'electronic solutions',subSubCategory:'Security Cameras' }">Security Cameras</a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Projectors</a>
+                          <a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'electronic solutions',subSubCategory:'Projectors' }">Projectors</a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Smart Home</a>
+                          <a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'electronic solutions',subSubCategory:'Smart Home' }">Smart Home</a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Computer Monitor</a>
+                          <a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'electronic solutions',subSubCategory:'Computer Monitor' }">Computer Monitor</a>
                         </li>
-                        <li><a class="dropdown-item" href="#">Software</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'electronic solutions',subSubCategory:'Software' }">Software</a></li>
                       </ul>
                     </div>
                     <div class="col-lg-3 col-md-3">
-                      <a href="#"><span>PRINTERS</span></a>
+                      <a  routerLink="home/computer" [queryParams]="{ category: 'computer' , subCategory:'PRINTERS'}"><span>PRINTERS</span></a>
                       <ul>
-                        <li><a class="dropdown-item" href="#">INKJET</a></li>
-                        <li><a class="dropdown-item" href="#">LASERJET</a></li>
-                        <li><a class="dropdown-item" href="#">SUPPLIES</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'PRINTERS',subSubCategory:'INKJET' }">INKJET</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'PRINTERS',subSubCategory:'LASERJET' }">LASERJET</a></li>
+                        <li><a class="dropdown-item"  routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'PRINTERS',subSubCategory:'SUPPLIES' }">SUPPLIES</a></li>
                       </ul>
                     </div>
-                    <div class="col-lg-3 col-md-3">
-                      <a href="#"><span>ELECTRONIC SOLUTIONS</span></a>
+                    <div class="col-lg-3">
+                      <a  routerLink="home/computer" [queryParams]="{ category: 'computer' , subCategory:'DESCTOPS'}"><span>DESCTOPS</span></a>
                       <ul>
-                        <li><a class="dropdown-item" href="#">Network</a></li>
-                        <li>
-                          <a class="dropdown-item" href="#">Security Cameras</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Projectors</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Smart Home</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Computer Monitor</a>
-                        </li>
-                        <li><a class="dropdown-item" href="#">Software</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'DESCTOPS',subSubCategory:'DELL' }">DELL</a></li>
+                        <li><a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'DESCTOPS',subSubCategory:'LENOVO' }">LENOVO</a></li>
                       </ul>
                     </div>
                   </div>
 
                   <div class="row mx-auto nav-fill w-100 col-12">
-                    <div class="col-lg-3">
-                      <a href="#"><span>DESCTOPS</span></a>
-                      <ul>
-                        <li><a class="dropdown-item" href="#">DELL</a></li>
-                        <li><a class="dropdown-item" href="#">LENOVO</a></li>
-                      </ul>
-                    </div>
+
 
                     <div class="col-lg-3">
-                      <a href="#"><span>STORAGE</span></a>
+                      <a  routerLink="home/computer" [queryParams]="{ category: 'computer' , subCategory:'STORAGE'}"><span>STORAGE</span></a>
                       <ul>
                         <li>
-                          <a class="dropdown-item" href="#">USB Flash Drives</a>
+                          <a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'STORAGE',subSubCategory:'USB Flash Drives' }">USB Flash Drives</a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Hard Drives</a>
+                          <a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'STORAGE',subSubCategory:'Hard Drives' }">Hard Drives</a>
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Memory cards</a>
+                          <a class="dropdown-item" routerLink="home/computer" [queryParams]="{ category: 'computer', subCategory: 'STORAGE',subSubCategory:'Memory cards' }">Memory cards</a>
                         </li>
                       </ul>
                     </div>
 
                     <div class="col-lg-3">
-                      <a href="#"><span>Build Your PC</span></a>
+                      <a  routerLink="home/computer" [queryParams]="{ category: 'computer' , subCategory:'Build Your PC'}"><span>Build Your PC</span></a>
                     </div>
                     <div class="col-lg-3"></div>
                   </div>
