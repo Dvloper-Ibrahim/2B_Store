@@ -1,0 +1,84 @@
+﻿@model ProductDTO
+@{
+    ViewData["Title"] = "allproducts";
+    Layout = "_AdminDashboardLayout";
+    SelectList subCategList = new SelectList(Model.SubCategories, "Id", "NameEN");
+}
+
+@section PageTitle {
+    <title>2B - Products</title>
+}
+
+<div class="container-fluid">
+    <h2>Add New Product</h2>
+    <form method="post" class="py-3">
+        @*<div asp-validation-summary="All"></div>*@
+        <div>
+            <label asp-for="ProductNameEN" class="form-label"></label>
+            <input class="form-control" asp-for="ProductNameEN" />
+            <span asp-validation-for="ProductNameEN" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2">
+            <label asp-for="ProductNameAR" class="form-label"></label>
+            <input class="form-control" asp-for="ProductNameAR" />
+            <span asp-validation-for="ProductNameAR" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2">
+            <label asp-for="BrandEN" class="form-label"></label>
+            <input class="form-control" asp-for="BrandEN" />
+            <span asp-validation-for="BrandEN" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2">
+            <label asp-for="BrandAR" class="form-label"></label>
+            <input class="form-control" asp-for="BrandAR" />
+            <span asp-validation-for="BrandAR" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2">
+            <label asp-for="Price" class="form-label"></label>
+            <input class="form-control" asp-for="Price" type="number" />
+            <span asp-validation-for="Price" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2">
+            <label asp-for="Stock" class="form-label"></label>
+            <input class="form-control" asp-for="Stock" />
+            <span asp-validation-for="Stock" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2">
+            <label asp-for="DescriptionEN" class="form-label"></label>
+            <input class="form-control" asp-for="DescriptionEN" />
+            <span asp-validation-for="DescriptionEN" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2">
+            <label asp-for="DescriptionAR" class="form-label"></label>
+            <input class="form-control" asp-for="DescriptionAR" />
+            <span asp-validation-for="DescriptionAR" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2 mb-4">
+            <label asp-for="SubcategoryId" class="form-label"></label>
+            <select asp-for="SubcategoryId" asp-items="subCategList" class="form-control">
+                <option value="">-- Select SubCategory --</option>
+            </select>
+            <span asp-validation-for="SubcategoryId" class="form-text text-danger"></span>
+        </div>
+@*        <div class="mt-2 form-check">
+            <input class="form-check-input" asp-for="IsAvailable" />
+            <label asp-for="IsAvailable" class="form-check-label"></label>
+            <span asp-validation-for="IsAvailable" class="form-text text-danger"></span>
+        </div>*@
+        <input type="submit" class="btn btn-success" value="Add" />
+        <a asp-action="allproducts" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+
+    @*<a asp-action="addNew" class="btn btn-primary mb-3">Add New Product</a>*@
+</div>
+
+@section Scripts{
+    <script>
+        let sideLinks = document.querySelectorAll(".side-nav");
+        sideLinks.forEach(e => e.classList.remove("active"));
+
+        let activeLink = document.getElementById("products");
+        activeLink.classList.add("active");
+    </script>
+}
+

@@ -13,18 +13,32 @@ namespace _2B_Store.Application11.Services
     {
 
         private readonly ISubCategoryRepository _subCategoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
 
-        public SubCategoryServices(ISubCategoryRepository subCategoryRepository, IMapper mapper)
+        public SubCategoryServices(
+            ISubCategoryRepository subCategoryRepository,
+            ICategoryRepository categoryRepository,
+            IMapper mapper
+            )
         {
             _subCategoryRepository = subCategoryRepository;
+            _categoryRepository = categoryRepository;
             _mapper = mapper;
         }
 
         public async Task<List<SubCategoryDTO>> GetAllSubCategories()
         {
             var subCategories = await _subCategoryRepository.GetAllAsync();
-            return _mapper.Map<List<SubCategoryDTO>>(subCategories);
+            var subCategsDTOs = _mapper.Map<List<SubCategoryDTO>>(subCategories);
+            foreach (var item in subCategsDTOs)
+            {
+                var category = await _categoryRepository.GetByIdAsync(item.CategoryId);
+                item.Category = _mapper.Map<CategoryDTO>(category);
+                var subCategory = await _subCategoryRepository.GetByIdAsync(Convert.ToInt32(item.SubcategoryId));
+                item.Subcategory = _mapper.Map<SubCategoryDTO>(subCategory);
+            }
+            return subCategsDTOs;
         }
 
         public async Task<SubCategoryDTO> GetSubCategoryById(int subCategoryId)
@@ -37,7 +51,7 @@ namespace _2B_Store.Application11.Services
         {
             var subCategory = _mapper.Map<SubCategory>(subCategoryDTO);
             subCategory = await _subCategoryRepository.AddAsync(subCategory);
-            await _subCategoryRepository.SaveChangesAsync();
+            //await _subCategoryRepository.SaveChangesAsync();
             return _mapper.Map<SubCategoryDTO>(subCategory);
         }
 
@@ -62,7 +76,5 @@ namespace _2B_Store.Application11.Services
             await _subCategoryRepository.DeleteAsync(existingSubCategory);
             await _subCategoryRepository.SaveChangesAsync();
         }
-
-
     }
 }

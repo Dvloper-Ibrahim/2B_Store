@@ -16,9 +16,6 @@ namespace _2B_Store.Application.Services
         Task DeleteCategory(int categoryId);
 
 
-      //  Task<CategoryDTO> UploadImage(int categoryId, byte[] imageData);
-
-
 
         /////////////////////////////////////////////////////////////////////////////////////////
         //// public Task<List<GetAllCategsDTO>> GetCategoryallPagination(int Item, int pagenumber);

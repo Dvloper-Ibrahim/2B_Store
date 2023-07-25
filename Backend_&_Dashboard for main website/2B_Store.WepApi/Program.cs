@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using _2B_Store.Application.Services;
+using _2B_Store.Application11.Services;
 
 namespace _2B_Store.WepApi
 {
@@ -16,6 +18,15 @@ namespace _2B_Store.WepApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            //Allow Cors Origin
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); //.WithOrigins("http://localhost:4200, .....")
+                });
+            });
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -48,12 +59,24 @@ namespace _2B_Store.WepApi
             builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
 
+            builder.Services.AddScoped<ICategoryServices, CategoryServices>();
+            builder.Services.AddScoped<ISubCategoryServices, SubCategoryServices>();
+            builder.Services.AddScoped<IProductServices, ProductServices>();
+            builder.Services.AddScoped<IProductImageServices, ProductImageServices>();
+            builder.Services.AddScoped<IUserServices, UserServices>();
+            builder.Services.AddScoped<IOrderServices, OrderServices>();
+            builder.Services.AddScoped<IOrderItemServices, OrderItemServices>();
+            builder.Services.AddScoped<IReviewServices, ReviewServices>();
+            builder.Services.AddScoped<IShippingServices, ShippingServices>();
+            builder.Services.AddScoped<IPaymentServices, PaymentServices>();
+
 
 
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
+            app.UseCors();
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

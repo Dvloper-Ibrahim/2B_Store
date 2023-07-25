@@ -1,65 +1,73 @@
-﻿
+﻿@model List<UserDTO>
 @{
-    ViewData["Title"] = "AllUsers";
+    ViewData["Title"] = "Index";
 }
 
-@using _2B_Store.DTO;
-@model List<UserDTO>
+@section PageTitle {
+    <title>2B - Users</title>
+}
 
-<h2>All Users</h2>
+<div class="container-fluid">
+    <h2>All Users</h2>
 
-<div class="mb-3">
-    <label for="roleSelect" class="form-label">Filter by Role:</label>
-    <select id="roleSelect" class="form-control">
-        <option value="">All</option>
-        <option value="Admin">Admin</option>
-        <option value="User">User</option>
-        <!-- Add more options for other roles if needed -->
-    </select>
-</div>
+    <div class="mb-3">
+        <label for="roleSelect" class="form-label">Filter by Role:</label>
+        <select id="roleSelect" class="form-control">
+            <option value="">All</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+            <!-- Add more options for other roles if needed -->
+        </select>
+    </div>
 
-<div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name (EN)</th>
-                <th>First Name (AR)</th>
-                <th>Last Name (EN)</th>
-                <th>Last Name (AR)</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Role</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in Model)
-            {
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>@user.Id</td>
-                    <td>@user.FirstNameEN</td>
-                    <td>@user.FirstNameAR</td>
-                    <td>@user.LastNameEN</td>
-                    <td>@user.LastNameAR</td>
-                    <td>@user.Email</td>
-                    <td>@user.PhoneNumber</td>
-                    <td>@user.Role</td>
-                    <td>
-                        <a href="@Url.Action("Edit", "User", new { id = user.Id })" class="btn btn-primary">Edit</a>
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Delete", "User", new { id = user.Id })" class="btn btn-danger">Delete</a>
-                    </td>
+                    <th>ID</th>
+                    <th>First Name (EN)</th>
+                    <th>First Name (AR)</th>
+                    <th>Last Name (EN)</th>
+                    <th>Last Name (AR)</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Role</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.FirstNameEN</td>
+                        <td>@user.FirstNameAR</td>
+                        <td>@user.LastNameEN</td>
+                        <td>@user.LastNameAR</td>
+                        <td>@user.Email</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>@user.Role</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "User", new { id = user.Id })" class="btn btn-primary">Edit</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Delete", "User", new { id = user.Id })" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @section Scripts {
     <script>
+        let sideLinks = document.querySelectorAll(".side-nav");
+        sideLinks.forEach(e => e.classList.remove("active"));
+
+        let activeLink = document.getElementById("users");
+        activeLink.classList.add("active");
         // Get the select element
         const roleSelect = document.getElementById('roleSelect');
 

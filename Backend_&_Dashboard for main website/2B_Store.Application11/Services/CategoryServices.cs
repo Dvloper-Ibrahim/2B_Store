@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using _2B_Store.Application.Contracts;
 using _2B_Store.DTO;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 namespace _2B_Store.Application.Services
 {
@@ -38,9 +39,11 @@ namespace _2B_Store.Application.Services
         public async Task<CategoryDTO> AddCategory(CategoryDTO categoryDTO)
         {
             var category = _mapper.Map<Category>(categoryDTO);
-            category = await _categoryRepository.AddAsync(category);
-            await _categoryRepository.SaveChangesAsync();
-            return _mapper.Map<CategoryDTO>(category);
+            //category.Image = await SaveImageAsync(categoryDTO.Image);
+            /*category = */await _categoryRepository.AddAsync(category);
+            //await _categoryRepository.SaveChangesAsync();
+            //return _mapper.Map<CategoryDTO>(category);
+            return categoryDTO;
         }
 
         public async Task<CategoryDTO> UpdateCategory(int categoryId, CategoryDTO categoryDTO)
@@ -51,7 +54,7 @@ namespace _2B_Store.Application.Services
 
             _mapper.Map(categoryDTO, existingCategory);
             existingCategory = await _categoryRepository.UpdateAsync(existingCategory);
-            await _categoryRepository.SaveChangesAsync();
+            //await _categoryRepository.SaveChangesAsync();
             return _mapper.Map<CategoryDTO>(existingCategory);
         }
 
@@ -62,17 +65,20 @@ namespace _2B_Store.Application.Services
                 throw new ArgumentException("Category not found");
 
             await _categoryRepository.DeleteAsync(existingCategory);
-            await _categoryRepository.SaveChangesAsync();
+            //await _categoryRepository.SaveChangesAsync();
         }
 
-
-        //public async Task<CategoryDTO> UploadImage(int categoryId, byte[] imageData)
+        //private async Task<string> SaveImageAsync(IFormFile image)
         //{
-        //    var category = await _categoryRepository.GetByIdAsync(categoryId);
-        //    category.Image = imageData;
-        //    await _categoryRepository.SaveChangesAsync();
+        //    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
 
-        //    return _mapper.Map<CategoryDTO>(category);
+        //    string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "categories", uniqueFileName);
+        //    using (var stream = new FileStream(imagePath, FileMode.Create))
+        //    {
+        //        await image.CopyToAsync(stream);
+        //    }
+
+        //    return "/images/categories/" + uniqueFileName;
         //}
 
 

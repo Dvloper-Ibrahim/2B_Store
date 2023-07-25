@@ -1,0 +1,53 @@
+﻿@model List<ProductDTO>
+@{
+    ViewData["Title"] = "allproducts";
+    Layout = "_AdminDashboardLayout";
+}
+
+@section PageTitle {
+    <title>2B - Products</title>
+}
+
+<div class="container-fluid">
+    <h2>All Products</h2>
+    <a asp-action="addNew" class="btn btn-primary mb-3">Add new product</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name (EN)</th>
+                <th>Name (AR)</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prod in Model)
+            {
+                <tr>
+                    <td>@prod.Id</td>
+                    <td>@prod.ProductNameEN</td>
+                    <td>@prod.ProductNameAR</td>
+                    <td>@prod.Stock</td>
+                    <td>
+                        <a asp-action="edit/@prod.Id" class="btn btn-success">Update</a> |
+                        <a asp-action="delete/@prod.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+@section Scripts{
+    <script>
+        let sideLinks = document.querySelectorAll(".side-nav");
+        sideLinks.forEach(e => e.classList.remove("active"));
+
+        let activeLink = document.getElementById("products");
+        activeLink.classList.add("active");
+    </script>
+}
+

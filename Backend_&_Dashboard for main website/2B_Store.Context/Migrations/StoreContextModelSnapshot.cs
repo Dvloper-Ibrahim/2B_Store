@@ -462,14 +462,14 @@ namespace _2B_Store.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SubCategoryId")
+                    b.Property<int?>("SubcategoryId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("SubCategoryId");
+                    b.HasIndex("SubcategoryId");
 
                     b.ToTable("SubCategories");
                 });
@@ -695,11 +695,13 @@ namespace _2B_Store.Context.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_2B_Store.SubCategory", null)
+                    b.HasOne("_2B_Store.SubCategory", "Subcategory")
                         .WithMany("SubCategories")
-                        .HasForeignKey("SubCategoryId");
+                        .HasForeignKey("SubcategoryId");
 
                     b.Navigation("Category");
+
+                    b.Navigation("Subcategory");
                 });
 
             modelBuilder.Entity("_2B_Store.Category", b =>

@@ -38,6 +38,5 @@ namespace _2B_Store.DTO
         public string ConfirmPassword { get; set; }
 
         public bool SignUpForNewsletter { get; set; }
-
     }
 }

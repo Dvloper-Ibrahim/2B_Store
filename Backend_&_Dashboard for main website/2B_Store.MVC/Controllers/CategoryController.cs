@@ -4,12 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace _2B_Store.MVC.Controllers
 {
-
-
     public class CategoryController : Controller
     {
         private readonly ICategoryServices _categoryServices;
-
         public CategoryController(ICategoryServices categoryServices)
         {
             _categoryServices = categoryServices;
@@ -26,7 +23,6 @@ namespace _2B_Store.MVC.Controllers
             var category = await _categoryServices.GetCategoryById(id);
             if (category == null)
                 return NotFound();
-
             return View(category);
         }
 
@@ -38,16 +34,15 @@ namespace _2B_Store.MVC.Controllers
                 try
                 {
                     if (image != null && image.Length > 0)
-                    {
-                        categoryDTO.Image= await SaveImageAsync(image);
-                    }
+                        categoryDTO.Image = await SaveImageAsync(image);
 
                     var updatedCategory = await _categoryServices.UpdateCategory(id, categoryDTO);
                     return RedirectToAction("Index");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    ModelState.AddModelError(string.Empty, "An error occurred while updating the category. Please try again later.");
+                    ModelState.AddModelError("Image", "The Image field is required");
+                    //ModelState.AddModelError(string.Empty, "An error occurred while updating the category. Please try again later.");
                 }
             }
 
@@ -65,19 +60,21 @@ namespace _2B_Store.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (image != null && image.Length > 0)
+                try
                 {
-                    string imageUrl = await SaveImageAsync(image);
+                    if (image != null && image.Length > 0)
+                        categoryDTO.Image = await SaveImageAsync(image);
 
-                    categoryDTO.Image= imageUrl;
+                    await _categoryServices.AddCategory(categoryDTO);
+                    return RedirectToAction("Index");
                 }
-
-                var newCategory = await _categoryServices.AddCategory(categoryDTO);
-                return RedirectToAction("Index");
+                catch (Exception)
+                {
+                    ModelState.AddModelError("Image", "The Image field is required");
+                }
             }
-                   
             return View(categoryDTO);
-        }     
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -91,22 +88,15 @@ namespace _2B_Store.MVC.Controllers
         {
             string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
 
-            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", uniqueFileName);
+            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "categories", uniqueFileName);
             using (var stream = new FileStream(imagePath, FileMode.Create))
             {
                 await image.CopyToAsync(stream);
             }
 
-            return "/images/" + uniqueFileName; 
+            return "/images/categories/" + uniqueFileName;
         }
     }
-
-
-
-
-
-
-
 }
 
 

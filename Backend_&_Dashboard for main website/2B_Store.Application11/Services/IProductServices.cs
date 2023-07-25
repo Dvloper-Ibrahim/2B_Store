@@ -11,8 +11,9 @@ namespace _2B_Store.Application.Services
     public interface IProductServices
     {
         Task<List<ProductDTO>> GetProductAllPagination(int itemsPerPage, int pageNumber);
+        Task<List<ProductDTO>> GetAllProducts();
         Task<ProductDTO> GetProductById(int productId);
-        Task<ProductDTO> AddProduct(CreateUpdateProductDTO productDTO);
+        Task<ProductDTO> AddProduct(ProductDTO productDTO);
         Task<ProductDTO> UpdateProduct(int productId, CreateUpdateProductDTO productDTO);
         Task DeleteProduct(int productId);
         Task<List<ProductDTO>> GetProductsByCategory(int categoryId);

@@ -1,6 +1,7 @@
 ﻿using _2B_Store.Application.Contracts;
 using _2B_Store.DTO;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace _2B_Store.Application.Services
             return _mapper.Map<ProductDTO>(product);
         }
 
-        public async Task<ProductDTO> AddProduct(CreateUpdateProductDTO productDTO)
+        public async Task<ProductDTO> AddProduct(ProductDTO productDTO)
         {
             var product = _mapper.Map<Product>(productDTO);
             product = await _productRepository.AddAsync(product);
@@ -89,6 +90,13 @@ namespace _2B_Store.Application.Services
         {
             var products = await _productRepository.GetProductsByStore(storeName);
             return _mapper.Map<List<ProductDTO>>(products).ToList();
+        }
+
+        public async Task<List<ProductDTO>> GetAllProducts()
+        {
+            var products = await _productRepository.GetAllAsync();
+            var myProducts = _mapper.Map<List<ProductDTO>>(products);
+            return myProducts;
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using _2B_Store.DTO;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,10 @@ namespace _2B_Store.Application11.Mapper
     public class AutoMapper : Profile
     {
         public AutoMapper() {
-
             CreateMap<Category, CategoryDTO>().ReverseMap();
+            //CreateMap<CategoryDTO, Category>();
+                //.ForMember(dest => dest.Image,
+                //opt => opt.MapFrom(src => SaveImageAsync(src.Image)));
             CreateMap<SubCategory, SubCategoryDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<CreateUpdateProductDTO, Product>().ReverseMap();
@@ -25,7 +28,7 @@ namespace _2B_Store.Application11.Mapper
             CreateMap<Shipping, ShippingDTO>().ReverseMap();
             CreateMap<User, UserDTO>().ReverseMap();
             CreateMap<UserSignUpDto, User>().ReverseMap();
-
+            //CreateMap<IFormFile, string>().ReverseMap();
 
 
 
@@ -39,10 +42,19 @@ namespace _2B_Store.Application11.Mapper
 
 
 
+    }
+            private async Task<string> SaveImageAsync(IFormFile image)
+            {
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
 
-        }
+                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "categories", uniqueFileName);
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(stream);
+                }
 
-
+                return "/images/categories/" + uniqueFileName;
+            }
 
     }
 }

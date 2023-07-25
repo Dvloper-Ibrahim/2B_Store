@@ -15,17 +15,16 @@ namespace _2B_Store.MVC
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddControllersWithViews();
-
-
 
             builder.Services.AddDbContext<StoreContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Db"));
-              //  options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
-                  
+
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
@@ -39,7 +38,6 @@ namespace _2B_Store.MVC
             builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
             builder.Services.AddScoped<IShippingRepository, ShippingRepository>();
             builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
-
 
             builder.Services.AddScoped<ICategoryServices, CategoryServices>();
             builder.Services.AddScoped<ISubCategoryServices, SubCategoryServices>();
@@ -56,7 +54,6 @@ namespace _2B_Store.MVC
 
 
 
-            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 

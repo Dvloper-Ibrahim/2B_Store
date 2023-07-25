@@ -1,35 +1,53 @@
-﻿
+﻿@model SubCategoryDTO
 @{
-    ViewData["Title"] = "CreateSubCategory";
-    //Layout = "_AdminDashboardLayout";
-
+    ViewData["Title"] = "Create";
+    SelectList categories = new SelectList(Model.Categories, "Id", "NameEN");
+    SelectList subCategories = new SelectList(Model.SubCategories, "Id", "NameEN");
 }
 
-@using _2B_Store.DTO;
+@section PageTitle {
+    <title>2B - SubCategories</title>
+}
 
-@model SubCategoryDTO
+<div class="container-fluid">
+    <h2>Create a SubCategory</h2>
 
-<h2>Create SubCategory</h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="NameEN" class="form-label"></label>
+            <input asp-for="NameEN" class="form-control" />
+            <span asp-validation-for="NameEN" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NameAR" class="form-label"></label>
+            <input asp-for="NameAR" class="form-control" />
+            <span asp-validation-for="NameAR" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId" class="form-label"></label>
+            <select asp-for="CategoryId" asp-items="@categories" class="form-control">
+                <option value="">Select Category</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SubcategoryId" class="form-label"></label>
+            <select asp-for="SubcategoryId" asp-items="@subCategories" class="form-control">
+                <option value="">Select SubCategory</option>
+            </select>
+            <span asp-validation-for="SubcategoryId" class="text-danger"></span>
+        </div>
+        <button class="btn btn-success">Create</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="NameEN" class="control-label"></label>
-        <input asp-for="NameEN" class="form-control" />
-        <span asp-validation-for="NameEN" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="NameAR" class="control-label"></label>
-        <input asp-for="NameAR" class="form-control" />
-        <span asp-validation-for="NameAR" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="CategoryId" class="control-label"></label>
-        <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "NameEN"))" class="form-control">
-            <option value="">Select Category</option>
-        </select>
-        <span asp-validation-for="CategoryId" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
+@section Scripts{
+    <script>
+        let sideLinks = document.querySelectorAll(".side-nav");
+        sideLinks.forEach(e => e.classList.remove("active"));
 
+        let activeLink = document.getElementById("subCategories");
+        activeLink.classList.add("active");
+    </script>
+}

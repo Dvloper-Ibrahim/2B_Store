@@ -23,12 +23,5 @@ namespace _2B_Store.MVC.Controllers
             var userOrders = await _orderServices.GetOrdersByUserId(userId);
             return View(userOrders);
         }
-
-
-
-
-
-
-
     }
 }
