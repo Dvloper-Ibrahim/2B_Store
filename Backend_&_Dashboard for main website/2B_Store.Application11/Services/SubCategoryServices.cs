@@ -74,7 +74,7 @@ namespace _2B_Store.Application11.Services
                 throw new ArgumentException("SubCategory not found");
 
             await _subCategoryRepository.DeleteAsync(existingSubCategory);
-            await _subCategoryRepository.SaveChangesAsync();
+            //await _subCategoryRepository.SaveChangesAsync();
         }
     }
 }

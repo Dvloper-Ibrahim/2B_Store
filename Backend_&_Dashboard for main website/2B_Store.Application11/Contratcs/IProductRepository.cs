@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _2B_Store.Application.Contracts
 {
-    public interface IProductRepository : IRepository<Product, long>
+    public interface IProductRepository : IRepository<Product, int>
     {
        // Task<Product> GetProductById(int productId);
         Task<IEnumerable<Product>> GetProductsByCategory(int categoryId);

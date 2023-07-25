@@ -41,7 +41,7 @@ namespace _2B_Store.MVC.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("Image", "The Image field is required");
+                    ModelState.AddModelError("Image", "The image field is required");
                     //ModelState.AddModelError(string.Empty, "An error occurred while updating the category. Please try again later.");
                 }
             }
@@ -70,7 +70,7 @@ namespace _2B_Store.MVC.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("Image", "The Image field is required");
+                    ModelState.AddModelError("Image", "The image field is required");
                 }
             }
             return View(categoryDTO);

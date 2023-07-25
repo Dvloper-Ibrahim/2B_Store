@@ -14,7 +14,7 @@ namespace _2B_Store.Application.Services
         Task<List<ProductDTO>> GetAllProducts();
         Task<ProductDTO> GetProductById(int productId);
         Task<ProductDTO> AddProduct(ProductDTO productDTO);
-        Task<ProductDTO> UpdateProduct(int productId, CreateUpdateProductDTO productDTO);
+        Task<ProductDTO> UpdateProduct(int productId, ProductDTO productDTO);
         Task DeleteProduct(int productId);
         Task<List<ProductDTO>> GetProductsByCategory(int categoryId);
         Task<List<ProductDTO>> GetProductsByBrand(string brand);

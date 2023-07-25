@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace _2B_Store.Infrastructure
 {
 
-    public class ProductRepository : Repository<Product, long>, IProductRepository
+    public class ProductRepository : Repository<Product, int>, IProductRepository
     {
         public ProductRepository(StoreContext dbContext) : base(dbContext) { }
 

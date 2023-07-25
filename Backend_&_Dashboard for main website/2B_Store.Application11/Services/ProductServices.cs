@@ -14,11 +14,17 @@ namespace _2B_Store.Application.Services
     {
 
         private readonly IProductRepository _productRepository;
+        private readonly ISubCategoryRepository _subCategoryRepository;
         private readonly IMapper _mapper;
 
-        public ProductServices(IProductRepository productRepository, IMapper mapper)
+        public ProductServices(
+            IProductRepository productRepository,
+            ISubCategoryRepository subCategoryRepository,
+            IMapper mapper
+            )
         {
             _productRepository = productRepository;
+            _subCategoryRepository = subCategoryRepository;
             _mapper = mapper;
         }
 
@@ -41,11 +47,11 @@ namespace _2B_Store.Application.Services
         {
             var product = _mapper.Map<Product>(productDTO);
             product = await _productRepository.AddAsync(product);
-            await _productRepository.SaveChangesAsync();
+            //await _productRepository.SaveChangesAsync();
             return _mapper.Map<ProductDTO>(product);
         }
 
-        public async Task<ProductDTO> UpdateProduct(int productId, CreateUpdateProductDTO productDTO)
+        public async Task<ProductDTO> UpdateProduct(int productId, ProductDTO productDTO)
         {
             var existingProduct = await _productRepository.GetByIdAsync(productId);
             if (existingProduct == null)
@@ -53,7 +59,7 @@ namespace _2B_Store.Application.Services
 
             _mapper.Map(productDTO, existingProduct);
             existingProduct = await _productRepository.UpdateAsync(existingProduct);
-            await _productRepository.SaveChangesAsync();
+            //await _productRepository.SaveChangesAsync();
             return _mapper.Map<ProductDTO>(existingProduct);
         }
 
@@ -61,11 +67,11 @@ namespace _2B_Store.Application.Services
         {
             // Implementation to delete a product
             var product = await _productRepository.GetByIdAsync(productId);
-            if (product != null)
-            {
-                await _productRepository.DeleteAsync(product);
-                await _productRepository.SaveChangesAsync();
-            }
+            if (product == null)
+                throw new ArgumentException("Product not found");
+
+            await _productRepository.DeleteAsync(product);
+            //await _productRepository.SaveChangesAsync();
         }
 
         public async Task<List<ProductDTO>> GetProductsByCategory(int categoryId)
@@ -96,6 +102,11 @@ namespace _2B_Store.Application.Services
         {
             var products = await _productRepository.GetAllAsync();
             var myProducts = _mapper.Map<List<ProductDTO>>(products);
+            foreach (var item in myProducts)
+            {
+                var subCategory = await _subCategoryRepository.GetByIdAsync(item.SubcategoryId);
+                item.SubCategory = _mapper.Map<SubCategoryDTO>(subCategory);
+            }
             return myProducts;
         }
 

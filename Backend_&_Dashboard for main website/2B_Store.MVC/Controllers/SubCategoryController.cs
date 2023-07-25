@@ -10,7 +10,10 @@ namespace _2B_Store.MVC.Controllers
         private readonly ISubCategoryServices _subCategoryServices;
         private readonly ICategoryServices _categoryServices;
 
-        public SubCategoryController(ISubCategoryServices subCategoryServices, ICategoryServices categoryServices)
+        public SubCategoryController(
+            ISubCategoryServices subCategoryServices,
+            ICategoryServices categoryServices
+            )
         {
             _subCategoryServices = subCategoryServices;
             _categoryServices = categoryServices;
@@ -70,7 +73,6 @@ namespace _2B_Store.MVC.Controllers
                 await _subCategoryServices.UpdateSubCategory(id, subCategoryDTO);
                 return RedirectToAction("Index");
             }
-
             //var categories = await _categoryServices.GetAllCategories();
             //ViewBag.Categories = categories;
             return View(subCategoryDTO);
