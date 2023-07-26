@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import 'bootstrap';
 import 'jquery/dist/jquery.min.js';
 import { IProductsPages } from 'src/Model/i-products-pages';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-home',
@@ -18,7 +19,7 @@ export class ProductHomeComponent implements OnInit {
   selectedBrands: string[] = [];
 
 
-  constructor(private productApiPages: ProductsPagesService , private router: Router){}
+  constructor(private productApiPages: ProductsPagesService , private router: Router, private cartService : CartService){}
 
   ngOnInit(): void {
     this.productApiPages.getAllProduct().subscribe(data => {
@@ -27,9 +28,16 @@ export class ProductHomeComponent implements OnInit {
   }
 
 
-
+  successMessage:string='';
   addToCart(product: any) {
-    console.log('Added to cart:', product);
+    try {
+      this.cartService.addToCart(product);
+      this.successMessage = `Added ${product.name} to cart successfully!`;
+      alert(this.successMessage);
+    } catch (error) {
+      this.successMessage = `Failed to add ${product.name} to cart.`;
+      alert(this.successMessage);
+    }
   }
  
 

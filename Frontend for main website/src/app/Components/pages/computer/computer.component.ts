@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProductsPages } from 'src/Model/i-products-pages';
 import { ProductsPagesService } from 'src/app/services/products-pages.service';
+import { Location } from '@angular/common';
+
 
 type MenuState = 'showMain' | 'showLaptopsMenu' | 'showElectronicSolutionsMenu' | 'showPrintersMenu' | 'showDesctopsMenu' | 'showBuildPcMenu';
 
@@ -26,7 +28,8 @@ export class ComputerComponent implements OnInit  {
   selectedSubCategory: string = '';
   selectedSubSubCategory: string = '';
 
-  constructor(private productApiPages: ProductsPagesService , private router:Router , private route: ActivatedRoute
+  constructor(private productApiPages: ProductsPagesService , private router:Router , private location :Location,
+    private route: ActivatedRoute
     ) {}
 
 
@@ -83,13 +86,15 @@ export class ComputerComponent implements OnInit  {
   }
 
   // method to go back to the main menu
-  goBackToMain() {
-    this.showMain = true;
-    this.showLaptopsMenu = false;
-    this.showPrintersMenu=false;
-    this.showBuildPcMenu=false;
-    this.showElectronicSolutionsMenu=false;
-    this.showDesctopsMenu=false;
+  goBackToMain():void {
+    // this.showMain = true;
+    // this.showLaptopsMenu = false;
+    // this.showPrintersMenu=false;
+    // this.showBuildPcMenu=false;
+    // this.showElectronicSolutionsMenu=false;
+    // this.showDesctopsMenu=false;
+    this.location.back();
+
   }
 
 

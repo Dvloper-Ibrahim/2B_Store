@@ -5,6 +5,7 @@ import { ProductsPagesService } from 'src/app/services/products-pages.service';
 import { Location } from '@angular/common';
 import { InformatinTableProducts } from 'src/Model/informatin-table-products';
 import { RatingApiServiceService } from 'src/app/services/rating-api-service.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -19,13 +20,14 @@ export class ProductDetailsComponent implements OnInit {
   informationTable: InformatinTableProducts[] = [];
 
   public NoResults: boolean | undefined;
-
+  
+  successMessage:string='';
 
 
   constructor(private productApiPages : ProductsPagesService ,
      private activatedRoute: ActivatedRoute , 
      private location :Location,
-     private ratingApiService: RatingApiServiceService){}
+     private ratingApiService: RatingApiServiceService,private cartService:CartService){}
 
   
   ngOnInit(): void {
@@ -42,10 +44,18 @@ export class ProductDetailsComponent implements OnInit {
 
     }
 
-    addToCart(product: IProductsPages): void {
-      product.quantity -= 1;
-  }
+  // Cart Button 
 
+  addToCart(product: any) {
+    try {
+      this.cartService.addToCart(product);
+      this.successMessage = `Added ${product.name} to cart successfully!`;
+      alert(this.successMessage);
+    } catch (error) {
+      this.successMessage = `Failed to add ${product.name} to cart.`;
+      alert(this.successMessage);
+    }
+  }
   // button go back
   
   goBack(): void {
@@ -97,6 +107,7 @@ subCategoryId: number | null = null;
     }
   }
 
+
 // Fixed div after scroll to show product
 
 fixedDivVisible = false;
@@ -104,7 +115,7 @@ fixedDivVisible = false;
 
 @HostListener('window:scroll', [])
 onScroll() {
-  this.fixedDivVisible = window.pageYOffset >= 450;
+  this.fixedDivVisible = window.pageYOffset >= 800;
 }
 
 getFixedDivStyle() {
@@ -112,6 +123,10 @@ getFixedDivStyle() {
     display: this.fixedDivVisible ? '-webkit-box' : 'none',
   };
 }
+
+
+
+
 
 
 }

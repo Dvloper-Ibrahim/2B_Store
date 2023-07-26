@@ -5,15 +5,15 @@
   <!-- Products Display -->
   <div class="container d-flex justify-content-center mx-auto" >
     <div class="row">
-      <div class="product col-lg-3 col-md-4 col-sm-6 col-6 mb-2 mt-2" *ngFor="let product of AllProduct" (click)="prodDetails(product.id)">
+      <div class="product col-lg-3 col-md-4 col-sm-6 col-6 mb-2 mt-2" *ngFor="let product of AllProduct" >
         <!-- ********************************************* -->
-             <div class="product-card">
+             <div class="product-card" >
 
               <div class="product-discount">
                 <p>{{ product.discount | formatDiscount }}</p>
               </div>
 
-                 <div class="product-photo mb-2">
+                 <div class="product-photo mb-2" (click)="prodDetails(product.id)">
                   <img [src]="product.imgURL" class="card-img-top" alt="Product Image" />
                  </div>
                  

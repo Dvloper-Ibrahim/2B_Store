@@ -2,6 +2,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProductsPages } from 'src/Model/i-products-pages';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsPagesService } from 'src/app/services/products-pages.service';
 
 interface ComputerComponentInputs {
@@ -25,8 +26,9 @@ export class ProductsPagesComponent implements OnInit, OnChanges {
 
   @Input() computerComponentInputs!: ComputerComponentInputs;
 
+  successMessage:string='';
 
-  constructor(private productApiPages: ProductsPagesService , private router: Router) {}
+  constructor(private productApiPages: ProductsPagesService , private router: Router ,private cartService : CartService) {}
 
   ngOnInit(): void {
     this.productApiPages.getAllProduct().subscribe(data => {
@@ -86,10 +88,18 @@ export class ProductsPagesComponent implements OnInit, OnChanges {
     });
   }
 
+  // Cart Button 
   addToCart(product: any) {
-    console.log('Added to cart:', product);
+    try {
+      this.cartService.addToCart(product);
+      this.successMessage = `Added ${product.name} to cart successfully!`;
+      alert(this.successMessage);
+    } catch (error) {
+      this.successMessage = `Failed to add ${product.name} to cart.`;
+      alert(this.successMessage);
+    }
   }
-
+  
   toggleBrandMenu() {
     this.showBrandMenu = !this.showBrandMenu;
   }
