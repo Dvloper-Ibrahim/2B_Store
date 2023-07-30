@@ -1,10 +1,16 @@
+import { ISubCategory } from './i-sub-category';
+
 export interface IProduct {
   id: number;
-  name: string;
-  quantity: number;
+  productNameEN: string;
+  productNameAR: string;
   price: number;
-  imgURL: string;
-  categoryId: number;
-  details: string;
-  material: string;
+  stock: number;
+  image: string;
+  brandEN: string;
+  brandAR: string;
+  descriptionEN: string;
+  descriptionAR: string;
+  subcategoryId: number;
+  subCategory: ISubCategory;
 }
