@@ -10,19 +10,30 @@ using System.Threading.Tasks;
 
 namespace _2B_Store.Infrastructure
 {
-    public class UserRepository : Repository<User, int>, IUserRepository
+    public class UserRepository : Repository<ApplicationUser, string>, IUserRepository
     {
-        public UserRepository(StoreContext dbContext) : base(dbContext) { }
+        private readonly StoreContext _context;
 
-        public async Task<User> GetUserByEmail(string email)
+        public UserRepository(StoreContext dbContext) : base(dbContext)
+        {
+            _context = dbContext;
+        }
+
+        public async Task<ApplicationUser> GetUserByEmail(string email)
         {
             return await _Dbset.FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public async Task<User> CheckforUser(string email, string password)
+        public async Task<ApplicationUser> CheckforUser(string email, string password)
         {
-            return await _Dbset.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.PasswordHash == password);
         }
+
+
+        //public async Task<ApplicationUser> CheckforUser(string email, string password)
+        //{
+        //    return await _Dbset.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+        //}
 
 
 

@@ -22,7 +22,6 @@
     <ProjectReference Include="..\2B_Store.Context\2B_Store.Context.csproj" />
     <ProjectReference Include="..\2B_Store.DTO\2B_Store.DTO.csproj" />
     <ProjectReference Include="..\2B_Store.Infrastructure\2B_Store.Infrastructure.csproj" />
-    <ProjectReference Include="..\2B_Store\2B_Store.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

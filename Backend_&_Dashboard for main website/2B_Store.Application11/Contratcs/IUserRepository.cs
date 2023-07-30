@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace _2B_Store.Application.Contracts
 {
-    public interface IUserRepository : IRepository<User, int>
+    public interface IUserRepository : IRepository<ApplicationUser, string>
     {
-       
-        Task<User> GetUserByEmail(string email);
-        Task<User> CheckforUser(string email, string password);
 
+        //Task<ApplicationUser> GetUserByEmail(string email);
+        Task<ApplicationUser> CheckforUser(string email, string password);
     }
 }

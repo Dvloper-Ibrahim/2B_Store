@@ -20,6 +20,9 @@ namespace _2B_Store
 
         public int SubcategoryId { get; set; }
         public virtual SubCategory SubCategory { get; set; }
+
+        public string Image { get; set; }
+
         public virtual ICollection<ProductImage> Images { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<LocationStore> LocationStores { get; set; }

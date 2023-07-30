@@ -1,6 +1,7 @@
 ﻿using _2B_Store.Application.Contracts;
 using _2B_Store.DTO;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,24 @@ namespace _2B_Store.Application11.Services
 
             await _subCategoryRepository.DeleteAsync(existingSubCategory);
             //await _subCategoryRepository.SaveChangesAsync();
+        }
+
+        public async Task<List<SubCategoryDTO>> GetParentSubCategsBy_CategId(int categoryId)
+        {
+            var subCategories = (await _subCategoryRepository.GetAllAsync())
+                .Where(subcat => subcat.CategoryId == categoryId && subcat.SubcategoryId == null);
+            var subCategsDTOs = _mapper.Map<List<SubCategoryDTO>>(subCategories);
+
+            return subCategsDTOs;
+        }
+
+        public async Task<List<SubCategoryDTO>> GetChildSubCatby_ParentSubId(int subCatId)
+        {
+            var subCategories = (await _subCategoryRepository.GetAllAsync())
+                .Where(subcat => subcat.SubcategoryId == subCatId);
+            var subCategsDTOs = _mapper.Map<List<SubCategoryDTO>>(subCategories);
+
+            return subCategsDTOs;
         }
     }
 }

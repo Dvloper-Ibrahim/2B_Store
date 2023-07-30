@@ -18,5 +18,10 @@ namespace _2B_Store.Infrastructure
             return await _Dbset.Where(image => image.ProductId == productId).ToListAsync();
         }
 
+        public async Task<ProductImage> GetImageByProductData(int productId, string productImg)
+        {
+            return await _Dbset.FirstOrDefaultAsync(image => image.ProductId == productId &&
+                image.ImageUrl == productImg);
+        }
     }
 }

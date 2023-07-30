@@ -20,66 +20,55 @@ namespace _2B_Store.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<List<UserDTO>> GetAllUsers()
+        public async Task<List<UserSignUpDto>> GetAllUsers()
         {
             var users = await _userRepository.GetAllAsync();
-            return _mapper.Map<List<UserDTO>>(users);
+            return _mapper.Map<List<UserSignUpDto>>(users);
         }
 
-        public async Task<UserDTO> GetUserById(int userId)
+        public async Task<UserSignUpDto> GetUserById(string userId)
         {
             var user = await _userRepository.GetByIdAsync(userId);
-            return _mapper.Map<UserDTO>(user);
+            return _mapper.Map<UserSignUpDto>(user);
         }
 
-        public async Task<UserDTO> AddUser(UserSignUpDto userSignUpDto)
+        public async Task<UserSignUpDto> RegisterUser(UserSignUpDto userSignUpDto)
         {
-            
-            var user = _mapper.Map<User>(userSignUpDto);
-            
+            var user = _mapper.Map<ApplicationUser>(userSignUpDto);
             user = await _userRepository.AddAsync(user);
-            await _userRepository.SaveChangesAsync();
-            return _mapper.Map<UserDTO>(user);
+            return _mapper.Map<UserSignUpDto>(user);
         }
 
-        public async Task<UserDTO> UpdateUser(int userId, UserDTO userDto)
+        public async Task<UserSignInDto> SignInUser(UserSignInDto userSignInDto)
         {
-            
+
+            var user = await _userRepository.CheckforUser(userSignInDto.Email, userSignInDto.Password);
+            if (user == null)
+            {
+                throw new UnauthorizedAccessException("Invalid email or password.");
+            }
+            return _mapper.Map<UserSignInDto>(user);
+        }
+
+        public async Task<UserSignUpDto> UpdateUser(string userId, UserSignUpDto userDto)
+        {
             var existingUser = await _userRepository.GetByIdAsync(userId);
             if (existingUser == null)
                 throw new ArgumentException("User not found");
 
             _mapper.Map(userDto, existingUser);
             existingUser = await _userRepository.UpdateAsync(existingUser);
-            await _userRepository.SaveChangesAsync();
-            return _mapper.Map<UserDTO>(existingUser);
+            return userDto;
+            //return _mapper.Map<UserDTO>(existingUser);
         }
 
-
-        public async Task DeleteUser(int userId)
+        public async Task DeleteUser(string userId)
         {
-           
             var existingUser = await _userRepository.GetByIdAsync(userId);
             if (existingUser == null)
                 throw new ArgumentException("User not found");
 
             await _userRepository.DeleteAsync(existingUser);
-            await _userRepository.SaveChangesAsync();
         }
-
-        public async Task<UserDTO> SignIn(UserSignInDto userSignInDto)
-        {
-          
-            var user = await _userRepository.GetUserByEmail(userSignInDto.Email);
-            if (user == null || user.Password != userSignInDto.Password)
-            {
-               
-                throw new UnauthorizedAccessException("Invalid email or password.");
-            }
-
-            return _mapper.Map<UserDTO>(user);
-        }
-
-
     }
 }

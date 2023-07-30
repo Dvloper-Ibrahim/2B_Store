@@ -9,8 +9,8 @@
 }
 
 <div class="container-fluid">
-    <h2>Add New Product</h2>
-    <form method="post" class="py-3">
+    <h2>Edit Product : @Model.ProductNameEN</h2>
+    <form method="post" class="py-3" enctype="multipart/form-data">
         @*<div asp-validation-summary="All"></div>*@
         <div>
             <label asp-for="ProductNameEN" class="form-label"></label>
@@ -59,7 +59,24 @@
             </select>
             <span asp-validation-for="SubcategoryId" class="form-text text-danger"></span>
         </div>
-        <button class="btn btn-success">Save Changes</button>
+@*        @if(Model.Image == null)
+        {*@
+        <div class="mt-2 mb-4">
+@*                <label for="Image" class="form-label">Image</label>
+            <input type="file" id="Image" name="Image" class="form-control" accept="image/*" />*@
+            <label asp-for="Image" class="form-label"></label>
+            <input type="file" asp-for="Image" class="form-control" accept="image/*" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        @*}*@
+@*        else if (Model.Image != null)
+        {*@
+@*            <div class="mt-2 mb-4">
+                <label for="current-image" class="form-label">Current Image:</label>
+                <img src="@Model.Image" id="current-image" width="100" alt="Current Image" class="current-image" />
+            </div>*@
+        @*}*@
+        <button @*onclick="getURL()"*@ class="btn btn-success">Save Changes</button>
         <a asp-action="allproducts" class="btn btn-secondary ms-2">Cancel</a>
     </form>
 
@@ -73,6 +90,10 @@
 
         let activeLink = document.getElementById("products");
         activeLink.classList.add("active");
+
+        function getURL(e) {
+            e.preventDefault();
+        }
     </script>
 }
 

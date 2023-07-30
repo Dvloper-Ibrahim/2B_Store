@@ -9,13 +9,19 @@ namespace _2B_Store.Application.Services
 {
     public interface IUserServices
     {
-        Task<List<UserDTO>> GetAllUsers();
+        Task<UserSignUpDto> RegisterUser(UserSignUpDto userSignUpDto);
+        Task<UserSignInDto> SignInUser(UserSignInDto userSignInDto);
+        Task<List<UserSignUpDto>> GetAllUsers();
+        Task<UserSignUpDto> GetUserById(string userId);
+        Task<UserSignUpDto> UpdateUser(string userId, UserSignUpDto userDto);
+        Task DeleteUser(string userId);
 
-        Task<UserDTO> GetUserById(int userId);
-        Task<UserDTO> AddUser(UserSignUpDto userSignUpDto);
-        Task<UserDTO> UpdateUser(int userId, UserDTO userDto);
-        Task DeleteUser(int userId);
-        Task<UserDTO> SignIn(UserSignInDto userSignInDto);
 
+        //Task<List<UserDTO>> GetAllUsers();
+        //Task<UserDTO> GetUserById(int userId);
+        //Task<UserDTO> AddUser(UserSignUpDto userSignUpDto);
+        //Task<UserDTO> UpdateUser(int userId, UserDTO userDto);
+        //Task DeleteUser(int userId);
+        //Task<UserDTO> SignIn(UserSignInDto userSignInDto);
     }
 }

@@ -17,6 +17,9 @@ namespace _2B_Store.Application.Services
         Task<ProductDTO> UpdateProduct(int productId, ProductDTO productDTO);
         Task DeleteProduct(int productId);
         Task<List<ProductDTO>> GetProductsByCategory(int categoryId);
+        //Task<List<ProductDTO>> GetProductsBySubCategory(int subCategoryId);
+        Task<List<ProductDTO>> GetProductsByParentSubCat(int subCategoryId);
+        Task<List<ProductDTO>> GetProductsByChildSubCat(int subCategoryId);
         Task<List<ProductDTO>> GetProductsByBrand(string brand);
         Task<List<ProductDTO>> GetProductsByPriceRange(decimal minPrice, decimal maxPrice);
         Task<List<ProductDTO>> GetProductsByStore(string storeName);

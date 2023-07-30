@@ -10,16 +10,19 @@ namespace _2B_Store
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
+
+        public DateTime ArrivalDate { get; set; }
+
         public decimal TotalAmount { get; set; }
         public string PaymentStatus { get; set; }
         public string TrackingInformation { get; set; }
-      
+
 
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
-        
+
         public virtual Shipping Shipping { get; set; }
         public virtual Payment Payment { get; set; }
     }

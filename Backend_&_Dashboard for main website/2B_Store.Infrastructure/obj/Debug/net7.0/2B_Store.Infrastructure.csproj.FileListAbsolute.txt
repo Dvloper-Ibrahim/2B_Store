@@ -19,6 +19,12 @@ D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Domain.pdb
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.DTO.pdb
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.csproj.CopyComplete
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.pdb
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.csproj.AssemblyReference.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.AssemblyInfoInputs.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.AssemblyInfo.cs
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.csproj.CoreCompileInputs.cache
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Infrastructure.deps.json
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Infrastructure.dll
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Infrastructure.pdb
@@ -30,13 +36,7 @@ G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backe
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Context.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.Domain.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\bin\Debug\net7.0\2B_Store.DTO.pdb
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.csproj.AssemblyReference.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.AssemblyInfoInputs.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.AssemblyInfo.cs
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.csproj.CoreCompileInputs.cache
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.csproj.CopyComplete
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.dll
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\refint\2B_Store.Infrastructure.dll
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\2B_Store.Infrastructure.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Infrastructure\obj\Debug\net7.0\ref\2B_Store.Infrastructure.dll

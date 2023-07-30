@@ -32,10 +32,22 @@ namespace _2B_Store.Application11.Services
         {
             var image = _mapper.Map<ProductImage>(productImageDTO);
             image = await _productImageRepository.AddAsync(image);
-            await _productImageRepository.SaveChangesAsync();
+            //await _productImageRepository.SaveChangesAsync();
             return _mapper.Map<ProductImageDTO>(image);
         }
 
+        public async Task<ProductImageDTO> UpdateMyProductImage(ProductImageDTO productImg)
+        {
+            var productImage = await _productImageRepository
+                .GetImageByProductData(productImg.ProductId, productImg.ImageUrl);
+            if (productImage == null)
+                throw new ArgumentException("ProductImage not found");
+           
+            _mapper.Map(productImg, productImage);
+            productImage = await _productImageRepository.UpdateAsync(productImage);
+            //await _productRepository.SaveChangesAsync();
+            return _mapper.Map<ProductImageDTO>(productImage);
+        }
         public async Task DeleteProductImage(int imageId)
         {
             var image = await _productImageRepository.GetByIdAsync(imageId);

@@ -8,6 +8,7 @@ namespace _2B_Store.Application.Contracts
 {
     public interface ISubCategoryRepository : IRepository<SubCategory, int>
     {
-      //  Task<SubCategory> GetSubCategoryById(int subCategoryId);
+        //  Task<SubCategory> GetSubCategoryById(int subCategoryId);
+        Task<IEnumerable<SubCategory>> GetSubCategoriesByParentSubCat(int subCategoryId);
     }
 }

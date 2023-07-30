@@ -19,7 +19,7 @@ namespace _2B_Store.DTO
 
         [Display(Name = "SubCategory Name in Arabic")]
         [Required(ErrorMessage = "لا بد من ادخال هذا الحقل")]
-        [MinLength(4, ErrorMessage = "يجب ان يتكون الاسم من 4 احرف فما اكثر")]
+        [MinLength(2, ErrorMessage = "يجب ان يتكون الاسم من 3 احرف فما اكثر")]
         public string NameAR { get; set; }
 
         [Display(Name = "Category")]

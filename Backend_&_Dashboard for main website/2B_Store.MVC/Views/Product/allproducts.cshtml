@@ -20,6 +20,7 @@
                 <th>SubCategory</th>
                 <th>Price</th>
                 <th>Stock</th>
+                <th>Image</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -29,15 +30,16 @@
                 <tr>
                     <td>@prod.Id</td>
                     <td>@prod.ProductNameEN</td>
-                    <td>@prod.SubCategory?.NameEN</td>
+                    <td>@prod.SubCategory?.NameEN - @prod.SubCategory?.Category?.NameEN</td>
                     <td>@prod.Price</td>
                     <td>@prod.Stock</td>
+                    <td><img src="@prod.Image" width="100" /></td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@prod.Id" class="btn btn-success">Edit</a> | 
+                        <a asp-action="Edit" asp-route-id="@prod.Id" class="btn btn-success mt-2">Edit</a>
                         <form asp-action="Delete" method="post" class="d-inline">
                             @Html.AntiForgeryToken()
                             <input type="hidden" name="id" value="@prod.Id" />
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+                            <button type="submit" class="btn btn-danger mt-2" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
                         </form>
                     </td>
                 </tr>

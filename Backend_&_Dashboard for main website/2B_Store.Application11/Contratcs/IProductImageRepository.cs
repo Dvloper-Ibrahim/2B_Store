@@ -9,6 +9,6 @@ namespace _2B_Store.Application.Contracts
     public interface IProductImageRepository : IRepository<ProductImage, int>
     {
         Task<IEnumerable<ProductImage>> GetImagesByProductId(int productId);
-
+        Task<ProductImage> GetImageByProductData(int productId, string productImg);
     }
 }

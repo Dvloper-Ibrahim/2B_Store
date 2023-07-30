@@ -92,8 +92,15 @@ D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\Micros
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\AutoMapper.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.WepApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.csproj.AssemblyReference.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.GeneratedMSBuildEditorConfig.editorconfig
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.AssemblyInfoInputs.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.AssemblyInfo.cs
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.csproj.CoreCompileInputs.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.MvcApplicationPartsAssemblyInfo.cache
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\appsettings.Development.json
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\appsettings.json
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\2B_Store.WepApi.staticwebassets.runtime.json
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\2B_Store.WepApi.exe
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\2B_Store.WepApi.deps.json
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\2B_Store.WepApi.runtimeconfig.json
@@ -168,13 +175,6 @@ G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backe
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\2B_Store.DTO.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\2B_Store.Infrastructure.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\bin\Debug\net7.0\2B_Store.Domain.pdb
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.csproj.AssemblyReference.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.GeneratedMSBuildEditorConfig.editorconfig
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.AssemblyInfoInputs.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.AssemblyInfo.cs
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.csproj.CoreCompileInputs.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.MvcApplicationPartsAssemblyInfo.cs
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.MvcApplicationPartsAssemblyInfo.cache
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\staticwebassets\msbuild.2B_Store.WepApi.Microsoft.AspNetCore.StaticWebAssets.props
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\staticwebassets\msbuild.build.2B_Store.WepApi.props
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.2B_Store.WepApi.props
@@ -189,3 +189,4 @@ G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backe
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.genruntimeconfig.cache
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\ref\2B_Store.WepApi.dll
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.WepApi\obj\Debug\net7.0\2B_Store.WepApi.MvcApplicationPartsAssemblyInfo.cs

@@ -14,7 +14,7 @@ namespace _2B_Store.Application11.Services
         Task<SubCategoryDTO> AddSubCategory(SubCategoryDTO subCategoryDTO);
         Task<SubCategoryDTO> UpdateSubCategory(int subCategoryId, SubCategoryDTO subCategoryDTO);
         Task DeleteSubCategory(int subCategoryId);
-
-
+        Task<List<SubCategoryDTO>> GetParentSubCategsBy_CategId(int categoryId);
+        Task<List<SubCategoryDTO>> GetChildSubCatby_ParentSubId(int subCatId);
     }
 }

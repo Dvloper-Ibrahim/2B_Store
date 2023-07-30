@@ -4,6 +4,7 @@ using _2B_Store.Application11.Services;
 using _2B_Store.Context;
 using _2B_Store.Infrastructure;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace _2B_Store.MVC
@@ -24,7 +25,10 @@ namespace _2B_Store.MVC
                 //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
-
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(option =>
+            {
+                option.Password.RequireUppercase = false;
+            }).AddEntityFrameworkStores<StoreContext>();
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 

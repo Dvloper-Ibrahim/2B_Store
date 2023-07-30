@@ -26,8 +26,8 @@ namespace _2B_Store.Application11.Mapper
             CreateMap<OrderItem, OrderItemDTO>().ReverseMap();
             CreateMap<Payment, PaymentDTO>().ReverseMap();
             CreateMap<Shipping, ShippingDTO>().ReverseMap();
-            CreateMap<User, UserDTO>().ReverseMap();
-            CreateMap<UserSignUpDto, User>().ReverseMap();
+            CreateMap<ApplicationUser, UserDTO>().ReverseMap();
+            CreateMap<UserSignUpDto, ApplicationUser>().ReverseMap();
             //CreateMap<IFormFile, string>().ReverseMap();
 
 

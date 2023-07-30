@@ -58,8 +58,10 @@ namespace _2B_Store.DTO
         [Required(ErrorMessage = "This field is required")]
         public int SubcategoryId { get; set; }
 
+        public string? Image { get; set; }
         public SubCategoryDTO? SubCategory { get; set; }
         public List<SubCategoryDTO>? SubCategories { get; set; }
+        public List<ProductImageDTO>? ProductImages { get; set; }
 
 
         //public List<ProductImageDTO> Images { get; set; }

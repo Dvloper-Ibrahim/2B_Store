@@ -85,5 +85,11 @@ namespace _2B_Store.MVC.Controllers
             await _subCategoryServices.DeleteSubCategory(id);
             return RedirectToAction("Index");
         }
+
+        public IActionResult getSubCategories(int categoryId)
+        {
+            var categories = _subCategoryServices.GetSubCategsBy_CategId(categoryId);
+            return Json(categories);
+        }
     }
 }

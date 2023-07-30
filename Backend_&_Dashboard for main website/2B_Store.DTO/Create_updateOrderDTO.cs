@@ -15,7 +15,7 @@ namespace _2B_Store.DTO
 
 
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
 

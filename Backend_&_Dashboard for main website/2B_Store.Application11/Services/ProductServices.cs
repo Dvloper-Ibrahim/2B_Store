@@ -15,16 +15,22 @@ namespace _2B_Store.Application.Services
 
         private readonly IProductRepository _productRepository;
         private readonly ISubCategoryRepository _subCategoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IProductImageRepository _productImageRepository;
         private readonly IMapper _mapper;
 
         public ProductServices(
             IProductRepository productRepository,
             ISubCategoryRepository subCategoryRepository,
+            ICategoryRepository categoryRepository,
+            IProductImageRepository productImageRepository,
             IMapper mapper
             )
         {
             _productRepository = productRepository;
             _subCategoryRepository = subCategoryRepository;
+            _categoryRepository = categoryRepository;
+            _productImageRepository = productImageRepository;
             _mapper = mapper;
         }
 
@@ -45,10 +51,17 @@ namespace _2B_Store.Application.Services
 
         public async Task<ProductDTO> AddProduct(ProductDTO productDTO)
         {
+            //productDTO.Image.ProductId = 
             var product = _mapper.Map<Product>(productDTO);
             product = await _productRepository.AddAsync(product);
             //await _productRepository.SaveChangesAsync();
-            return _mapper.Map<ProductDTO>(product);
+            var newProduct = _mapper.Map<ProductDTO>(product);
+            //newProduct.Image.ImageUrl = productDTO.Image.ImageUrl;
+            //newProduct.Image.ProductId = product.Id;
+
+            //var productImage = _mapper.Map<ProductImage>(newProduct.Image);
+            //await _productImageRepository.AddAsync(productImage);
+            return newProduct;
         }
 
         public async Task<ProductDTO> UpdateProduct(int productId, ProductDTO productDTO)
@@ -59,8 +72,17 @@ namespace _2B_Store.Application.Services
 
             _mapper.Map(productDTO, existingProduct);
             existingProduct = await _productRepository.UpdateAsync(existingProduct);
+            var newProduct = _mapper.Map<ProductDTO>(existingProduct);
+            //newProduct.Image = productDTO.Image;
+            //newProduct.Image.ProductId = existingProduct.Id;
+
+            //var productImage = _mapper.Map<ProductImage>(newProduct.Image);
+            //var storedImage = await _productImageRepository
+            //    .GetImageByProductData(productImage.ProductId, productImage.ImageUrl);
+            //storedImage = await _productImageRepository.UpdateAsync(storedImage);
+            //newProduct.Image = _mapper.Map<ProductImageDTO>(storedImage);
             //await _productRepository.SaveChangesAsync();
-            return _mapper.Map<ProductDTO>(existingProduct);
+            return newProduct;
         }
 
         public async Task DeleteProduct(int productId)
@@ -77,6 +99,33 @@ namespace _2B_Store.Application.Services
         public async Task<List<ProductDTO>> GetProductsByCategory(int categoryId)
         {
             var products = await _productRepository.GetProductsByCategory(categoryId);
+            return _mapper.Map<List<ProductDTO>>(products).ToList();
+        }
+
+        //public async Task<List<ProductDTO>> GetProductsBySubCategory(int subCategoryId)
+        //{
+        //    var products = await _productRepository.GetProductsBySubCategory(subCategoryId);
+        //    return _mapper.Map<List<ProductDTO>>(products).ToList();
+        //}
+
+        public async Task<List<ProductDTO>> GetProductsByParentSubCat(int subCategoryId)
+        {
+            var subCategories = await _subCategoryRepository.GetSubCategoriesByParentSubCat(subCategoryId);
+            List<ProductDTO> products = new List<ProductDTO>();
+            foreach (var subCat in subCategories)
+            {
+                var subProducts = await GetProductsByChildSubCat(subCat.Id);
+                foreach (var item in subProducts)
+                    products.Add(item);
+            }
+            return products;
+            //var products = await _productRepository.GetProductsByParentSubCat(subCategoryId);
+            //return _mapper.Map<List<ProductDTO>>(products).ToList();
+        }
+
+        public async Task<List<ProductDTO>> GetProductsByChildSubCat(int subCategoryId)
+        {
+            var products = await _productRepository.GetProductsByChildSubCat(subCategoryId);
             return _mapper.Map<List<ProductDTO>>(products).ToList();
         }
 
@@ -106,10 +155,11 @@ namespace _2B_Store.Application.Services
             {
                 var subCategory = await _subCategoryRepository.GetByIdAsync(item.SubcategoryId);
                 item.SubCategory = _mapper.Map<SubCategoryDTO>(subCategory);
+                var category = await _categoryRepository.GetByIdAsync(item.SubCategory.CategoryId);
+                item.SubCategory.Category = _mapper.Map<CategoryDTO>(category);
             }
             return myProducts;
         }
-
 
         ////////////////////////////////////////////////////
         ///

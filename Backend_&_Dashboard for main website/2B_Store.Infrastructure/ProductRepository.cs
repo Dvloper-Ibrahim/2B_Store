@@ -19,6 +19,23 @@ namespace _2B_Store.Infrastructure
             return await _Dbset.Where(p => p.SubCategory.CategoryId == categoryId).ToListAsync();
         }
 
+        //public async Task<IEnumerable<Product>> GetProductsBySubCategory(int subCategoryId)
+        //{
+        //    return await _Dbset.Where(p => p.SubcategoryId == subCategoryId).ToListAsync();
+        //}
+
+        //public async Task<IEnumerable<Product>> GetProductsByParentSubCat(int subCategoryId)
+        //{
+        //    return await _Dbset.Where(p => p.SubCategory.SubcategoryId == null
+        //        && p.SubcategoryId == subCategoryId).ToListAsync();
+        //}
+
+        public async Task<IEnumerable<Product>> GetProductsByChildSubCat(int subCategoryId)
+        {
+            //p.SubCategory.SubcategoryId != null &&
+            return await _Dbset.Where(p => p.SubcategoryId == subCategoryId).ToListAsync();
+        }
+
         public async Task<IEnumerable<Product>> GetProductsByBrand(string brand)
         {
             return await _Dbset.Where(p => p.BrandEN == brand || p.BrandAR ==brand).ToListAsync();
@@ -51,6 +68,6 @@ namespace _2B_Store.Infrastructure
         //    }
         //}
 
-    
+
     }
 }

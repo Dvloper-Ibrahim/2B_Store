@@ -1,6 +1,7 @@
 ﻿using _2B_Store.Application.Services;
 using _2B_Store.DTO;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace _2B_Store.MVC.Controllers
 {
@@ -17,10 +18,10 @@ namespace _2B_Store.MVC.Controllers
         {
             var users = await _userServices.GetAllUsers();
 
-            if (!string.IsNullOrEmpty(role) && Enum.TryParse(role, out Role roleEnum))
-            {
-                users = users.Where(u => u.Role == roleEnum).ToList();
-            }
+            //if (!string.IsNullOrEmpty(role) && Enum.TryParse(role, out Role roleEnum))
+            //{
+            //    users = users.Where(u => u.Role == roleEnum).ToList();
+            //}
 
             return View(users);
         }
@@ -42,9 +43,9 @@ namespace _2B_Store.MVC.Controllers
 
                 var newUser = new UserDTO
                 {
-                    FirstNameEN = userDto.FirstNameEN,
+                    FirstName = userDto.FirstName,
 
-                    LastNameEN = userDto.LastNameEN,
+                    LastName = userDto.LastName,
                     Email = userDto.Email,
                     PhoneNumber = userDto.PhoneNumber,
                     //   Password = hashedPassword // Save the hashed password

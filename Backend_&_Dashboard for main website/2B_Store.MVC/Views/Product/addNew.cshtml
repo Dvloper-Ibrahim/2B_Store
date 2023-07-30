@@ -11,7 +11,7 @@
 
 <div class="container-fluid">
     <h2>Add New Product</h2>
-    <form method="post" class="py-3">
+    <form method="post" class="py-3" enctype="multipart/form-data">
         @*<div asp-validation-summary="All"></div>*@
         <div>
             <label asp-for="ProductNameEN" class="form-label"></label>
@@ -59,6 +59,11 @@
                 <option value="">-- Select SubCategory --</option>
             </select>
             <span asp-validation-for="SubcategoryId" class="form-text text-danger"></span>
+        </div>
+        <div class="mt-2 mb-4">
+            <label asp-for="Image" class="form-label"></label>
+            <input type="file" asp-for="Image" class="form-control" accept="image/*" />
+            <span asp-validation-for="Image" class="text-danger"></span>
         </div>
 @*        <div class="mt-2 form-check">
             <input class="form-check-input" asp-for="IsAvailable" />

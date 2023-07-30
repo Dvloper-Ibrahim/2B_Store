@@ -9,17 +9,21 @@ namespace _2B_Store.DTO
 {
     public class UserSignUpDto
     {
-        [Required(ErrorMessage = "This is a required field.")]
-        public string FirstNameEN { get; set; }
+        public string Id { get; set; }
 
 
         [Required(ErrorMessage = "This is a required field.")]
-        public string LastNameEN { get; set; }
+        public string FirstName { get; set; }
+
+
+        [Required(ErrorMessage = "This is a required field.")]
+        public string LastName { get; set; }
 
 
         [Required(ErrorMessage = "This is a required field.")]
         [EmailAddress(ErrorMessage = "Please enter a valid email address (Ex: johndoe@domain.com).")]
         public string Email { get; set; }
+
 
         [Required(ErrorMessage = "Please enter a valid number in this field.")]
         [RegularExpression(@"^\d{11}$", ErrorMessage = "Please enter at least 11 characters.")]
@@ -36,6 +40,7 @@ namespace _2B_Store.DTO
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Please enter the same value again.")]
         public string ConfirmPassword { get; set; }
+
 
         public bool SignUpForNewsletter { get; set; }
     }
