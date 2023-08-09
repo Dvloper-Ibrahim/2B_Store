@@ -265,14 +265,6 @@ D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.MVC\bin\Debug\net7.0\runtimes\
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.MVC\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.MVC\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\ITI_SOHAG\Graduation_Project\2B_Store\2B_Store.MVC\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.csproj.AssemblyReference.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.GeneratedMSBuildEditorConfig.editorconfig
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.AssemblyInfoInputs.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.AssemblyInfo.cs
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.csproj.CoreCompileInputs.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.MvcApplicationPartsAssemblyInfo.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.RazorAssemblyInfo.cache
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.RazorAssemblyInfo.cs
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\bin\Debug\net7.0\appsettings.Development.json
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\bin\Debug\net7.0\appsettings.json
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\bin\Debug\net7.0\2B_Store.MVC.staticwebassets.runtime.json
@@ -522,6 +514,15 @@ G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backe
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\bin\Debug\net7.0\2B_Store.DTO.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\bin\Debug\net7.0\2B_Store.Infrastructure.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\bin\Debug\net7.0\2B_Store.Domain.pdb
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.csproj.AssemblyReference.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.GeneratedMSBuildEditorConfig.editorconfig
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.AssemblyInfoInputs.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.AssemblyInfo.cs
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.csproj.CoreCompileInputs.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.MvcApplicationPartsAssemblyInfo.cs
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.MvcApplicationPartsAssemblyInfo.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.RazorAssemblyInfo.cache
+G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.RazorAssemblyInfo.cs
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\staticwebassets\msbuild.2B_Store.MVC.Microsoft.AspNetCore.StaticWebAssets.props
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\staticwebassets\msbuild.build.2B_Store.MVC.props
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.2B_Store.MVC.props
@@ -538,4 +539,3 @@ G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backe
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.genruntimeconfig.cache
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\ref\2B_Store.MVC.dll
-G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC\obj\Debug\net7.0\2B_Store.MVC.MvcApplicationPartsAssemblyInfo.cs

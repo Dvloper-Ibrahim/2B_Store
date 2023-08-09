@@ -30,7 +30,7 @@ namespace _2B_Store.Application.Services
         {
             var orderItem = _mapper.Map<OrderItem>(orderItemDTO);
             orderItem = await _orderItemRepository.AddAsync(orderItem);
-            await _orderItemRepository.SaveChangesAsync();
+            //await _orderItemRepository.SaveChangesAsync();
             return _mapper.Map<OrderItemDTO>(orderItem);
         }
 
@@ -42,7 +42,7 @@ namespace _2B_Store.Application.Services
 
             _mapper.Map(orderItemDTO, existingOrderItem);
             existingOrderItem = await _orderItemRepository.UpdateAsync(existingOrderItem);
-            await _orderItemRepository.SaveChangesAsync();
+            //await _orderItemRepository.SaveChangesAsync();
             return _mapper.Map<OrderItemDTO>(existingOrderItem);
         }
 
@@ -53,7 +53,7 @@ namespace _2B_Store.Application.Services
                 throw new ArgumentException("Order item not found");
 
             await _orderItemRepository.DeleteAsync(existingOrderItem);
-            await _orderItemRepository.SaveChangesAsync();
+            //await _orderItemRepository.SaveChangesAsync();
         }
     }
 }

@@ -10,10 +10,11 @@ namespace _2B_Store.Application11.Services
     public interface IOrderServices
     {
         Task<List<OrderDTO>> GetAllOrders();
-
-        Task<List<OrderDTO>> GetOrdersByUserId(int userId);
+        Task<OrderDTO> GetOrderById(int orderId);
+        Task<List<OrderDTO>> GetOrdersByUserId(string userId);
         Task<OrderDTO> AddOrder(OrderDTO orderDTO);
         Task<OrderDTO> UpdateOrder(int orderId, OrderDTO orderDTO);
         Task DeleteOrder(int orderId);
+        Task<ShippingDTO> AddShipping(ShippingDTO shippingDTO);
     }
 }

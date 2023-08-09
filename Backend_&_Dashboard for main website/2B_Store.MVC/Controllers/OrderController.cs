@@ -18,7 +18,7 @@ namespace _2B_Store.MVC.Controllers
             return View(allOrders);
         }
 
-        public async Task<IActionResult> UserOrders(int userId)
+        public async Task<IActionResult> UserOrders(string userId)
         {
             var userOrders = await _orderServices.GetOrdersByUserId(userId);
             return View(userOrders);

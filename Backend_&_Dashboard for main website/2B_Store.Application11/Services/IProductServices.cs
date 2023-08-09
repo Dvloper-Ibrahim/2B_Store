@@ -23,7 +23,7 @@ namespace _2B_Store.Application.Services
         Task<List<ProductDTO>> GetProductsByBrand(string brand);
         Task<List<ProductDTO>> GetProductsByPriceRange(decimal minPrice, decimal maxPrice);
         Task<List<ProductDTO>> GetProductsByStore(string storeName);
-
+        Task<List<ProductDTO>> SearchProducts(string query);
     }
 }
 

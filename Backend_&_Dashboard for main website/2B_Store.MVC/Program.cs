@@ -27,7 +27,7 @@ namespace _2B_Store.MVC
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(option =>
             {
-                option.Password.RequireUppercase = false;
+                //option.Password.RequireUppercase = false;
             }).AddEntityFrameworkStores<StoreContext>();
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
@@ -43,7 +43,6 @@ namespace _2B_Store.MVC
             builder.Services.AddScoped<IShippingRepository, ShippingRepository>();
             builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
-
             builder.Services.AddScoped<ICategoryServices, CategoryServices>();
             builder.Services.AddScoped<ISubCategoryServices, SubCategoryServices>();
             builder.Services.AddScoped<IProductServices, ProductServices>();
@@ -54,11 +53,6 @@ namespace _2B_Store.MVC
             builder.Services.AddScoped<IReviewServices, ReviewServices>();
             builder.Services.AddScoped<IShippingServices, ShippingServices>();
             builder.Services.AddScoped<IPaymentServices, PaymentServices>();
-
-
-
-
-
 
 
 
@@ -78,7 +72,7 @@ namespace _2B_Store.MVC
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Login}/{id?}");
 
             app.Run();
         }

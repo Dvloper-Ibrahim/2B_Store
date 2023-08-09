@@ -2,6 +2,7 @@
 using _2B_Store.Application11.Services;
 using _2B_Store.DTO;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,16 @@ namespace _2B_Store.Application.Services
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
+        private readonly IOrderItemRepository _orderItemRepository;
+        private readonly IShippingRepository _shippingRepository;
 
-        public OrderServices(IOrderRepository orderRepository, IMapper mapper)
+        public OrderServices(IOrderRepository orderRepository, IMapper mapper,
+            IOrderItemRepository orderItemRepository, IShippingRepository shippingRepository)
         {
             _orderRepository = orderRepository;
             _mapper = mapper;
+            _orderItemRepository = orderItemRepository;
+            _shippingRepository = shippingRepository;
         }
 
         public async Task<List<OrderDTO>> GetAllOrders()
@@ -28,17 +34,40 @@ namespace _2B_Store.Application.Services
             return _mapper.Map<List<OrderDTO>>(orders);
         }
 
-        public async Task<List<OrderDTO>> GetOrdersByUserId(int userId)
+        public async Task<OrderDTO> GetOrderById(int orderId)
         {
-            var orders = await _orderRepository.GetOrdersByUserId(userId);
+            var order = await _orderRepository.GetByIdAsync(orderId);
+            order.OrderItems = (await _orderItemRepository.GetAllAsync()).Where(oi =>
+                oi.OrderId == orderId).ToList();
+            //var myOrderItems = orderItems.Where(oi =>
+            //    oi.OrderId == orderId).ToList();
+            //order.OrderItems = orderItems;
+            return _mapper.Map<OrderDTO>(order);
+        }
+
+        public async Task<List<OrderDTO>> GetOrdersByUserId(string userId)
+        {
+            var orders = (await _orderRepository.GetOrdersByUserId(userId)).ToList();
+            foreach (var order in orders)
+            {
+                order.OrderItems = (await _orderItemRepository.GetAllAsync()).Where(oi
+                    => oi.OrderId == order.Id).ToList();
+            }
             return _mapper.Map<List<OrderDTO>>(orders);
         }
 
         public async Task<OrderDTO> AddOrder(OrderDTO orderDTO)
         {
+
             var order = _mapper.Map<Order>(orderDTO);
+            //var orderItems = _mapper.Map<List<OrderItem>>(orderDTO.OrderItems);
             order = await _orderRepository.AddAsync(order);
-            await _orderRepository.SaveChangesAsync();
+            //foreach (var item in orderItems)
+            //{
+            //    await _orderItemRepository.AddAsync(item);
+            //}
+            //order.OrderItems = orderItems;
+            //await _orderRepository.SaveChangesAsync();
             return _mapper.Map<OrderDTO>(order);
         }
 
@@ -50,18 +79,39 @@ namespace _2B_Store.Application.Services
 
             _mapper.Map(orderDTO, existingOrder);
             existingOrder = await _orderRepository.UpdateAsync(existingOrder);
-            await _orderRepository.SaveChangesAsync();
+            //await _orderRepository.SaveChangesAsync();
             return _mapper.Map<OrderDTO>(existingOrder);
         }
 
         public async Task DeleteOrder(int orderId)
         {
             var existingOrder = await _orderRepository.GetByIdAsync(orderId);
+            //var existingOrder = GetOrderById(orderId);
             if (existingOrder == null)
                 throw new ArgumentException("Order not found");
 
+            existingOrder.OrderItems = (await _orderItemRepository.GetAllAsync())
+                .Where(oi => oi.OrderId == orderId).ToList();
+            List<OrderItem> myOrderItems = existingOrder.OrderItems.ToList();
+
+            //var myOrderItems = orderItems.Where(oi =>
+            //    oi.OrderId == orderId).ToList();
+            //existingOrder.OrderItems = orderItems.ToList();
+            //var theOrder = _mapper.Map<Order>(existingOrder);
+
+            foreach (var item in myOrderItems)
+            {
+                await _orderItemRepository.DeleteAsync(item);
+            }
             await _orderRepository.DeleteAsync(existingOrder);
-            await _orderRepository.SaveChangesAsync();
+            //await _orderRepository.SaveChangesAsync();
+        }
+
+        public async Task<ShippingDTO> AddShipping(ShippingDTO shippingDTO)
+        {
+            var shipping = _mapper.Map<Shipping>(shippingDTO);
+            shipping = await _shippingRepository.AddAsync(shipping);
+            return _mapper.Map<ShippingDTO>(shipping);
         }
     }
 }

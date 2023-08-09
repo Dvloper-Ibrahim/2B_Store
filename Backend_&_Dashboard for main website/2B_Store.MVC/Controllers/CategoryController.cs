@@ -1,5 +1,6 @@
 ﻿using _2B_Store.Application.Services;
 using _2B_Store.DTO;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _2B_Store.MVC.Controllers
@@ -7,9 +8,12 @@ namespace _2B_Store.MVC.Controllers
     public class CategoryController : Controller
     {
         private readonly ICategoryServices _categoryServices;
-        public CategoryController(ICategoryServices categoryServices)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public CategoryController(ICategoryServices categoryServices, IWebHostEnvironment webHostEnvironment)
         {
             _categoryServices = categoryServices;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> Index()
@@ -88,8 +92,16 @@ namespace _2B_Store.MVC.Controllers
         {
             string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
 
-            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "categories", uniqueFileName);
-            using (var stream = new FileStream(imagePath, FileMode.Create))
+            string dashboardImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "categories", uniqueFileName);
+            string apiCategpriesDir = Path.Combine(_webHostEnvironment.WebRootPath, "..", "..",
+                "2B_Store.WepApi", "wwwroot", "images", "categories");
+            string apiImagePath = Path.Combine(apiCategpriesDir, uniqueFileName);
+
+            using (var stream = new FileStream(dashboardImagePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+            using (var stream = new FileStream(apiImagePath, FileMode.Create))
             {
                 await image.CopyToAsync(stream);
             }

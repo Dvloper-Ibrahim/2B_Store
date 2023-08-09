@@ -26,7 +26,7 @@ namespace _2B_Store.Application11.Services
             return _mapper.Map<List<ReviewDTO>>(reviews);
         }
 
-        public async Task<List<ReviewDTO>> GetReviewsByUserId(int userId)
+        public async Task<List<ReviewDTO>> GetReviewsByUserId(string userId)
         {
             var reviews = await _reviewRepository.GetReviewsByUserId(userId);
             return _mapper.Map<List<ReviewDTO>>(reviews);

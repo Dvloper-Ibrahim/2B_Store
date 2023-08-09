@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kAA7dIzCgJXKfyaG4yDO1k9Be6ULYAk6E5etF7SN6qOZY9ImBbEyiBoSnUmkoTHAsskNLjGQeMHXMKeMpsoQKw==",
+  "dgSpecHash": "7wjsOfv+D6RXlBrx6bY/Yyh2BTm+ceOvPJjWA4hprJjMasTR7KjIZTBJs9D8ajaTraxv3DXeTM5kW2ZODI7WMg==",
   "success": true,
   "projectFilePath": "G:\\ITI - 3 months - June 2023 - Sohag\\Projects\\Graduation Project\\2B Store\\Backend_&_Dashboard for main website\\2B_Store.WepApi\\2B_Store.WepApi.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.9\\microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.7\\microsoft.aspnetcore.cryptography.internal.7.0.7.nupkg.sha512",

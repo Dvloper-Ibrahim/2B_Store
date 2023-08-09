@@ -20,10 +20,10 @@ namespace _2B_Store.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<List<UserSignUpDto>> GetAllUsers()
+        public async Task<List<GetAllUsersDTO>> GetAllUsers()
         {
             var users = await _userRepository.GetAllAsync();
-            return _mapper.Map<List<UserSignUpDto>>(users);
+            return _mapper.Map<List<GetAllUsersDTO>>(users);
         }
 
         public async Task<UserSignUpDto> GetUserById(string userId)
@@ -42,7 +42,7 @@ namespace _2B_Store.Application.Services
         public async Task<UserSignInDto> SignInUser(UserSignInDto userSignInDto)
         {
 
-            var user = await _userRepository.CheckforUser(userSignInDto.Email, userSignInDto.Password);
+            var user = await _userRepository.CheckforUser(userSignInDto.UserName, userSignInDto.Password);
             if (user == null)
             {
                 throw new UnauthorizedAccessException("Invalid email or password.");

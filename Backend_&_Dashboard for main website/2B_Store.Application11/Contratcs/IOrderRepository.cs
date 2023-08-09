@@ -11,6 +11,6 @@ namespace _2B_Store.Application.Contracts
     public interface IOrderRepository : IRepository<Order, int>
     {
        // Task<Order> GetOrderById(int orderId);
-        Task<IEnumerable<Order>> GetOrdersByUserId(int userId);
+        Task<IEnumerable<Order>> GetOrdersByUserId(string userId);
     }
 }

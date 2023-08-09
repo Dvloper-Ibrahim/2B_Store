@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using _2B_Store.Application.Services;
 using _2B_Store.Application11.Services;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace _2B_Store.WepApi
 {
@@ -24,7 +26,7 @@ namespace _2B_Store.WepApi
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); //.WithOrigins("http://localhost:4200, .....")
+                    builder.AllowAnyHeader().AllowAnyMethod()/*.AllowAnyOrigin(); //*/.WithOrigins("http://localhost:4200", "http://localhost:53468");
                 });
             });
 
@@ -40,10 +42,23 @@ namespace _2B_Store.WepApi
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Db"));
             });
 
-            //builder.Services.AddIdentity<User ,IdentityRole>()
-            //    .AddEntityFrameworkStores<StoreContext>().AddDefaultTokenProviders(); 
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<StoreContext>().AddDefaultTokenProviders();
 
-
+            // For JWT Package
+            var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("SecretKey").Value);
+            builder.Services.AddAuthentication().AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                TokenValidationParameters token = new TokenValidationParameters
+                {
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuerSigningKey = true,
+                    ValidateAudience = false,
+                    ValidateIssuer = false
+                };
+                options.TokenValidationParameters = token;
+            });
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
@@ -58,7 +73,6 @@ namespace _2B_Store.WepApi
             builder.Services.AddScoped<IShippingRepository, ShippingRepository>();
             builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
-
             builder.Services.AddScoped<ICategoryServices, CategoryServices>();
             builder.Services.AddScoped<ISubCategoryServices, SubCategoryServices>();
             builder.Services.AddScoped<IProductServices, ProductServices>();
@@ -71,8 +85,6 @@ namespace _2B_Store.WepApi
             builder.Services.AddScoped<IPaymentServices, PaymentServices>();
 
 
-
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -82,10 +94,10 @@ namespace _2B_Store.WepApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseAuthorization();
-
-            app.UseAuthentication();
             app.MapControllers();
 
             app.Run();

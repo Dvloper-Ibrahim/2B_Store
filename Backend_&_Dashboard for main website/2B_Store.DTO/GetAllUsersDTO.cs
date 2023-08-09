@@ -1,23 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace _2B_Store.DTO
 {
     public class GetAllUsersDTO
     {
-        public int Id { get; set; }
-      
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Gender { get; set; }
-        public int PhoneNumber { get; set; }
+        public string Id { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
-        public virtual ICollection<Review> Reviews { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+
+        [Display(Name = "Userame")]
+        public string UserName { get; set; }
+
+
+        [Display(Name = "Email Address")]
+        public string Email { get; set; }
+
+
+        [Display(Name = "Mobile Number")]
+        public string PhoneNumber { get; set; }
+
+
+        [Display(Name = "Sign Up For Newsletter")]
+        public bool SignUpForNewsletter { get; set; }
     }
 }

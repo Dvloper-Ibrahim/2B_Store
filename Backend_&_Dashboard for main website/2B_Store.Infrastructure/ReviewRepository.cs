@@ -19,7 +19,7 @@ namespace _2B_Store.Infrastructure
             return await _Dbset.Where(r => r.ProductId == productId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Review>> GetReviewsByUserId(int userId)
+        public async Task<IEnumerable<Review>> GetReviewsByUserId(string userId)
         {
             return await _Dbset.Where(r => r.UserId == userId).ToListAsync();
         }

@@ -13,9 +13,9 @@ namespace _2B_Store.Application11.Mapper
     {
         public AutoMapper() {
             CreateMap<Category, CategoryDTO>().ReverseMap();
-            //CreateMap<CategoryDTO, Category>();
-                //.ForMember(dest => dest.Image,
-                //opt => opt.MapFrom(src => SaveImageAsync(src.Image)));
+            //CreateMap<CategoryDTO, Category>()
+            //    .ForMember(dest => dest.Image,
+            //    opt => opt.MapFrom(src => SaveImageAsync(src.Image)));
             CreateMap<SubCategory, SubCategoryDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<CreateUpdateProductDTO, Product>().ReverseMap();
@@ -28,6 +28,8 @@ namespace _2B_Store.Application11.Mapper
             CreateMap<Shipping, ShippingDTO>().ReverseMap();
             CreateMap<ApplicationUser, UserDTO>().ReverseMap();
             CreateMap<UserSignUpDto, ApplicationUser>().ReverseMap();
+            CreateMap<GetAllUsersDTO, ApplicationUser>().ReverseMap();
+            CreateMap<UserProfileDto, ApplicationUser>().ReverseMap();
             //CreateMap<IFormFile, string>().ReverseMap();
 
 
@@ -42,19 +44,19 @@ namespace _2B_Store.Application11.Mapper
 
 
 
-    }
-            private async Task<string> SaveImageAsync(IFormFile image)
+        }
+        private async Task<string> SaveImageAsync(IFormFile image)
+        {
+            string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+
+            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "categories", uniqueFileName);
+            using (var stream = new FileStream(imagePath, FileMode.Create))
             {
-                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
-
-                string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "categories", uniqueFileName);
-                using (var stream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await image.CopyToAsync(stream);
-                }
-
-                return "/images/categories/" + uniqueFileName;
+                await image.CopyToAsync(stream);
             }
+
+            return "/images/categories/" + uniqueFileName;
+        }
 
     }
 }

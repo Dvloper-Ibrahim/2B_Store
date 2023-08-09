@@ -64,6 +64,12 @@ namespace _2B_Store.WepApi.Controllers
             return Ok(products);
         }
 
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchProducts(string query)
+        {
+            var products = await _productService.SearchProducts(query);
+            return Ok(products);
+        }
         // POST api/<ProductController>
         //[HttpPost]
         //public void Post([FromBody] string value)

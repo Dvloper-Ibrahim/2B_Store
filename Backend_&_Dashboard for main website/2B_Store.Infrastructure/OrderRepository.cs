@@ -14,7 +14,7 @@ namespace _2B_Store.Infrastructure
 
         public OrderRepository(StoreContext dbContext) : base(dbContext) { }
 
-        public async Task<IEnumerable<Order>> GetOrdersByUserId(int userId)
+        public async Task<IEnumerable<Order>> GetOrdersByUserId(string userId)
         {
             return await _Dbset.Where(o => o.UserId == userId).ToListAsync();
         }

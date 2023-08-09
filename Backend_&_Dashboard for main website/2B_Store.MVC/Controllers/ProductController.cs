@@ -10,16 +10,19 @@ namespace _2B_Store.MVC.Controllers
         private readonly IProductServices _productService;
         private readonly ISubCategoryServices _subCategoryServices;
         private readonly IProductImageServices _productImageServices;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public ProductController(
             IProductServices productService,
             ISubCategoryServices subCategService,
-            IProductImageServices productImageServices
+            IProductImageServices productImageServices,
+            IWebHostEnvironment webHostEnvironment
             )
         {
             _productService = productService;
             _subCategoryServices = subCategService;
             _productImageServices = productImageServices;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> allproducts()
@@ -40,22 +43,27 @@ namespace _2B_Store.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                prod.IsAvailable = true;
-                prod.Stock = (int)Math.Floor((decimal)prod.Stock);
-                if (image != null && image.Length > 0)
+                try
                 {
-                    prod.Image = await SaveImageAsync(image);
+                    prod.IsAvailable = true;
+                    prod.Stock = (int)Math.Floor((decimal)prod.Stock);
+                    if (image != null && image.Length > 0)
+                    {
+                        prod.Image = await SaveImageAsync(image);
 
-                    //var productImg = new ProductImageDTO();
-                    //productImg.ImageUrl = prod.Image;
+                        //var productImg = new ProductImageDTO();
+                        //productImg.ImageUrl = prod.Image;
 
-                    var newProd = await _productService.AddProduct(prod);
-                    //prod.Image.ProductId = newProd.Id;
-                    //await _productImageServices.AddProductImage(productImg);
-                    return RedirectToAction("allproducts");
+                        var newProd = await _productService.AddProduct(prod);
+                        //prod.Image.ProductId = newProd.Id;
+                        //await _productImageServices.AddProductImage(productImg);
+                        return RedirectToAction("allproducts");
+                    }
                 }
-                else
+                catch (Exception)
+                {
                     ModelState.AddModelError("Image", "The image field is required");
+                }
             }
             prod.SubCategories = await _subCategoryServices.GetAllSubCategories();
             return View(prod);
@@ -88,22 +96,28 @@ namespace _2B_Store.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                productDTO.IsAvailable = true;
-                productDTO.Stock = (int)Math.Floor((decimal)productDTO.Stock);
-                if (image != null && image.Length > 0)
+                try
                 {
-                    productDTO.Image = await SaveImageAsync(image);
+                    productDTO.IsAvailable = true;
+                    productDTO.Stock = (int)Math.Floor((decimal)productDTO.Stock);
+                    if (image != null && image.Length > 0)
+                    {
+                        //string customFolder = "MyImages"; // Replace with your custom folder name
+                        productDTO.Image = await SaveImageAsync(image);
 
-                    //var productImg = new ProductImageDTO();
-                    //productImg.ImageUrl = productDTO.Image;
-                    //productImg.ProductId = id;
+                        //var productImg = new ProductImageDTO();
+                        //productImg.ImageUrl = productDTO.Image;
+                        //productImg.ProductId = id;
 
-                    //await _productImageServices.AddProductImage(productImg);
-                    await _productService.UpdateProduct(id, productDTO);
-                    return RedirectToAction("allproducts");
+                        //await _productImageServices.AddProductImage(productImg);
+                        await _productService.UpdateProduct(id, productDTO);
+                        return RedirectToAction("allproducts");
+                    }
                 }
-                else
+                catch(Exception)
+                {
                     ModelState.AddModelError("Image", "The image field is required");
+                }
             }
             productDTO.SubCategories = await _subCategoryServices.GetAllSubCategories();
             return View(productDTO);
@@ -121,13 +135,93 @@ namespace _2B_Store.MVC.Controllers
         {
             string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
 
-            string imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "products", uniqueFileName);
-            using (var stream = new FileStream(imagePath, FileMode.Create))
+            string dashboardImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "products", uniqueFileName);
+            string apiProductsDir = Path.Combine(_webHostEnvironment.WebRootPath, "..", "..",
+                "2B_Store.WepApi", "wwwroot", "images", "products");
+            string apiImagePath = Path.Combine(apiProductsDir, uniqueFileName);
+
+            using (var stream = new FileStream(dashboardImagePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+            using (var stream = new FileStream(apiImagePath, FileMode.Create))
             {
                 await image.CopyToAsync(stream);
             }
 
             return "/images/products/" + uniqueFileName;
         }
+
+
+
+
+
+        private async Task<string> SaveImageToAPI(IFormFile image, string customFolder)
+        {
+            string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+
+            string destinationDirectory = Path.Combine(_webHostEnvironment.WebRootPath, "..", "..", "..", customFolder);
+            string imagePath = Path.Combine(destinationDirectory, uniqueFileName);
+
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+
+            return $"/{customFolder}/{uniqueFileName}";
+        }
+
+
+
+
+
+        //private readonly IWebHostEnvironment _webHostEnvironment;
+
+        //public CategoryController(IWebHostEnvironment webHostEnvironment)
+        //{
+        //    _webHostEnvironment = webHostEnvironment;
+        //}
+
+        //private async Task<string> SaveImageAsync(IFormFile image, string customFolder)
+        //{
+        //    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+
+        //    string destinationDirectory = Path.Combine(_webHostEnvironment.WebRootPath, "..", "..", "..", customFolder);
+        //    string imagePath = Path.Combine(destinationDirectory, uniqueFileName);
+
+        //    using (var stream = new FileStream(imagePath, FileMode.Create))
+        //    {
+        //        await image.CopyToAsync(stream);
+        //    }
+
+        //    return $"/{customFolder}/{uniqueFileName}";
+        //    //return Path.Combine("/", customFolder, uniqueFileName);
+        //}
+        ///////////////////////////////////
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create(CategoryDTO categoryDTO, IFormFile image)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            if (image != null && image.Length > 0)
+        //            {
+        //                string customFolder = "اسم الفولدر"; // Replace with your custom folder name
+        //                categoryDTO.Image = await SaveImageAsync(image, customFolder);
+        //            }
+
+        //            await _categoryServices.AddCategory(categoryDTO);
+        //            return RedirectToAction("Index");
+        //        }
+        //        catch (Exception)
+        //        {
+        //            ModelState.AddModelError("Image", "The Image field is required");
+        //        }
+        //    }
+
+        //    return View(categoryDTO);
+        //}
     }
 }

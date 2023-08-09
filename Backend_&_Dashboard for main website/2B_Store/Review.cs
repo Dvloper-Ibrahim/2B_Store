@@ -8,7 +8,7 @@
         public string Rev_Comment { get; set; }
 
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
 
         public int ProductId { get; set; }

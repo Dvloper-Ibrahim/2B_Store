@@ -10,7 +10,7 @@ namespace _2B_Store.Application11.Services
     public interface IReviewServices
     {
         Task<List<ReviewDTO>> GetReviewsByProductId(int productId);
-        Task<List<ReviewDTO>> GetReviewsByUserId(int userId);
+        Task<List<ReviewDTO>> GetReviewsByUserId(string userId);
         Task<ReviewDTO> AddReview(ReviewDTO reviewDTO);
         Task<ReviewDTO> UpdateReview(int reviewId, ReviewDTO reviewDTO);
         Task DeleteReview(int reviewId);

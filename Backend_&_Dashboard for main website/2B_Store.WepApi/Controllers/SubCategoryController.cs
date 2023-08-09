@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _2B_Store.WepApi.Controllers
 {
@@ -45,6 +46,7 @@ namespace _2B_Store.WepApi.Controllers
         // GET GET Subcategory byId api/<SubCategoryController>/5
         //[Route("GetSubCatbyId")]
         [HttpGet("{id}")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> GetSubCatbyId(int id)
         {
             var Subcategory = await _subCategoryServices.GetSubCategoryById(id);
@@ -64,7 +66,7 @@ namespace _2B_Store.WepApi.Controllers
             //    ReferenceHandler = ReferenceHandler.Preserve,
             //    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             //};
-            //string jsonString = JsonSerializer.Serialize(Subcategory, options);
+            //string jsonString = JsonSerializer.Serialize(subcategories, options);
             //return Ok(jsonString);
             return Ok(subcategories);
         }
@@ -74,6 +76,13 @@ namespace _2B_Store.WepApi.Controllers
         public async Task<IActionResult> GetChildSubCatbyParentSubId(int id)
         {
             var subcategories = await _subCategoryServices.GetChildSubCatby_ParentSubId(id);
+            //var options = new JsonSerializerOptions
+            //{
+            //    ReferenceHandler = ReferenceHandler.Preserve,
+            //    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            //};
+            //string jsonString = JsonSerializer.Serialize(subcategories, options);
+            //return Ok(jsonString);
             return Ok(subcategories);
         }
     }

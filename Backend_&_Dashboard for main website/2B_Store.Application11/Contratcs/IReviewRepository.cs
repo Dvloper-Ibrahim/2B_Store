@@ -13,7 +13,7 @@ namespace _2B_Store.Application.Contracts
     {
        
         Task<IEnumerable<Review>> GetReviewsByProductId(int productId);
-        Task<IEnumerable<Review>> GetReviewsByUserId(int userId);
+        Task<IEnumerable<Review>> GetReviewsByUserId(string userId);
     }
 
 
