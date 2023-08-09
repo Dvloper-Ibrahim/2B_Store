@@ -109,6 +109,9 @@ namespace _2B_Store.Application.Services
 
         public async Task<ShippingDTO> AddShipping(ShippingDTO shippingDTO)
         {
+            shippingDTO.ShippingMethod = "Shipping Van";
+            shippingDTO.Provider = "Aramix";
+            shippingDTO.TrackingNumber = Guid.NewGuid().ToString();
             var shipping = _mapper.Map<Shipping>(shippingDTO);
             shipping = await _shippingRepository.AddAsync(shipping);
             return _mapper.Map<ShippingDTO>(shipping);
