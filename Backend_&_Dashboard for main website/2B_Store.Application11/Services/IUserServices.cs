@@ -12,6 +12,8 @@ namespace _2B_Store.Application.Services
         Task<UserSignUpDto> RegisterUser(UserSignUpDto userSignUpDto);
         Task<UserSignInDto> SignInUser(UserSignInDto userSignInDto);
         Task<List<GetAllUsersDTO>> GetAllUsers();
+        Task<List<GetAllUsersDTO>> GetAllCustomers();
+        Task<List<GetAllUsersDTO>> GetAllAdmins();
         Task<UserSignUpDto> GetUserById(string userId);
         Task<UserSignUpDto> UpdateUser(string userId, UserSignUpDto userDto);
         Task DeleteUser(string userId);

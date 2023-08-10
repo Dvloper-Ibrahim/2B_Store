@@ -9,22 +9,6 @@
 }
 
 <div class="container-fluid">
-    <a asp-action="Register" class="btn btn-primary mb-3">Create New Account</a>
-    <form asp-controller="Account" asp-action="Index" method="get">
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Filter by Role:</label>
-            <div class="col-sm-4">
-                @* <select asp-for="" class="form-control">
-                <option value="">-- All Roles --</option>
-                <option value="Admin">Admin</option>
-                <option value="User">User</option>
-                </select>*@
-            </div>
-            <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary">Apply Filter</button>
-            </div>
-        </div>
-    </form>
 </div>
 
 <div class="container-fluid" style="overflow-x: auto;">
@@ -85,8 +69,8 @@
                         @(item.SignUpForNewsletter ? "Signed" : "Not Signed")
                     </td>
                     <td>
-                        <a asp-action="profile" asp-route-id="@item.Id" class="mt-1 btn btn-success">Edit</a>
-                        <a asp-action="details" asp-route-id="" class="mt-1 btn btn-primary">Details</a>
+                        @*<a asp-action="edit" asp-route-id="@item.Id" class="mt-1 btn btn-success">Edit</a>*@
+                        <a asp-action="Profile" asp-route-id="@item.Id" class="mt-1 btn btn-primary">Details</a>
                         <form asp-action="Delete" method="post" class="d-inline">
                             @Html.AntiForgeryToken()
                             <input type="hidden" name="id" value="@item.Id" />

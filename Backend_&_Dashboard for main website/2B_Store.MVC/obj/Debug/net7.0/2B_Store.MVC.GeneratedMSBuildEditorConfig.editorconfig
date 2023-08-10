@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Account/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +38,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Admin/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Admin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Admin/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTXlQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Admin/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/ITI - 3 months - June 2023 - Sohag/Projects/Graduation Project/2B Store/Backend_&_Dashboard for main website/2B_Store.MVC/Views/Category/Create.cshtml]

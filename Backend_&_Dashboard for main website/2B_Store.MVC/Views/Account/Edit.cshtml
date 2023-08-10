@@ -1,4 +1,4 @@
-﻿@model UserSignUpDto
+﻿@model UserProfileDto
 
 @{
     ViewData["Title"] = "Edit";
@@ -54,11 +54,11 @@
             </div>
             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
         </div>*@
-        <div class="form-group form-check">
+@*        <div class="form-group form-check">
             <label class="form-check-label">
                 <input class="form-check-input" asp-for="SignUpForNewsletter" /> @Html.DisplayNameFor(model => model.SignUpForNewsletter)
             </label>
-        </div>
+        </div>*@
         <div class="form-group">
             <input type="submit" value="Save Changes" class="btn btn-success" />
             <a asp-action="index" class="btn btn-secondary">Cancel</a>
@@ -66,9 +66,9 @@
     </form>
 </div>
 
-<div>
+@*<div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

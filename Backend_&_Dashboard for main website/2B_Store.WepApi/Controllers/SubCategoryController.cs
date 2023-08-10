@@ -46,7 +46,7 @@ namespace _2B_Store.WepApi.Controllers
         // GET GET Subcategory byId api/<SubCategoryController>/5
         //[Route("GetSubCatbyId")]
         [HttpGet("{id}")]
-        [Authorize(Roles = "Customer")]
+        //[Authorize(Roles = "Customer")]
         public async Task<IActionResult> GetSubCatbyId(int id)
         {
             var Subcategory = await _subCategoryServices.GetSubCategoryById(id);

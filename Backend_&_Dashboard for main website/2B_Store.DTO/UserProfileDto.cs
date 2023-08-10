@@ -10,6 +10,8 @@ namespace _2B_Store.DTO
 {
     public class UserProfileDto
     {
+        public string Id { get; set; }
+
         [Display(Name = "Userame")]
         public string UserName { get; set; }
 

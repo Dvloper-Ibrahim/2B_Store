@@ -30,6 +30,7 @@ namespace _2B_Store.Application11.Mapper
             CreateMap<UserSignUpDto, ApplicationUser>().ReverseMap();
             CreateMap<GetAllUsersDTO, ApplicationUser>().ReverseMap();
             CreateMap<UserProfileDto, ApplicationUser>().ReverseMap();
+            CreateMap<UserProfileDto, UserSignUpDto>().ReverseMap();
             //CreateMap<IFormFile, string>().ReverseMap();
 
 

@@ -1,8 +1,11 @@
 ﻿using _2B_Store.Application11.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace _2B_Store.MVC.Controllers
 {
+    [Authorize(Roles = "Admin,Sup_Admin")]
     public class OrderController : Controller
     {
         private readonly IOrderServices _orderServices;

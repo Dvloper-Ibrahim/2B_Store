@@ -14,14 +14,17 @@ namespace _2B_Store.Application.Services
     public class OrderServices : IOrderServices
 
     {
+        private readonly IProductRepository _productRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
         private readonly IOrderItemRepository _orderItemRepository;
         private readonly IShippingRepository _shippingRepository;
 
         public OrderServices(IOrderRepository orderRepository, IMapper mapper,
-            IOrderItemRepository orderItemRepository, IShippingRepository shippingRepository)
+            IOrderItemRepository orderItemRepository, IShippingRepository shippingRepository,
+                        IProductRepository productRepository)
         {
+            _productRepository = productRepository;
             _orderRepository = orderRepository;
             _mapper = mapper;
             _orderItemRepository = orderItemRepository;
@@ -58,17 +61,18 @@ namespace _2B_Store.Application.Services
 
         public async Task<OrderDTO> AddOrder(OrderDTO orderDTO)
         {
-
             var order = _mapper.Map<Order>(orderDTO);
             //var orderItems = _mapper.Map<List<OrderItem>>(orderDTO.OrderItems);
             order = await _orderRepository.AddAsync(order);
-            //foreach (var item in orderItems)
-            //{
-            //    await _orderItemRepository.AddAsync(item);
-            //}
+            foreach (var item in order.OrderItems)
+            {
+                var product = await _productRepository.GetByIdAsync(item.ProductId);
+                product.Stock -= item.Quantity;
+                await _productRepository.UpdateAsync(product);
+            }
+            return _mapper.Map<OrderDTO>(order);
             //order.OrderItems = orderItems;
             //await _orderRepository.SaveChangesAsync();
-            return _mapper.Map<OrderDTO>(order);
         }
 
         public async Task<OrderDTO> UpdateOrder(int orderId, OrderDTO orderDTO)

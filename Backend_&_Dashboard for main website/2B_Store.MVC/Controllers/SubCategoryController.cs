@@ -1,10 +1,13 @@
 ﻿using _2B_Store.Application.Services;
 using _2B_Store.Application11.Services;
 using _2B_Store.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace _2B_Store.MVC.Controllers
 {
+    [Authorize(Roles = "Admin,Sup_Admin")]
     public class SubCategoryController : Controller
     {
         private readonly ISubCategoryServices _subCategoryServices;

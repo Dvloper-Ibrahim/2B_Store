@@ -116,14 +116,17 @@
                     </a>
                 </li>
 
+                @if (User.IsInRole("Sup_Admin"))
+                {
                 <li class="nav-item side-nav" id="admins">
-                    <a class="nav-link collapsed" asp-action="create" asp-controller="roles">
+                    <a class="nav-link collapsed" asp-action="index" asp-controller="admin">
                         @*                    data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities"*@
                         <i class="fas fa-fw fa-folder"></i>
                         <span>Admins</span>
                     </a>
                 </li>
+                }
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -382,7 +385,7 @@
                         {
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" asp-action="MyProfile" asp-controller="Admin" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">@User.Identity.Name</span>
                                 <img class="img-profile rounded-circle"

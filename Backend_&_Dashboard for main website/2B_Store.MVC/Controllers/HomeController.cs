@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace _2B_Store.MVC.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Sup_Admin")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

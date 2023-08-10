@@ -14,7 +14,6 @@ using System.Text;
 
 namespace _2B_Store.WepApi.Controllers
 {
-
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
@@ -243,5 +242,43 @@ namespace _2B_Store.WepApi.Controllers
                 return BadRequest(result.Errors);
             }
         }
+
+        #region Delete Account 
+
+        [Authorize(Roles = "Customer")]
+        [HttpDelete("DeleteAccount/{userId}")]
+        public async Task<IActionResult> DeleteAccount(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            var userClaims = await _userManager.GetClaimsAsync(user);
+            foreach (var claim in userClaims)
+            {
+                await _userManager.RemoveClaimAsync(user, claim);
+            }
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+            foreach (var role in userRoles)
+            {
+                await _userManager.RemoveFromRoleAsync(user, role);
+            }
+
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                await _signInManager.SignOutAsync();
+                return Ok(new { message = "Account deleted successfully." });
+            }
+
+            else
+            {
+                return BadRequest(result.Errors);
+            }
+        }
+
+        #endregion
     }
 }

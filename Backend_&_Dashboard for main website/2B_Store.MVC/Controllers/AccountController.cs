@@ -5,14 +5,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Scripting;
+using System;
 using System.Security.Claims;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace _2B_Store.MVC.Controllers
 {
     //[Authorize(Roles = "admin")]
     public class AccountController : Controller
     {
-
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IUserServices _userService;
@@ -27,9 +28,10 @@ namespace _2B_Store.MVC.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Roles = "Admin,Sup_Admin")]
         public async Task<IActionResult> Index()
         {
-            var users = await _userService.GetAllUsers();
+            var users = await _userService.GetAllCustomers();
 
             return View(users);
             //if (string.IsNullOrEmpty(roleName))
@@ -56,7 +58,7 @@ namespace _2B_Store.MVC.Controllers
             return View();
         }
 
-
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserSignInDto userLogin)
@@ -66,13 +68,16 @@ namespace _2B_Store.MVC.Controllers
                 var user = await _userManager.FindByNameAsync(userLogin.UserName);
                 if (user != null)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user, userLogin.Password, userLogin.RememberMe, false);
-
                     bool isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
                     bool isSupAdmin = await _userManager.IsInRoleAsync(user, "Sup_Admin");
-
-                    if (result.Succeeded && isAdmin && isSupAdmin)
-                        return RedirectToAction("Index", "Home");
+                    if(isAdmin || isSupAdmin)
+                    {
+                        SignInResult result = await _signInManager.PasswordSignInAsync(user, userLogin.Password, userLogin.RememberMe, false);
+                        if (result.Succeeded)
+                            return RedirectToAction("Index", "Home");
+                        else
+                            ModelState.AddModelError("", "Invalid username or password");
+                    }
                     else
                         ModelState.AddModelError("", "Invalid username or password");
                 }
@@ -84,7 +89,7 @@ namespace _2B_Store.MVC.Controllers
             return View();
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "Sup_Admin")]
         public IActionResult Register()
         {
             UserSignUpDto userSignUp = new UserSignUpDto();
@@ -93,7 +98,7 @@ namespace _2B_Store.MVC.Controllers
             return View(userSignUp);
         }
 
-
+        [Authorize(Roles = "Sup_Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserSignUpDto userSignUpDto)
@@ -105,7 +110,7 @@ namespace _2B_Store.MVC.Controllers
                 if (result.Succeeded)
                 {
                     // If user creation succeeds, sign in the user and redirect to the home page
-                    await _signInManager.SignInAsync(user, isPersistent: false);//session cookie
+                    //await _signInManager.SignInAsync(user, isPersistent: false);//session cookie
                     //return RedirectToAction("Index", "Home");
 
                     //var id = await _userManager.GetUserIdAsync(user);
@@ -131,19 +136,23 @@ namespace _2B_Store.MVC.Controllers
             return View(userSignUpDto);
         }
 
-        public async Task<IActionResult> Edit(string id)
+        [Authorize(Roles = "Admin,Sup_Admin")]
+        public async Task<IActionResult> Edit(string Id)
         {
-            UserSignUpDto userToEdit = await _userService.GetUserById(id);
-            return View(userToEdit);
+            UserSignUpDto userToEdit = await _userService.GetUserById(Id);
+            var userProfileDto = _mapper.Map<UserProfileDto>(userToEdit);
+            userProfileDto.Id = Id;
+            return View(userProfileDto);
         }
 
+        [Authorize(Roles = "Admin,Sup_Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(UserSignUpDto userSignUpDto)
+        public async Task<IActionResult> Edit(string Id, UserProfileDto userProfileDto)
         {
             if (ModelState.IsValid)
              {
-                var user = _mapper.Map<ApplicationUser>(userSignUpDto);
+                var user = _mapper.Map<ApplicationUser>(userProfileDto);
                 //user.Id = id;
                 IdentityResult result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)
@@ -159,10 +168,10 @@ namespace _2B_Store.MVC.Controllers
                     //        new Claim(ClaimTypes.NameIdentifier,userId)
                     //    };
 
-                    await _userManager.AddToRoleAsync(user, "Admin");
+                    //await _userManager.AddToRoleAsync(user, "Admin");
                     //await _signInManager.SignInAsync(user,false);
                     //await _signInManager.SignInWithClaimsAsync(user, false, claims);
-                    return RedirectToAction("login");
+                    return RedirectToAction("index","Home");
                 }
                 else
                 {
@@ -172,67 +181,135 @@ namespace _2B_Store.MVC.Controllers
                     }
                 }
             }
-            return View(userSignUpDto);
+            return View(userProfileDto);
         }
 
+        [Authorize(Roles = "Admin,Sup_Admin")]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpGet]
-        public async Task<IActionResult> Profile()
+        //[HttpGet]
+        [Authorize(Roles = "Admin,Sup_Admin")]
+        public async Task<IActionResult> Profile(string Id)
         {
-            var user = await _userManager.GetUserAsync(User);
+            //string usrId
+            UserSignUpDto user = await _userService.GetUserById(Id);
+            //var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return NotFound();
             }
 
             var userProfileDto = _mapper.Map<UserProfileDto>(user);
+            userProfileDto.Id = Id;
             return View(userProfileDto);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Profile(UserProfileDto userProfileDto)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await _userManager.GetUserAsync(User);
+        //        if (user != null)
+        //        {
+        //            _mapper.Map(userProfileDto, user);
+        //            var result = await _userManager.UpdateAsync(user);
+        //            if (result.Succeeded)
+        //            {
+        //                return RedirectToAction("index");
+        //            }
+        //            else
+        //            {
+        //                foreach (var error in result.Errors)
+        //                {
+        //                    ModelState.AddModelError("", error.Description);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return View(userProfileDto);
+        //}
+
+        [Authorize(Roles = "Admin,Sup_Admin")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+
+                return NotFound();
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            foreach (var role in roles)
+            {
+                var result = await _userManager.RemoveFromRoleAsync(user, role);
+                if (!result.Succeeded)
+                {
+                    // return RedirectToAction("Index");
+                }
+            }
+
+            var deleteResult = await _userManager.DeleteAsync(user);
+
+            if (deleteResult.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+
+                return RedirectToAction("Index");
+            }
+        }
+
+
+        [Authorize(Roles = "Admin,Sup_Admin")]
+        public async Task<IActionResult> ChangePassword()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin,Sup_Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Profile(UserProfileDto userProfileDto)
+        public async Task<IActionResult> ChangePassword(ChangePasswordDto changePassword)
         {
             if (ModelState.IsValid)
             {
-                var user = await _userManager.GetUserAsync(User);
+                string UsrId = User.Claims.FirstOrDefault(p => p.Type == ClaimTypes.NameIdentifier).Value;
+                var user = await _userManager.FindByIdAsync(UsrId);
                 if (user != null)
                 {
-                    _mapper.Map(userProfileDto, user);
-                    var result = await _userManager.UpdateAsync(user);
-                    if (result.Succeeded)
+                    var checkpassres = await _userManager.CheckPasswordAsync(user, changePassword.CurrentPassword);
+                    if (checkpassres)
                     {
-                        return RedirectToAction("index");
+                        var Change = await _userManager.ChangePasswordAsync(user, changePassword.CurrentPassword, changePassword.NewPassword);
+                        if (Change.Succeeded)
+                        {
+                            return RedirectToAction("Profile");
+                        }
+                        else
+                        {
+                            return View(changePassword);
+                        }
                     }
                     else
                     {
-                        foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError("", error.Description);
-                        }
+                        ModelState.AddModelError("CurrentPassword", "Error password !");
                     }
                 }
             }
-            return View(userProfileDto);
+            return View();
         }
-
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(string id)
-        {
-            //var user = await _userManager.GetUserAsync(User);
-            //await _userManager.DeleteAsync(user);
-            await _userService.DeleteUser(id);
-            return RedirectToAction("Index");
-        }
-
-
 
 
 

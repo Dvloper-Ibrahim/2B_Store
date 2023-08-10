@@ -163,9 +163,11 @@ namespace _2B_Store.Application.Services
 
         public async Task<List<ProductDTO>> SearchProducts(string query)
         {
+            query = query.ToLower();
             var products = await _productRepository.GetAllAsync();
-            var searchedProducts = await products.Where(p => p.ProductNameEN.Contains(query) ||
-                p.ProductNameAR.Contains(query)).ToListAsync();
+            var searchedProducts = await products.Where(p => 
+                p.ProductNameEN.ToLower().Contains(query) ||
+                p.ProductNameAR.ToLower().Contains(query)).ToListAsync();
             return _mapper.Map<List<ProductDTO>>(searchedProducts);
         }
 
