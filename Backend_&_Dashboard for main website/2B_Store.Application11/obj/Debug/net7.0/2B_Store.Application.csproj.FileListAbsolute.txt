@@ -32,3 +32,20 @@ G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backe
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\refint\2B_Store.Application.dll
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.pdb
 G:\ITI - 3 months - June 2023 - Sohag\Projects\Graduation Project\2B Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\ref\2B_Store.Application.dll
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\bin\Debug\net7.0\2B_Store.Application.deps.json
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\bin\Debug\net7.0\2B_Store.Application.dll
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\bin\Debug\net7.0\2B_Store.Application.pdb
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\bin\Debug\net7.0\2B_Store.Domain.dll
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\bin\Debug\net7.0\2B_Store.DTO.dll
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\bin\Debug\net7.0\2B_Store.DTO.pdb
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\bin\Debug\net7.0\2B_Store.Domain.pdb
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.csproj.AssemblyReference.cache
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.AssemblyInfoInputs.cache
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.AssemblyInfo.cs
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.csproj.CoreCompileInputs.cache
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.csproj.CopyComplete
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.dll
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\refint\2B_Store.Application.dll
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\2B_Store.Application.pdb
+C:\Test\2B_Store\Backend_&_Dashboard for main website\2B_Store.Application11\obj\Debug\net7.0\ref\2B_Store.Application.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lMiITbJAnbTj9EPnPtsRS4YEmQ4syZqkM3cx2g3F5rtW5uzJ7H+8IB+kVFTE/rrefg1sD0SIm0dm5aztNT7cCg==",
+  "dgSpecHash": "qVqr3+R2DOFDSg/S3N2PImYe1qgsU4RRHK1rZWPDHd1jLdHRTU5bi9c9tEhBk/DN7SCQrDXe0jUAWPmBOu5f6Q==",
   "success": true,
-  "projectFilePath": "G:\\ITI - 3 months - June 2023 - Sohag\\Projects\\Graduation Project\\2B Store\\Backend_&_Dashboard for main website\\2B_Store.Context\\2B_Store.Context.csproj",
+  "projectFilePath": "C:\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.Context\\2B_Store.Context.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

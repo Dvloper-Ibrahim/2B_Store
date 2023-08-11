@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k+YA1i7DWNzHEg2VKaUg9wnupeFeeoaYKCLMvCr9eo1vBufTEHS3dLGs+nwYzpWRIBHwJKiFphLB2W6I8qqIrg==",
+  "dgSpecHash": "Wt8c0YDwVEtkqdgRnAzo5Eym/sk9d1ySvkDYUnNH00oSl5tdL5AGK6NHWgcoOuql2lVq3Cms0Iua9Fy7GJsWcA==",
   "success": true,
-  "projectFilePath": "G:\\ITI - 3 months - June 2023 - Sohag\\Projects\\Graduation Project\\2B Store\\Backend_&_Dashboard for main website\\2B_Store.Infrastructure\\2B_Store.Infrastructure.csproj",
+  "projectFilePath": "C:\\Test\\2B_Store\\Backend_&_Dashboard for main website\\2B_Store.Infrastructure\\2B_Store.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
